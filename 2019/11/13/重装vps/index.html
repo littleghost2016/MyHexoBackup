@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>重装vps | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="v2ray,caddy,bash,">
+  
+
+  <meta name="description" content="总体工作工作列表  重装系统ubuntu18.04  旧域名更换为新域名littleghost.ml  Web服务器由Nginx切换为Caddy 实际使用的caddy为caddy2Beta9版本（当前最新），启动命令和caddyfile与1.X版本有不小的差别。    部署V2ray服务 模式为WebSocket + TLS，并未使用CDN。    caddy和v2ray均使用systemd做进程">
+<meta name="keywords" content="v2ray,caddy,bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重装vps">
+<meta property="og:url" content="https://blog.littleghost.ml/2019/11/13/重装vps/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="总体工作工作列表  重装系统ubuntu18.04  旧域名更换为新域名littleghost.ml  Web服务器由Nginx切换为Caddy 实际使用的caddy为caddy2Beta9版本（当前最新），启动命令和caddyfile与1.X版本有不小的差别。    部署V2ray服务 模式为WebSocket + TLS，并未使用CDN。    caddy和v2ray均使用systemd做进程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-13T08:10:52.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重装vps">
+<meta name="twitter:description" content="总体工作工作列表  重装系统ubuntu18.04  旧域名更换为新域名littleghost.ml  Web服务器由Nginx切换为Caddy 实际使用的caddy为caddy2Beta9版本（当前最新），启动命令和caddyfile与1.X版本有不小的差别。    部署V2ray服务 模式为WebSocket + TLS，并未使用CDN。    caddy和v2ray均使用systemd做进程">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header LEFT">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="ROUND_RECT"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#总体工作"><span class="toc-text">总体工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#工作列表"><span class="toc-text">工作列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整体文件布局"><span class="toc-text">整体文件布局</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#caddy"><span class="toc-text">caddy</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件布局"><span class="toc-text">文件布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#caddy-2-0-beta9-版本"><span class="toc-text">caddy 2.0 beta9 版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd进程守护配置"><span class="toc-text">systemd进程守护配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#caddy-1-0-版本"><span class="toc-text">caddy 1.0 版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件-1"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd进程守护配置-1"><span class="toc-text">systemd进程守护配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#v2ray"><span class="toc-text">v2ray</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#布局"><span class="toc-text">布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说明-1"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v2ray-4-21-3"><span class="toc-text">v2ray 4.21.3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件-2"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd进程守护配置-2"><span class="toc-text">systemd进程守护配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自用bash脚本"><span class="toc-text">自用bash脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#吐槽"><span class="toc-text">吐槽</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新历史"><span class="toc-text">更新历史</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post LEFT">
+   <article id="post-重装vps" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">重装vps</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.11.13</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="总体工作"><a href="#总体工作" class="headerlink" title="总体工作"></a>总体工作</h1><h2 id="工作列表"><a href="#工作列表" class="headerlink" title="工作列表"></a>工作列表</h2><ul>
+<li><input checked disabled type="checkbox"> 重装系统ubuntu18.04</li>
+<li><input checked disabled type="checkbox"> 旧域名更换为新域名<a href="www.littleghost.ml">littleghost.ml</a></li>
+<li><input checked disabled type="checkbox"> Web服务器由<code>Nginx</code>切换为<code>Caddy</code><ul>
+<li>实际使用的caddy为<code>caddy2Beta9</code>版本（当前最新），启动命令和caddyfile与1.X版本有不小的差别。</li>
+</ul>
+</li>
+<li><input checked disabled type="checkbox"> 部署<code>V2ray</code>服务<ul>
+<li>模式为WebSocket + TLS，并未使用CDN。</li>
+</ul>
+</li>
+<li><input checked disabled type="checkbox"> <code>caddy</code>和<code>v2ray</code>均使用<code>systemd</code>做进程守护。</li>
+<li><input disabled type="checkbox"> 通知小伙伴们重装期间无法提供服务，且原域名基本不再使用。</li>
+<li><input disabled type="checkbox"> 编写自动安装和升级caddy和v2ray的脚本。</li>
+</ul>
+<h2 id="整体文件布局"><a href="#整体文件布局" class="headerlink" title="整体文件布局"></a>整体文件布局</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/etc/systemd/system</span><br><span class="line">├── caddyv1.service</span><br><span class="line">├── caddyv2.service</span><br><span class="line">└── v2ray.service</span><br><span class="line"></span><br><span class="line">/home/ubuntu/program</span><br><span class="line">├── caddy</span><br><span class="line">│   ├── bin</span><br><span class="line">│   │   ├── caddy1</span><br><span class="line">│   │   ├── caddy2</span><br><span class="line">│   ├── config</span><br><span class="line">│   │   ├── caddyfile.v1</span><br><span class="line">│   │   └── caddyfile.v2</span><br><span class="line">│   └── ssl</span><br><span class="line">│       ├── acme</span><br><span class="line">│       ├── locks</span><br><span class="line">│       └── ocsp</span><br><span class="line">└── v2ray</span><br><span class="line">    ├── bin</span><br><span class="line">    │   ├── v</span><br><span class="line">    │   ├── v2ctl</span><br><span class="line">    │   ├── v2ray</span><br><span class="line">    ├── config</span><br><span class="line">    │   ├── v2ray.service</span><br><span class="line">    │   └── ws.json</span><br><span class="line">    └── log</span><br></pre></td></tr></table></figure>
+
+<h1 id="caddy"><a href="#caddy" class="headerlink" title="caddy"></a>caddy</h1><h2 id="文件布局"><a href="#文件布局" class="headerlink" title="文件布局"></a>文件布局</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tree caddy -L 2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">caddy</span><br><span class="line">├── bin</span><br><span class="line">│   ├── caddy1</span><br><span class="line">│   ├── caddy2</span><br><span class="line">├── config</span><br><span class="line">│   ├── caddyfile.v1</span><br><span class="line">│   └── caddyfile.v2</span><br><span class="line">└── ssl</span><br><span class="line">    ├── acme</span><br><span class="line">    ├── locks</span><br><span class="line">    └── ocsp</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
+<li>caddy包含1.X和2.0 beta 9两个版本的二进制执行文件和配置文件，两种版本都能够实现所需功能。</li>
+<li>1.0和2.0版本的配置文件和启动命令都不同。</li>
+<li>域名映射<ul>
+<li><code>blog.littleghost.ml</code> &amp; <code>www.littleghost.ml</code> &amp; <code>www.littleghost.cn</code> –301–&gt; <code>littleghost2016.github.io</code></li>
+<li><code>blog.littleghost.ml/game</code> -&gt; 反向代理</li>
+</ul>
+</li>
+</ol>
+<h2 id="caddy-2-0-beta9-版本"><a href="#caddy-2-0-beta9-版本" class="headerlink" title="caddy 2.0 beta9 版本"></a>caddy 2.0 beta9 版本</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim program/caddy/config/caddyfile.v2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># v2ray反向代理部分配置</span><br><span class="line">blog.littleghost.ml/game</span><br><span class="line">&#123;</span><br><span class="line">tls 785340571@qq.com</span><br><span class="line">encode gzip</span><br><span class="line">reverse_proxy localhost:your_port</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 301跳转部分配置</span><br><span class="line">blog.littleghost.ml, www.littleghost.ml</span><br><span class="line">&#123;</span><br><span class="line">redir / https://littleghost2016.github.io&#123;uri&#125; 301</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">www.littleghost.cn</span><br><span class="line">&#123;</span><br><span class="line">tls 785340571@qq.com</span><br><span class="line">redir / https://littleghost2016.github.io&#123;uri&#125; 301</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：2.0配置参考了caddy在Github的官方文档。</p>
+<blockquote>
+<p><a href="https://github.com/caddyserver/caddy/wiki/v2:-Documentation" target="_blank" rel="noopener">v2: Documentation</a></p>
+</blockquote>
+<h3 id="systemd进程守护配置"><a href="#systemd进程守护配置" class="headerlink" title="systemd进程守护配置"></a>systemd进程守护配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/systemd/system/caddyv2.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Caddy Server</span><br><span class="line">After=syslog.target</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">LimitNOFILE=64000</span><br><span class="line">Environment=CADDYPATH=/home/ubuntu/program/caddy/ssl</span><br><span class="line">ReadWriteDirectories=/home/ubuntu/program/caddy/ssl</span><br><span class="line">ExecStart=/home/ubuntu/program/caddy/bin/caddy2 run --config /home/ubuntu/program/caddy/config/caddyfile.v2 --adapter caddyfile</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ol>
+<li>使用非root用户不能绑定80和443端口，会提醒<code>permission denied!</code></li>
+<li>caddy的启动命令使用<code>run</code>，指定配置文件时使用<code>--config</code>，当caddy的配置文件格式与上述示例相同时，应该使用<code>--adapter caddyfile</code>。</li>
+<li>注意两个地方，否则SSL证书无法正常被caddy请求、下载和使用。<ul>
+<li>caddy的配置文件中域名不要写错</li>
+<li>DNS解析要解析到自己的服务器上</li>
+</ul>
+</li>
+</ol>
+<h2 id="caddy-1-0-版本"><a href="#caddy-1-0-版本" class="headerlink" title="caddy 1.0 版本"></a>caddy 1.0 版本</h2><h3 id="配置文件-1"><a href="#配置文件-1" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim program/caddy/config/caddyfile.v1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">blog.littleghost.ml &#123;</span><br><span class="line">  tls 785340571@qq.com</span><br><span class="line">  gzip</span><br><span class="line">  timeouts none</span><br><span class="line">  proxy / https://littleghost2016.github.io &#123;</span><br><span class="line">    without /game</span><br><span class="line">  &#125;</span><br><span class="line">  proxy /game 127.0.0.1:your_port &#123;</span><br><span class="line">    websocket</span><br><span class="line">    header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：若路径为<code>/game</code>则反向代理至v2ray，否则跳转至指定网址。</p>
+<p>1.0版本的配置文件参考了</p>
+<blockquote>
+<p>博客 <a href="https://www.huiyingwu.com/438/" target="_blank" rel="noopener">利用 Caddy 轻松实现反向代理/镜像（支持自签SSL证书）</a></p>
+</blockquote>
+<h3 id="systemd进程守护配置-1"><a href="#systemd进程守护配置-1" class="headerlink" title="systemd进程守护配置"></a>systemd进程守护配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/systemd/system/caddyv1.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Caddy Server</span><br><span class="line">After=syslog.target</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">LimitNOFILE=64000</span><br><span class="line">Environment=CADDYPATH=/home/ubuntu/program/caddy/ssl</span><br><span class="line">ExecStart=/home/ubuntu/program/caddy/bin/caddy1 -log stdout -agree=true -conf=/home/ubuntu/program/caddy/config/caddyfile.v1</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>说明：注意使用<code>root</code>用户，原因同上。</p>
+<h1 id="v2ray"><a href="#v2ray" class="headerlink" title="v2ray"></a>v2ray</h1><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tree v2ray -L 2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── bin</span><br><span class="line">│   ├── v</span><br><span class="line">│   ├── v2ctl</span><br><span class="line">│   ├── v2ray</span><br><span class="line">├── config</span><br><span class="line">│   ├── v2ray.service</span><br><span class="line">│   └── ws.json</span><br><span class="line">└── log</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h2><p>v2ray采用WebSocket + TLS的组合，并未使用CDN（Cloudflare的CDN感觉有一些水土不服，国内的没找到免费的）。</p>
+<h2 id="v2ray-4-21-3"><a href="#v2ray-4-21-3" class="headerlink" title="v2ray 4.21.3"></a>v2ray 4.21.3</h2><h3 id="配置文件-2"><a href="#配置文件-2" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim program/v2ray/config/ws.json</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;log&quot;: &#123;</span><br><span class="line">        &quot;loglevel&quot;: &quot;error&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;api&quot;: &#123;</span><br><span class="line">        &quot;tag&quot;: &quot;api&quot;,</span><br><span class="line">        &quot;services&quot;: [</span><br><span class="line">            &quot;HandlerService&quot;,</span><br><span class="line">            &quot;LoggerService&quot;,</span><br><span class="line">            &quot;StatsService&quot;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;stats&quot;: &#123;&#125;,</span><br><span class="line">    &quot;inbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;tag&quot;: &quot;proxy&quot;,</span><br><span class="line">            &quot;port&quot;: your_port,</span><br><span class="line">            &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">            &quot;settings&quot;: &#123;</span><br><span class="line">                &quot;clients&quot;: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        &quot;id&quot;: &quot;your_uuid&quot;,</span><br><span class="line">                        &quot;level&quot;: 1,</span><br><span class="line">                        &quot;alterId&quot;: 64</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;streamSettings&quot;: &#123;</span><br><span class="line">                &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">                &quot;wsSettings&quot;: &#123;</span><br><span class="line">                    &quot;path&quot;: &quot;/game&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;outbounds&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;protocol&quot;: &quot;freedom&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;routing&quot;: &#123;</span><br><span class="line">        &quot;rules&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;type&quot;: &quot;field&quot;,</span><br><span class="line">                &quot;inboundTag&quot;: [</span><br><span class="line">                    &quot;api&quot;</span><br><span class="line">                ],</span><br><span class="line">                &quot;outboundTag&quot;: &quot;api&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;strategy&quot;: &quot;rules&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;policy&quot;: &#123;</span><br><span class="line">        &quot;levels&quot;: &#123;</span><br><span class="line">            &quot;0&quot;: &#123;</span><br><span class="line">                &quot;statsUserUplink&quot;: true,</span><br><span class="line">                &quot;statsUserDownlink&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;system&quot;: &#123;</span><br><span class="line">            &quot;statsInboundUplink&quot;: true,</span><br><span class="line">            &quot;statsInboundDownlink&quot;: true</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ol>
+<li><p>可以在写完json文件后使用<code>v2ray --test XXX.json</code>命令检查配置文件是否存在错误。</p>
+</li>
+<li><p>配置文件参考了</p>
+<blockquote>
+<p>博客 <a href="https://www.huiyingwu.com/438/" target="_blank" rel="noopener">利用 Caddy 轻松实现反向代理/镜像（支持自签SSL证书）</a></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="systemd进程守护配置-2"><a href="#systemd进程守护配置-2" class="headerlink" title="systemd进程守护配置"></a>systemd进程守护配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/systemd/system/v2ray.service</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=V2Ray Service</span><br><span class="line">After=network.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"># This service runs as root. You may consider to run it as another use for security concerns.</span><br><span class="line"># By uncommenting the following two lines, this service will run as user v2ray/v2ray.</span><br><span class="line"># More discussion at https://github.com/v2ray/v2ray-core/issues/1011</span><br><span class="line">User=ubuntu</span><br><span class="line">Group=ubuntu</span><br><span class="line">Type=simple</span><br><span class="line">PIDFile=/var/run/v2ray.pid</span><br><span class="line">ExecStart=/home/ubuntu/program/v2ray/bin/v2ray -config /home/ubuntu/program/v2ray/config/ws.json</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line"># Don&apos;t restart in the case of configuration error</span><br><span class="line">RestartPreventExitStatus=23</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h1 id="自用bash脚本"><a href="#自用bash脚本" class="headerlink" title="自用bash脚本"></a>自用bash脚本</h1><p>目前还没写完-_-||，等自己忙完这段时间且交上了作业再继续写吧，暂时被锁住了…貌似锁的死死的…</p>
+<h1 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h1><p>ssh连接服务器延迟有点高，特别特别是晚上，要等待个2s左右，有时候直接断了，有点小烦…</p>
+<p><em>同宿舍室友说速度比以前快了一些，不知道是不是心理作用…</em></p>
+<h1 id="更新历史"><a href="#更新历史" class="headerlink" title="更新历史"></a>更新历史</h1><p>20191113_1603：初始版本</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/11/05/学习grep/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="ROUND_RECT"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
