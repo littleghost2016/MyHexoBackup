@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://littleghost2016.github.io/2019/12/01/使用TunnelBroker为bandwagon配置6in4/etc_network_interfaces.png">
 <meta property="og:image" content="https://littleghost2016.github.io/2019/12/01/使用TunnelBroker为bandwagon配置6in4/ip_a.png">
 <meta property="og:image" content="https://littleghost2016.github.io/2019/12/01/使用TunnelBroker为bandwagon配置6in4/ping6_google.com.png">
-<meta property="og:updated_time" content="2019-12-01T03:30:27.831Z">
+<meta property="og:updated_time" content="2019-12-01T03:39:22.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用TunnelBroker为bandwagon配置6in4">
 <meta name="twitter:description" content="VPS套餐只提供ipv4地址，无ipv6，使用TunnelBroker搭建6in4隧道，获取可使用的ipv6地址。 注册配置TunnelBroker注册注册网址，除了username password email 其他我是随便写的，包括phone，并没有做审核信息审查。 配置 点击左侧Create Regular Tunnel   上方输入VPS的公网ipv4地址，下方选择隧道接入点，默认是洛杉矶">
@@ -243,20 +243,20 @@ ga('send', 'pageview');
 <h1 id="注册配置TunnelBroker"><a href="#注册配置TunnelBroker" class="headerlink" title="注册配置TunnelBroker"></a>注册配置TunnelBroker</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p><a href="https://www.tunnelbroker.net/register.php" target="_blank" rel="noopener">注册网址</a>，除了<code>username</code> <code>password</code> <code>email</code> 其他我是随便写的，包括<code>phone</code>，并没有做审核信息审查。</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
 <li><p>点击左侧<a href="https://www.tunnelbroker.net/new_tunnel.php" target="_blank" rel="noopener">Create Regular Tunnel</a></p>
-<p><img src="CreateRegularTunnel.png" alt></p>
+<p><img src="CreateRegularTunnel.png" alt="CreateRegularTunnel"></p>
 </li>
-<li><p>上方输入VPS的公网ipv4地址，下方选择隧道接入点，默认是洛杉矶。<img src="CreateNewTunnel.png" alt></p>
+<li><p>上方输入VPS的公网ipv4地址，下方选择隧道接入点，默认是洛杉矶。<img src="CreateNewTunnel.png" alt="CreateNewTunnel"></p>
 </li>
-<li><p>在<code>ipv6 tunnel</code>页面可查看自己的信息，包括ipv4、ipv6地址。<img src="IPV6Tunnel.png" alt></p>
+<li><p>在<code>ipv6 tunnel</code>页面可查看自己的信息，包括ipv4、ipv6地址。<img src="IPV6Tunnel.png" alt="IPV6Tunnel"></p>
 </li>
-<li><p>在<code>Example Configurations</code>页面选择自己VPS的操作系统，下面回给出后续操作模板。我的是Ubuntu系统，所以根据提示应该修改网络配置文件。<img src="ExampleConfigurations.png" alt></p>
+<li><p>在<code>Example Configurations</code>页面选择自己VPS的操作系统，下面回给出后续操作模板。我的是Ubuntu系统，所以根据提示应该修改网络配置文件。<img src="ExampleConfigurations.png" alt="Example Configurations"></p>
 </li>
 </ol>
 <h1 id="VPS配置"><a href="#VPS配置" class="headerlink" title="VPS配置"></a>VPS配置</h1><ol>
 <li><p>修改文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在下面添加<code>Example Configurations</code>页面的内容，直接复制粘贴即可。<img src="etc_network_interfaces.png" alt></p>
+<li><p>在下面添加<code>Example Configurations</code>页面的内容，直接复制粘贴即可。<img src="etc_network_interfaces.png" alt="/etc/network/interfaces"></p>
 </li>
 <li><p>重启网络服务（可能会有些慢，我等待了大概10-15秒）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl restart networking.service</span><br></pre></td></tr></table></figure>
@@ -264,9 +264,9 @@ ga('send', 'pageview');
 <li><p>查看ip显示已有ipv6地址</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ip a</span><br></pre></td></tr></table></figure>
 
-<p>其中蓝色箭头指示已有的ipv4地址，红色箭头指示新的ipv6地址<img src="ip_a.png" alt></p>
+<p>其中蓝色箭头指示已有的ipv4地址，红色箭头指示新的ipv6地址<img src="ip_a.png" alt="ip a"></p>
 </li>
-<li><p>可以使用<code>ping</code>命令检测是否已可以使用ipv6网络<img src="ping6_google.com.png" alt></p>
+<li><p>可以使用<code>ping</code>命令检测是否已可以使用ipv6网络<img src="ping6_google.com.png" alt="ping6 google.com"></p>
 <p>速度还挺快的！</p>
 </li>
 </ol>
