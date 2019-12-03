@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
 <meta property="og:description" content="背景昨天继续部署hexo的时候发现自己使用的主题fexo在Github上有新的commit，于是想对主题进行升级。 更新仓库文件查看fexo文件夹 1$ tree -L 1 .  1234567891011.├── _config.yml├── gulpfile.js├── languages├── layout├── LICENSE├── package.json├── README.md├──">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-01T03:36:37.440Z">
+<meta property="og:updated_time" content="2019-12-03T01:28:59.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-stash学习">
 <meta name="twitter:description" content="背景昨天继续部署hexo的时候发现自己使用的主题fexo在Github上有新的commit，于是想对主题进行升级。 更新仓库文件查看fexo文件夹 1$ tree -L 1 .  1234567891011.├── _config.yml├── gulpfile.js├── languages├── layout├── LICENSE├── package.json├── README.md├──">
@@ -185,7 +185,7 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新仓库文件"><span class="toc-text">更新仓库文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于git-stash"><span class="toc-text">关于git stash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-save-“test1”"><span class="toc-text">git stash save “test1”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-list"><span class="toc-text">git stash list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-pop"><span class="toc-text">git stash pop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-apply"><span class="toc-text">git stash apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-drop-“test1”"><span class="toc-text">git stash drop “test1”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-clear"><span class="toc-text">git stash clear</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-show"><span class="toc-text">git stash show</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插一句：解决git中文乱码"><span class="toc-text">插一句：解决git中文乱码</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新仓库文件"><span class="toc-text">更新仓库文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于git-stash"><span class="toc-text">关于git stash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-save-“test1”"><span class="toc-text">git stash save “test1”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-list"><span class="toc-text">git stash list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-pop"><span class="toc-text">git stash pop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-apply"><span class="toc-text">git stash apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-drop-“test1”"><span class="toc-text">git stash drop “test1”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-clear"><span class="toc-text">git stash clear</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash-show"><span class="toc-text">git stash show</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插一句：解决git中文乱码"><span class="toc-text">插一句：解决git中文乱码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#再插一句"><span class="toc-text">再插一句</span></a></li></ol>
   </div>
 
 
@@ -262,6 +262,12 @@ ga('send', 'pageview');
 <h2 id="git-stash-show"><a href="#git-stash-show" class="headerlink" title="git stash show"></a>git stash show</h2><p>显示stash栈中的所有内容。</p>
 <h1 id="插一句：解决git中文乱码"><a href="#插一句：解决git中文乱码" class="headerlink" title="插一句：解决git中文乱码"></a>插一句：解决git中文乱码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global core.quotepath <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
+<h1 id="再插一句"><a href="#再插一句" class="headerlink" title="再插一句"></a>再插一句</h1><p><code>github-production-release-asset-2e65be.s3.amazonaws.com</code>国内是访问不了的，<code>wget</code>和<code>curl</code>都不能下载到内容，可绑定ip试试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">52.216.20.147 github-production-release-asset-2e65be.s3.amazonaws.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="https://github.com/oldj/SwitchHosts/issues/312" target="_blank" rel="noopener">brew安装失败 #312</a></p>
+</blockquote>
 
     
   </div>
