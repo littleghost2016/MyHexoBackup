@@ -15,18 +15,18 @@
     <meta name="keywords" content="LittleGhost, Python, Golang">
   
 
-  <meta name="description" content="zsh报错command not found compdef安装zsh后报错，解决方案： 123$ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
+  <meta name="description" content="zsh报错command not found compdef安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
 <meta name="keywords" content="skills, solution">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zsh报错command not found compdef">
 <meta property="og:url" content="https://littleghost2016.github.io/2019/07/10/zsh报错command-not-found-compdef/index.html">
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
-<meta property="og:description" content="zsh报错command not found compdef安装zsh后报错，解决方案： 123$ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
+<meta property="og:description" content="zsh报错command not found compdef安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-07-10T13:43:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zsh报错command not found compdef">
-<meta name="twitter:description" content="zsh报错command not found compdef安装zsh后报错，解决方案： 123$ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
+<meta name="twitter:description" content="zsh报错command not found compdef安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
 
   
 
@@ -189,7 +189,7 @@
   <div class="article-content">
     
       <h1 id="zsh报错command-not-found-compdef"><a href="#zsh报错command-not-found-compdef" class="headerlink" title="zsh报错command not found compdef"></a>zsh报错command not found compdef</h1><p>安装zsh后报错，解决方案：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ compaudit | xargs -I <span class="string">'%'</span> chmod g-w,o-w <span class="string">'%'</span></span><br><span class="line">$ rm ~/.zcompdump*</span><br><span class="line">$ <span class="built_in">exec</span> zsh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ compaudit | xargs -I <span class="string">'%'</span> chmod g-w,o-w <span class="string">'%'</span></span><br><span class="line">$ rm ~/.zcompdump*</span><br><span class="line">$ <span class="built_in">exec</span> zsh</span><br></pre></td></tr></table></figure>
 
 
     

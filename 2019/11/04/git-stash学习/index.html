@@ -15,18 +15,18 @@
     <meta name="keywords" content="git,hexo,">
   
 
-  <meta name="description" content="背景昨天继续部署hexo的时候发现自己使用的主题fexo在Github上有新的commit，于是想对主题进行升级。 更新仓库文件查看fexo文件夹 1$ tree -L 1 .  1234567891011.├── _config.yml├── gulpfile.js├── languages├── layout├── LICENSE├── package.json├── README.md├──">
+  <meta name="description" content="背景昨天继续部署hexo的时候发现自己使用的主题fexo在Github上有新的commit，于是想对主题进行升级。 更新仓库文件查看fexo文件夹 $ tree -L 1 .  .├── _config.yml├── gulpfile.js├── languages├── layout├── LICENSE├── package.json├── README.md├── scripts├── so">
 <meta name="keywords" content="git,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git-stash学习">
 <meta property="og:url" content="https://littleghost2016.github.io/2019/11/04/git-stash学习/index.html">
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
-<meta property="og:description" content="背景昨天继续部署hexo的时候发现自己使用的主题fexo在Github上有新的commit，于是想对主题进行升级。 更新仓库文件查看fexo文件夹 1$ tree -L 1 .  1234567891011.├── _config.yml├── gulpfile.js├── languages├── layout├── LICENSE├── package.json├── README.md├──">
+<meta property="og:description" content="背景昨天继续部署hexo的时候发现自己使用的主题fexo在Github上有新的commit，于是想对主题进行升级。 更新仓库文件查看fexo文件夹 $ tree -L 1 .  .├── _config.yml├── gulpfile.js├── languages├── layout├── LICENSE├── package.json├── README.md├── scripts├── so">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-12-03T01:28:59.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-stash学习">
-<meta name="twitter:description" content="背景昨天继续部署hexo的时候发现自己使用的主题fexo在Github上有新的commit，于是想对主题进行升级。 更新仓库文件查看fexo文件夹 1$ tree -L 1 .  1234567891011.├── _config.yml├── gulpfile.js├── languages├── layout├── LICENSE├── package.json├── README.md├──">
+<meta name="twitter:description" content="背景昨天继续部署hexo的时候发现自己使用的主题fexo在Github上有新的commit，于是想对主题进行升级。 更新仓库文件查看fexo文件夹 $ tree -L 1 .  .├── _config.yml├── gulpfile.js├── languages├── layout├── LICENSE├── package.json├── README.md├── scripts├── so">
 
   
 
@@ -195,26 +195,26 @@
     
       <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>昨天继续部署<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">hexo</a>的时候发现自己使用的主题<a href="https://github.com/forsigner/fexo" target="_blank" rel="noopener">fexo</a>在Github上有新的commit，于是想对主题进行升级。</p>
 <h1 id="更新仓库文件"><a href="#更新仓库文件" class="headerlink" title="更新仓库文件"></a>更新仓库文件</h1><p>查看fexo文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tree -L 1 .</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tree -L 1 .</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── gulpfile.js</span><br><span class="line">├── languages</span><br><span class="line">├── layout</span><br><span class="line">├── LICENSE</span><br><span class="line">├── package.json</span><br><span class="line">├── README.md</span><br><span class="line">├── scripts</span><br><span class="line">├── source</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── gulpfile.js</span><br><span class="line">├── languages</span><br><span class="line">├── layout</span><br><span class="line">├── LICENSE</span><br><span class="line">├── package.json</span><br><span class="line">├── README.md</span><br><span class="line">├── scripts</span><br><span class="line">├── source</span><br><span class="line">└── yarn.lock</span><br></pre></td></tr></table></figure>
 
 <p>直接使用<code>git pull</code>命令发现<code>_config.yml</code>因被修改过而引起冲突，不能直接将仓库进行<code>pull</code>更新，上网搜索“hexo更新主题”，发现了<code>git stash</code>命令。</p>
 <ol>
 <li><p>使用<code>git stash</code>将修改入栈，即执行命令后<code>_config.yml</code>变成了该版本对应文件的最初始状态（因为我在修改<code>_config.yml</code>之后未进行追踪和提交，所以<code>git stash</code>后变成最初始状态）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git stash</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>此时执行<code>git status</code>发现没有任何更改。执行<code>git pull</code>更新仓库。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行<code>git stash pop</code>将已经入栈的被修改文件出栈到当前文件夹，即完成了保留<code>_config.yml</code>文件的修改，并更新了其他文件的效果。<em>此时栈为空。</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash pop</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git stash pop</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h1 id="关于git-stash"><a href="#关于git-stash" class="headerlink" title="关于git stash"></a>关于git stash</h1><p> 能够将所有未提交的修改（工作区和暂存区）保存至堆栈中，用于后续恢复当前工作目录。 </p>
 <h2 id="git-stash-save-“test1”"><a href="#git-stash-save-“test1”" class="headerlink" title="git stash save “test1”"></a>git stash save “test1”</h2><p>作用同<code>git stash</code>，<code>save</code>会指定一个名称，<code>drop</code>命令可以根据名称删除对应内容。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tash@&#123;0&#125;: On master: test1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tash@&#123;0&#125;: On master: test1</span><br></pre></td></tr></table></figure>
 
 <h2 id="git-stash-list"><a href="#git-stash-list" class="headerlink" title="git stash list"></a>git stash list</h2><p>查看当前stash中的内容。</p>
 <h2 id="git-stash-pop"><a href="#git-stash-pop" class="headerlink" title="git stash pop"></a>git stash pop</h2><p>当前stash中的最后进入的内容出栈，并应用到当前分支对应的工作目录上。<br> <em>注：该命令将堆栈中最近保存的内容删除（栈是先进后出）。</em> </p>
@@ -222,10 +222,10 @@
 <h2 id="git-stash-drop-“test1”"><a href="#git-stash-drop-“test1”" class="headerlink" title="git stash drop “test1”"></a>git stash drop “test1”</h2><p>stash栈中删除名为”test1”的内容。</p>
 <h2 id="git-stash-clear"><a href="#git-stash-clear" class="headerlink" title="git stash clear"></a>git stash clear</h2><p>清除stash栈中的所有内容。</p>
 <h2 id="git-stash-show"><a href="#git-stash-show" class="headerlink" title="git stash show"></a>git stash show</h2><p>显示stash栈中的所有内容。</p>
-<h1 id="插一句：解决git中文乱码"><a href="#插一句：解决git中文乱码" class="headerlink" title="插一句：解决git中文乱码"></a>插一句：解决git中文乱码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global core.quotepath <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h1 id="插一句：解决git中文乱码"><a href="#插一句：解决git中文乱码" class="headerlink" title="插一句：解决git中文乱码"></a>插一句：解决git中文乱码</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.quotepath <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="再插一句"><a href="#再插一句" class="headerlink" title="再插一句"></a>再插一句</h1><p><code>github-production-release-asset-2e65be.s3.amazonaws.com</code>国内是访问不了的，<code>wget</code>和<code>curl</code>都不能下载到内容，可绑定ip试试。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">52.216.20.147 github-production-release-asset-2e65be.s3.amazonaws.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">52.216.20.147 github-production-release-asset-2e65be.s3.amazonaws.com</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><a href="https://github.com/oldj/SwitchHosts/issues/312" target="_blank" rel="noopener">brew安装失败 #312</a></p>
