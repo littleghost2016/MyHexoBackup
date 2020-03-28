@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
 <meta property="og:description" content="大三上学期《软件逆向工程》考前整理。现在看好像都忘得差不多了… 第一章-前言 逆向工程的应用：  逆向工程的应用(动态、静态)  闭源软件漏洞分析(发现和分析漏洞、开发破解程序(exploit))  闭源软件互操作性分析(只能获得二进制程序而想开发与其互操作的软件；依据已有程序，开发适用于其他硬件平台的程序)  验证编译器的性能和准确性(验证编译器是否符合规范；寻找优化编译器输出的方法；编译器本身">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-28T13:21:14.142Z">
+<meta property="og:updated_time" content="2020-03-28T13:24:42.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆向工程复习整理">
 <meta name="twitter:description" content="大三上学期《软件逆向工程》考前整理。现在看好像都忘得差不多了… 第一章-前言 逆向工程的应用：  逆向工程的应用(动态、静态)  闭源软件漏洞分析(发现和分析漏洞、开发破解程序(exploit))  闭源软件互操作性分析(只能获得二进制程序而想开发与其互操作的软件；依据已有程序，开发适用于其他硬件平台的程序)  验证编译器的性能和准确性(验证编译器是否符合规范；寻找优化编译器输出的方法；编译器本身">
@@ -249,7 +249,8 @@
 <li><p>scas-&gt;AL/AX/EAX与[EDI]比较，并对EDI自增/自减，STOS-&gt;AL/AX/EAX的值写入EDI指向的内存</p>
 </li>
 </ol>
-<h1 id="第四章-PE结构："><a href="#第四章-PE结构：" class="headerlink" title="第四章-PE结构："></a>第四章-PE结构：</h1><pre><code>1. 3C-&gt;PE头地址</code></pre><h1 id="第五章-Windoes编程"><a href="#第五章-Windoes编程" class="headerlink" title="第五章-Windoes编程"></a>第五章-Windoes编程</h1><h2 id="核心API"><a href="#核心API" class="headerlink" title="核心API"></a>核心API</h2><ol>
+<h1 id="第四章-PE结构："><a href="#第四章-PE结构：" class="headerlink" title="第四章-PE结构："></a>第四章-PE结构：</h1><p> 3C-&gt;PE头地址</p>
+<h1 id="第五章-Windoes编程"><a href="#第五章-Windoes编程" class="headerlink" title="第五章-Windoes编程"></a>第五章-Windoes编程</h1><h2 id="核心API"><a href="#核心API" class="headerlink" title="核心API"></a>核心API</h2><ol>
 <li>OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwPID)</li>
 <li>CreateRemoteThread(hProcess, NULL, 0, lpStartAddress, lpParameter, 0, NULL)</li>
 <li>VirtualAllocEx(hProcess, NULL, dwBufSize, MEM_COMMIT, PAGE_READWRITE)</li>
@@ -268,7 +269,7 @@
 <h1 id="第七章-API钩取"><a href="#第七章-API钩取" class="headerlink" title="第七章-API钩取"></a>第七章-API钩取</h1><h1 id="第八章-混淆技术"><a href="#第八章-混淆技术" class="headerlink" title="第八章-混淆技术"></a>第八章-混淆技术</h1><ol>
 <li>防篡改技术分为静态和动态，混淆属于静态技术</li>
 <li>基于数据的混淆：常量展开/插入死代码/数据编码方案(f,x-混淆-&gt;f(x0)，解混淆时f(x0)-恢复-&gt;x0)</li>
-<li>等价-x=<del>x+1，x-1=</del>(-x)，x+1=-(~x)</li>
+<li>等价-x=~x+1，x-1=~(-x)，x+1=-(~x)</li>
 <li>基于控制的混淆：组合使用函数内联与外联/引入无条件分支，破环局部性/插入垃圾代码/基于处理器的控制间接化/不透明谓词</li>
 </ol>
 
