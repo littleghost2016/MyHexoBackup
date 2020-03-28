@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 
 
-  <html class="light page-archives">
+  <html class="light page-post">
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Archives | LittleGhost&#39;s Blog</title>
+  <title>树莓派使用docker | LittleGhost&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="LittleGhost, Python, Golang">
+    <meta name="keywords" content="树莓派,docker,">
   
 
-  <meta name="description" content="LittleGhost&apos;s Blog">
-<meta name="keywords" content="skills, solution">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LittleGhost&#39;s Blog">
-<meta property="og:url" content="https://littleghost2016.github.io/archives/page/2/index.html">
+  <meta name="description" content="解决Got permission denied问题$ sudo groupadd docker				#添加docker用户组$ sudo gpasswd -a $USER docker		#将登陆用户加入到docker用户组中$ newgrp docker						#更新用户组$ docker ps  配置国内镜像源$ sudo vim /etc/docker/daemon.json  &amp;#1">
+<meta name="keywords" content="树莓派,docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派使用docker">
+<meta property="og:url" content="https://littleghost2016.github.io/2020/01/24/树莓派使用docker/index.html">
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
-<meta property="og:description" content="LittleGhost&apos;s Blog">
+<meta property="og:description" content="解决Got permission denied问题$ sudo groupadd docker				#添加docker用户组$ sudo gpasswd -a $USER docker		#将登陆用户加入到docker用户组中$ newgrp docker						#更新用户组$ docker ps  配置国内镜像源$ sudo vim /etc/docker/daemon.json  &amp;#1">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-28T13:39:35.569Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LittleGhost&#39;s Blog">
-<meta name="twitter:description" content="LittleGhost&apos;s Blog">
+<meta name="twitter:title" content="树莓派使用docker">
+<meta name="twitter:description" content="解决Got permission denied问题$ sudo groupadd docker				#添加docker用户组$ sudo gpasswd -a $USER docker		#将登陆用户加入到docker用户组中$ newgrp docker						#更新用户组$ docker ps  配置国内镜像源$ sudo vim /etc/docker/daemon.json  &amp;#1">
 
   
 
@@ -61,17 +62,8 @@
     <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
   
 
-  <div class="content content-archive">
-  <div class="page-header">
-
-  
-    <div class="breadcrumb">
-      <div class="location">博客</div>
-      <i class="icon-location"></i>
-    </div>
-  
-
-  
+  <div class="post-header CENTER">
+   
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
       <span class="toolbox-entry-text">盒子</span>
@@ -150,136 +142,93 @@
   </div>
 
 
+</div>
 
-  <div class="box-blog-info">
-    <a class="avatar" href="/">
-      <img src="https://avatars2.githubusercontent.com/u/22980536?s=460&amp;v=4" alt="" />
-    </a>
-    <div class="info">
-      <h3 class="name" style="font-family: PoiretOne-Regular">
-        LittleGhost
-      </h3>
-      <div class="slogan">
-        新晋的信息安全小鬼头
-      </div>
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#解决Got-permission-denied问题"><span class="toc-text">解决Got permission denied问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置国内镜像源"><span class="toc-text">配置国内镜像源</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-树莓派使用docker" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">树莓派使用docker</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.01.24</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
     </div>
-  </div>
+  </header>
 
-</div>
-
-
-  <div class="post-list-box archive-body">
-    <ul class="list-post">  <li class="item-year item item-title item-title-4">
-    <a href="/archives/2019" class="text-year">
-      2019
-      <i class="icon-zhu"></i>
-      
-    </a>
-  </li>
-<li class="item-post item">
-  <span class="post-date">08-22</span>
-
-  
-  <a class="post-title" href="/2019/08/22/写代码怎能不会这些Linux命令/" rel="noopener noreferrer" target="_blank">写代码怎能不会这些Linux命令?</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">07-31</span>
-
-  
-  <a class="post-title" href="/2019/07/31/CPU、显卡天梯图/" rel="noopener noreferrer" target="_blank">CPU、显卡天梯图</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">07-15</span>
-
-  
-  <a class="post-title" href="/2019/07/15/树莓派使用无线连接网络/" rel="noopener noreferrer" target="_blank">树莓派使用无线连接网络</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">07-14</span>
-
-  
-  <a class="post-title" href="/2019/07/14/Markdown中使用Base64格式保存图片/" rel="noopener noreferrer" target="_blank">Markdown中使用Base64格式保存图片</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">07-13</span>
-
-  
-  <a class="post-title" href="/2019/07/13/hexo的使用/" rel="noopener noreferrer" target="_blank">hexo的使用</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">07-11</span>
-
-  
-  <a class="post-title" href="/2019/07/11/K2P同时校园网和翼讯/" rel="noopener noreferrer" target="_blank">K2P同时校园网和翼讯</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">07-10</span>
-
-  
-  <a class="post-title" href="/2019/07/10/zsh报错command-not-found-compdef/" rel="noopener noreferrer" target="_blank">zsh报错command not found compdef</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">07-10</span>
-
-  
-  <a class="post-title" href="/2019/07/10/VMWare虚拟机“锁定文件失败解决方法”/" rel="noopener noreferrer" target="_blank">VMWare虚拟机“锁定文件失败解决方法”</a>
-
-
-</li>
-<li class="item-post item">
-  <span class="post-date">07-09</span>
-
-  
-  <a class="post-title" href="/2019/07/09/hello-world/" rel="noopener noreferrer" target="_blank">Hello World</a>
-
-
-</li>
-  <li class="item-year item item-title item-title-2">
-    <a href="/archives/2017" class="text-year">
-      2017
-      <i class="icon-ji"></i>
-      
-    </a>
-  </li>
-<li class="item-post item">
-  <span class="post-date">11-30</span>
-
-  
-  <a class="post-title" href="/2017/11/30/逆向工程复习整理/" rel="noopener noreferrer" target="_blank">逆向工程复习整理</a>
-
-
-</li>
-</ul>
-  </div>
-
-  <div class="archive-footer">
+  <div class="article-content">
     
-  <div class="pagination">
-    <nav class="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/"><i class="icon-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+      <h1 id="解决Got-permission-denied问题"><a href="#解决Got-permission-denied问题" class="headerlink" title="解决Got permission denied问题"></a>解决Got permission denied问题</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo groupadd docker				<span class="comment">#添加docker用户组</span></span><br><span class="line">$ sudo gpasswd -a <span class="variable">$USER</span> docker		<span class="comment">#将登陆用户加入到docker用户组中</span></span><br><span class="line">$ newgrp docker						<span class="comment">#更新用户组</span></span><br><span class="line">$ docker ps</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置国内镜像源"><a href="#配置国内镜像源" class="headerlink" title="配置国内镜像源"></a>配置国内镜像源</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://dockerhub.azk8s.cn&quot;,</span><br><span class="line">    &quot;https://hub-mirror.c.163.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo systemctl daemon-reload</span><br><span class="line">$ sudo systemctl restart docker.service</span><br></pre></td></tr></table></figure>
+
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/12/29/英语作文模板/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
   </div>
 
 
-  </div>
+
+
 </div>
 
 
-
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
 
 
 
@@ -367,6 +316,24 @@
 </div>
 
 
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
 
   
 
