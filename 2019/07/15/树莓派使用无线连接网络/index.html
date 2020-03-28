@@ -15,18 +15,18 @@
     <meta name="keywords" content="树莓派,">
   
 
-  <meta name="description" content="树莓派使用无线连接网络WiFi上网1. 安装工具$ sudo apt install ifupdown  2. 修改/etc/network/interfaces文件$ sudo vim /etc/network/interfaces  # ifupdown has been replaced by netplan(5) on this system.  See# /etc/netplan for">
+  <meta name="description" content="不使用netplan1. 安装工具$ sudo apt install ifupdown  2. 修改/etc/network/interfaces文件$ sudo vim /etc/network/interfaces  # ifupdown has been replaced by netplan(5) on this system.  See# /etc/netplan for curren">
 <meta name="keywords" content="树莓派">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派使用无线连接网络">
 <meta property="og:url" content="https://littleghost2016.github.io/2019/07/15/树莓派使用无线连接网络/index.html">
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
-<meta property="og:description" content="树莓派使用无线连接网络WiFi上网1. 安装工具$ sudo apt install ifupdown  2. 修改/etc/network/interfaces文件$ sudo vim /etc/network/interfaces  # ifupdown has been replaced by netplan(5) on this system.  See# /etc/netplan for">
+<meta property="og:description" content="不使用netplan1. 安装工具$ sudo apt install ifupdown  2. 修改/etc/network/interfaces文件$ sudo vim /etc/network/interfaces  # ifupdown has been replaced by netplan(5) on this system.  See# /etc/netplan for curren">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-04T12:38:15.000Z">
+<meta property="og:updated_time" content="2020-03-28T13:34:53.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派使用无线连接网络">
-<meta name="twitter:description" content="树莓派使用无线连接网络WiFi上网1. 安装工具$ sudo apt install ifupdown  2. 修改/etc/network/interfaces文件$ sudo vim /etc/network/interfaces  # ifupdown has been replaced by netplan(5) on this system.  See# /etc/netplan for">
+<meta name="twitter:description" content="不使用netplan1. 安装工具$ sudo apt install ifupdown  2. 修改/etc/network/interfaces文件$ sudo vim /etc/network/interfaces  # ifupdown has been replaced by netplan(5) on this system.  See# /etc/netplan for curren">
 
   
 
@@ -147,7 +147,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#树莓派使用无线连接网络"><span class="toc-text">树莓派使用无线连接网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#WiFi上网"><span class="toc-text">WiFi上网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-安装工具"><span class="toc-text">1. 安装工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-修改-etc-network-interfaces文件"><span class="toc-text">2. 修改/etc/network/interfaces文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-修改-etc-wpa-supplicant-wpa-supplicant-conf文件"><span class="toc-text">3. 修改/etc/wpa_supplicant/wpa_supplicant.conf文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-重启网卡"><span class="toc-text">4. 重启网卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-备注"><span class="toc-text">5. 备注</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#不使用netplan"><span class="toc-text">不使用netplan</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装工具"><span class="toc-text">1. 安装工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-修改-etc-network-interfaces文件"><span class="toc-text">2. 修改/etc/network/interfaces文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-修改-etc-wpa-supplicant-wpa-supplicant-conf文件"><span class="toc-text">3. 修改/etc/wpa_supplicant/wpa_supplicant.conf文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-重启网卡"><span class="toc-text">4. 重启网卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-备注"><span class="toc-text">5. 备注</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用netplan"><span class="toc-text">使用netplan</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配置文件"><span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用更改"><span class="toc-text">应用更改</span></a></li></ol></li></ol>
   </div>
 
 
@@ -193,17 +193,17 @@
 
   <div class="article-content">
     
-      <h1 id="树莓派使用无线连接网络"><a href="#树莓派使用无线连接网络" class="headerlink" title="树莓派使用无线连接网络"></a>树莓派使用无线连接网络</h1><h2 id="WiFi上网"><a href="#WiFi上网" class="headerlink" title="WiFi上网"></a>WiFi上网</h2><h3 id="1-安装工具"><a href="#1-安装工具" class="headerlink" title="1. 安装工具"></a>1. 安装工具</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install ifupdown</span><br></pre></td></tr></table></figure>
+      <h1 id="不使用netplan"><a href="#不使用netplan" class="headerlink" title="不使用netplan"></a>不使用netplan</h1><h2 id="1-安装工具"><a href="#1-安装工具" class="headerlink" title="1. 安装工具"></a>1. 安装工具</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install ifupdown</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-修改-etc-network-interfaces文件"><a href="#2-修改-etc-network-interfaces文件" class="headerlink" title="2. 修改/etc/network/interfaces文件"></a>2. 修改<code>/etc/network/interfaces</code>文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<h2 id="2-修改-etc-network-interfaces文件"><a href="#2-修改-etc-network-interfaces文件" class="headerlink" title="2. 修改/etc/network/interfaces文件"></a>2. 修改<code>/etc/network/interfaces</code>文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># ifupdown has been replaced by netplan(5) on this system.  See</span><br><span class="line"># /etc/netplan for current configuration.</span><br><span class="line"># To re-enable ifupdown on this system, you can run:</span><br><span class="line">#    sudo apt install ifupdown</span><br><span class="line"></span><br><span class="line">auto wlan0</span><br><span class="line">allow-hotplug wlan0</span><br><span class="line">#iface wlan0 inet static</span><br><span class="line">iface wlan0 inet dhcp</span><br><span class="line">#       address 192.168.1.52</span><br><span class="line">#       netmask 255.255.255.0</span><br><span class="line">        wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-修改-etc-wpa-supplicant-wpa-supplicant-conf文件"><a href="#3-修改-etc-wpa-supplicant-wpa-supplicant-conf文件" class="headerlink" title="3. 修改/etc/wpa_supplicant/wpa_supplicant.conf文件"></a>3. 修改<code>/etc/wpa_supplicant/wpa_supplicant.conf</code>文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure>
+<h2 id="3-修改-etc-wpa-supplicant-wpa-supplicant-conf文件"><a href="#3-修改-etc-wpa-supplicant-wpa-supplicant-conf文件" class="headerlink" title="3. 修改/etc/wpa_supplicant/wpa_supplicant.conf文件"></a>3. 修改<code>/etc/wpa_supplicant/wpa_supplicant.conf</code>文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ctrl_interface=/var/run/wpa_supplicant</span><br><span class="line">#ap_scan=1</span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">       ssid=&quot;SSID&quot;</span><br><span class="line">       scan_ssid=1</span><br><span class="line">       psk=&quot;password&quot;</span><br><span class="line">       priority=5</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-重启网卡"><a href="#4-重启网卡" class="headerlink" title="4. 重启网卡"></a>4. 重启网卡</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo ifdown wlan0</span><br></pre></td></tr></table></figure>
+<h2 id="4-重启网卡"><a href="#4-重启网卡" class="headerlink" title="4. 重启网卡"></a>4. 重启网卡</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo ifdown wlan0</span><br></pre></td></tr></table></figure>
 
 <p>回显：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Killed old client process</span><br><span class="line">Internet Systems Consortium DHCP Client 4.3.5</span><br><span class="line">Copyright 2004-2016 Internet Systems Consortium.</span><br><span class="line">All rights reserved.</span><br><span class="line">For info, please visit https://www.isc.org/software/dhcp/</span><br><span class="line"></span><br><span class="line">Listening on LPF/wlan0/b8:27:eb:xx:xx:xx</span><br><span class="line">Sending on   LPF/wlan0/b8:27:eb:xx:xx:xx</span><br><span class="line">Sending on   Socket/fallback</span><br><span class="line">DHCPRELEASE on wlan0 to 192.168.1.1 port 67 (xid=0x13ea153a)</span><br></pre></td></tr></table></figure>
@@ -213,7 +213,7 @@
 <p>回显：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Internet Systems Consortium DHCP Client 4.3.5</span><br><span class="line">Copyright 2004-2016 Internet Systems Consortium.</span><br><span class="line">All rights reserved.</span><br><span class="line">For info, please visit https://www.isc.org/software/dhcp/</span><br><span class="line"></span><br><span class="line">Listening on LPF/wlan0/b8:27:eb:xx:xx:xx</span><br><span class="line">Sending on   LPF/wlan0/b8:27:eb:xx:xx:xx</span><br><span class="line">Sending on   Socket/fallback</span><br><span class="line">DHCPDISCOVER on wlan0 to 255.255.255.255 port 67 interval 3 (xid=0xd0fcdd63)</span><br><span class="line">DHCPDISCOVER on wlan0 to 255.255.255.255 port 67 interval 4 (xid=0xd0fcdd63)</span><br><span class="line">DHCPREQUEST of 192.168.1.52 on wlan0 to 255.255.255.255 port 67 (xid=0x63ddfcd0)</span><br><span class="line">DHCPOFFER of 192.168.1.52 from 192.168.1.1</span><br><span class="line">DHCPACK of 192.168.1.52 from 192.168.1.1</span><br><span class="line">bound to 192.168.1.52 -- renewal in 2147483648 seconds.</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-备注"><a href="#5-备注" class="headerlink" title="5. 备注"></a>5. 备注</h3><ul>
+<h2 id="5-备注"><a href="#5-备注" class="headerlink" title="5. 备注"></a>5. 备注</h2><ul>
 <li>ap_scan<ul>
 <li>默认值为1</li>
 <li>1：总是先连接可见的WiFi，如果扫描完所有可见的网络之后都没有连接上，则开始连接隐藏WiFi。</li>
@@ -233,6 +233,13 @@
 </ul>
 </li>
 </ul>
+<h1 id="使用netplan"><a href="#使用netplan" class="headerlink" title="使用netplan"></a>使用netplan</h1><p>Ubuntu 18及以后的新系统使用netplan管理网络连接，不再使用interfaces。</p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim /etc/netplan/50-cloud-init.yaml</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line"><span class="attr">    ethernets:</span></span><br><span class="line"><span class="attr">        eth0:</span></span><br><span class="line"><span class="attr">            dhcp4:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">            optional:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    wifis:</span></span><br><span class="line"><span class="attr">            wlan0:</span></span><br><span class="line"><span class="attr">                    dhcp4:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">                    dhcp6:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">                    access-points:</span></span><br><span class="line">                            <span class="string">"WiFi名称"</span><span class="string">:</span></span><br><span class="line"><span class="attr">                                    password:</span> <span class="string">"密码"</span></span><br><span class="line"><span class="attr">    version:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="应用更改"><a href="#应用更改" class="headerlink" title="应用更改"></a>应用更改</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo netplan apply</span><br></pre></td></tr></table></figure>
+
 
     
   </div>
