@@ -7,26 +7,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>树莓派使用docker | LittleGhost&#39;s Blog</title>
+  <title>使用scoop | LittleGhost&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="树莓派,docker,">
+    <meta name="keywords" content="scoop,">
   
 
-  <meta name="description" content="解决Got permission denied问题$ sudo groupadd docker				#添加docker用户组$ sudo gpasswd -a $USER docker		#将登陆用户加入到docker用户组中$ newgrp docker						#更新用户组$ docker ps  配置国内镜像源$ sudo vim /etc/docker/daemon.json  &amp;#1">
-<meta name="keywords" content="树莓派,docker">
+  <meta name="description" content="安装允许本地脚本执行$ set-executionpolicy remotesigned -scope currentuser  自定义scoop安装路径$ [environment]::setEnvironmentVariable(&apos;SCOOP&apos;,&apos;D:\scoop&apos;,&apos;User&apos;)$ $env:SCOOP=&apos;D:\scoop&apos;  执行安装脚本$ iex (new-object net.webc">
+<meta name="keywords" content="scoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树莓派使用docker">
-<meta property="og:url" content="https://littleghost2016.github.io/2020/01/24/树莓派使用docker/index.html">
+<meta property="og:title" content="使用scoop">
+<meta property="og:url" content="https://littleghost2016.github.io/2020/03/28/使用scoop/index.html">
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
-<meta property="og:description" content="解决Got permission denied问题$ sudo groupadd docker				#添加docker用户组$ sudo gpasswd -a $USER docker		#将登陆用户加入到docker用户组中$ newgrp docker						#更新用户组$ docker ps  配置国内镜像源$ sudo vim /etc/docker/daemon.json  &amp;#1">
+<meta property="og:description" content="安装允许本地脚本执行$ set-executionpolicy remotesigned -scope currentuser  自定义scoop安装路径$ [environment]::setEnvironmentVariable(&apos;SCOOP&apos;,&apos;D:\scoop&apos;,&apos;User&apos;)$ $env:SCOOP=&apos;D:\scoop&apos;  执行安装脚本$ iex (new-object net.webc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-28T13:39:35.569Z">
+<meta property="og:updated_time" content="2020-03-28T13:49:06.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树莓派使用docker">
-<meta name="twitter:description" content="解决Got permission denied问题$ sudo groupadd docker				#添加docker用户组$ sudo gpasswd -a $USER docker		#将登陆用户加入到docker用户组中$ newgrp docker						#更新用户组$ docker ps  配置国内镜像源$ sudo vim /etc/docker/daemon.json  &amp;#1">
+<meta name="twitter:title" content="使用scoop">
+<meta name="twitter:description" content="安装允许本地脚本执行$ set-executionpolicy remotesigned -scope currentuser  自定义scoop安装路径$ [environment]::setEnvironmentVariable(&apos;SCOOP&apos;,&apos;D:\scoop&apos;,&apos;User&apos;)$ $env:SCOOP=&apos;D:\scoop&apos;  执行安装脚本$ iex (new-object net.webc">
 
   
 
@@ -147,20 +147,20 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#解决Got-permission-denied问题"><span class="toc-text">解决Got permission denied问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置国内镜像源"><span class="toc-text">配置国内镜像源</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#允许本地脚本执行"><span class="toc-text">允许本地脚本执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义scoop安装路径"><span class="toc-text">自定义scoop安装路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行安装脚本"><span class="toc-text">执行安装脚本</span></a></li></ol></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-树莓派使用docker" class="article article-type-post" itemprop="blogPost">
+   <article id="post-使用scoop" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">树莓派使用docker</h1>
+    <h1 class="post-title">使用scoop</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2020.01.24</span>
+        <span>2020.03.28</span>
       </span>
 
       
@@ -193,13 +193,11 @@
 
   <div class="article-content">
     
-      <h1 id="解决Got-permission-denied问题"><a href="#解决Got-permission-denied问题" class="headerlink" title="解决Got permission denied问题"></a>解决Got permission denied问题</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo groupadd docker				<span class="comment">#添加docker用户组</span></span><br><span class="line">$ sudo gpasswd -a <span class="variable">$USER</span> docker		<span class="comment">#将登陆用户加入到docker用户组中</span></span><br><span class="line">$ newgrp docker						<span class="comment">#更新用户组</span></span><br><span class="line">$ docker ps</span><br></pre></td></tr></table></figure>
+      <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="允许本地脚本执行"><a href="#允许本地脚本执行" class="headerlink" title="允许本地脚本执行"></a>允许本地脚本执行</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">set-executionpolicy</span> remotesigned -scope currentuser</span><br></pre></td></tr></table></figure>
 
-<h1 id="配置国内镜像源"><a href="#配置国内镜像源" class="headerlink" title="配置国内镜像源"></a>配置国内镜像源</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+<h2 id="自定义scoop安装路径"><a href="#自定义scoop安装路径" class="headerlink" title="自定义scoop安装路径"></a>自定义scoop安装路径</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">$ [environment]::setEnvironmentVariable(<span class="string">'SCOOP'</span>,<span class="string">'D:\scoop'</span>,<span class="string">'User'</span>)</span><br><span class="line">$ <span class="variable">$env:SCOOP</span>=<span class="string">'D:\scoop'</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://dockerhub.azk8s.cn&quot;,</span><br><span class="line">    &quot;https://hub-mirror.c.163.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo systemctl daemon-reload</span><br><span class="line">$ sudo systemctl restart docker.service</span><br></pre></td></tr></table></figure>
+<h2 id="执行安装脚本"><a href="#执行安装脚本" class="headerlink" title="执行安装脚本"></a>执行安装脚本</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">$ iex (<span class="built_in">new-object</span> net.webclient).downloadstring(<span class="string">'https://get.scoop.sh'</span>)</span><br></pre></td></tr></table></figure>
 
 
     
@@ -212,10 +210,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2020/01/20/树莓派搭建smb/">
+    <a class="show pull-left" href="/2020/01/24/树莓派使用docker/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2020/03/28/使用scoop/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
