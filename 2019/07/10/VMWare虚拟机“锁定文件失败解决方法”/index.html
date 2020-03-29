@@ -15,18 +15,18 @@
     <meta name="keywords" content="vmware,">
   
 
-  <meta name="description" content="VMWare虚拟机“锁定文件失败解决方法”2019年07月10日  实验室突然断电导致开启虚拟机时报错另一个程序已锁定文件的一部分。 分析原因：虚拟机在运行的过程中会锁定文件，以防止文件被修改。当出现突然断电或者本地系统崩溃时，虚拟机无法及时地解除对于虚拟机文件的锁定，当再次启动时就会出现如上现象。 解决方法：将.lck结尾的文件夹删除。">
+  <meta name="description" content="2019年07月10日  实验室突然断电导致开启虚拟机时报错另一个程序已锁定文件的一部分。 分析原因：虚拟机在运行的过程中会锁定文件，以防止文件被修改。当出现突然断电或者本地系统崩溃时，虚拟机无法及时地解除对于虚拟机文件的锁定，当再次启动时就会出现如上现象。 解决方法：将.lck结尾的文件夹删除。">
 <meta name="keywords" content="vmware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VMWare虚拟机“锁定文件失败解决方法”">
 <meta property="og:url" content="https://littleghost2016.github.io/2019/07/10/VMWare虚拟机“锁定文件失败解决方法”/index.html">
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
-<meta property="og:description" content="VMWare虚拟机“锁定文件失败解决方法”2019年07月10日  实验室突然断电导致开启虚拟机时报错另一个程序已锁定文件的一部分。 分析原因：虚拟机在运行的过程中会锁定文件，以防止文件被修改。当出现突然断电或者本地系统崩溃时，虚拟机无法及时地解除对于虚拟机文件的锁定，当再次启动时就会出现如上现象。 解决方法：将.lck结尾的文件夹删除。">
+<meta property="og:description" content="2019年07月10日  实验室突然断电导致开启虚拟机时报错另一个程序已锁定文件的一部分。 分析原因：虚拟机在运行的过程中会锁定文件，以防止文件被修改。当出现突然断电或者本地系统崩溃时，虚拟机无法及时地解除对于虚拟机文件的锁定，当再次启动时就会出现如上现象。 解决方法：将.lck结尾的文件夹删除。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T13:45:55.000Z">
+<meta property="og:updated_time" content="2020-03-29T15:23:36.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VMWare虚拟机“锁定文件失败解决方法”">
-<meta name="twitter:description" content="VMWare虚拟机“锁定文件失败解决方法”2019年07月10日  实验室突然断电导致开启虚拟机时报错另一个程序已锁定文件的一部分。 分析原因：虚拟机在运行的过程中会锁定文件，以防止文件被修改。当出现突然断电或者本地系统崩溃时，虚拟机无法及时地解除对于虚拟机文件的锁定，当再次启动时就会出现如上现象。 解决方法：将.lck结尾的文件夹删除。">
+<meta name="twitter:description" content="2019年07月10日  实验室突然断电导致开启虚拟机时报错另一个程序已锁定文件的一部分。 分析原因：虚拟机在运行的过程中会锁定文件，以防止文件被修改。当出现突然断电或者本地系统崩溃时，虚拟机无法及时地解除对于虚拟机文件的锁定，当再次启动时就会出现如上现象。 解决方法：将.lck结尾的文件夹删除。">
 
   
 
@@ -147,7 +147,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VMWare虚拟机“锁定文件失败解决方法”"><span class="toc-text">VMWare虚拟机“锁定文件失败解决方法”</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分析原因："><span class="toc-text">分析原因：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法："><span class="toc-text">解决方法：</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分析原因："><span class="toc-text">分析原因：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方法："><span class="toc-text">解决方法：</span></a></li></ol>
   </div>
 
 
@@ -188,10 +188,10 @@
 
   <div class="article-content">
     
-      <h1 id="VMWare虚拟机“锁定文件失败解决方法”"><a href="#VMWare虚拟机“锁定文件失败解决方法”" class="headerlink" title="VMWare虚拟机“锁定文件失败解决方法”"></a>VMWare虚拟机“锁定文件失败解决方法”</h1><p>2019年07月10日 </p>
+      <p>2019年07月10日 </p>
 <p>实验室突然断电导致开启虚拟机时报错<code>另一个程序已锁定文件的一部分</code>。</p>
-<h2 id="分析原因："><a href="#分析原因：" class="headerlink" title="分析原因："></a>分析原因：</h2><p>虚拟机在运行的过程中会锁定文件，以防止文件被修改。当出现突然断电或者本地系统崩溃时，虚拟机无法及时地解除对于虚拟机文件的锁定，当再次启动时就会出现如上现象。</p>
-<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>将<code>.lck</code>结尾的文件夹删除。</p>
+<h1 id="分析原因："><a href="#分析原因：" class="headerlink" title="分析原因："></a>分析原因：</h1><p>虚拟机在运行的过程中会锁定文件，以防止文件被修改。当出现突然断电或者本地系统崩溃时，虚拟机无法及时地解除对于虚拟机文件的锁定，当再次启动时就会出现如上现象。</p>
+<h1 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h1><p>将<code>.lck</code>结尾的文件夹删除。</p>
 
     
   </div>

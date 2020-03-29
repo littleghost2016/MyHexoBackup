@@ -15,18 +15,18 @@
     <meta name="keywords" content="LittleGhost, Python, Golang">
   
 
-  <meta name="description" content="zsh报错command not found compdef安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
+  <meta name="description" content="安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
 <meta name="keywords" content="skills, solution">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zsh报错command not found compdef">
 <meta property="og:url" content="https://littleghost2016.github.io/2019/07/10/zsh报错command-not-found-compdef/index.html">
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
-<meta property="og:description" content="zsh报错command not found compdef安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
+<meta property="og:description" content="安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T13:43:07.000Z">
+<meta property="og:updated_time" content="2020-03-29T15:23:47.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zsh报错command not found compdef">
-<meta name="twitter:description" content="zsh报错command not found compdef安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
+<meta name="twitter:description" content="安装zsh后报错，解决方案： $ compaudit | xargs -I &apos;%&apos; chmod g-w,o-w &apos;%&apos;$ rm ~/.zcompdump*$ exec zsh">
 
   
 
@@ -145,11 +145,6 @@
 </div>
 
 
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#zsh报错command-not-found-compdef"><span class="toc-text">zsh报错command not found compdef</span></a></li></ol>
-  </div>
-
 
 
 <div class="content content-post CENTER">
@@ -188,7 +183,7 @@
 
   <div class="article-content">
     
-      <h1 id="zsh报错command-not-found-compdef"><a href="#zsh报错command-not-found-compdef" class="headerlink" title="zsh报错command not found compdef"></a>zsh报错command not found compdef</h1><p>安装zsh后报错，解决方案：</p>
+      <p>安装zsh后报错，解决方案：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ compaudit | xargs -I <span class="string">'%'</span> chmod g-w,o-w <span class="string">'%'</span></span><br><span class="line">$ rm ~/.zcompdump*</span><br><span class="line">$ <span class="built_in">exec</span> zsh</span><br></pre></td></tr></table></figure>
 
 
