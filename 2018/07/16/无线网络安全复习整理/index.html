@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>无线网络安全复习整理 | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="无线网络安全,">
+  
+
+  <meta name="description" content="第一章7种主要安全威胁窃听、篡改、伪装、重放、非授权访问、拒绝服务、否认。 3种无线通信攻击方式无线窃听/假冒/篡改、信号重放、信号劫持。 不同协议层次安全防护措施   层次 功能 手段    应用层 +访问控制    传输层 +身份认证 端到端加密   网络层 … 端到端加密   链路层 +完整性、抗重放 链路加密   物理层 机密性、抗干扰 信道加密、跳频扩频   不同网络安全防护措施   网">
+<meta name="keywords" content="无线网络安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无线网络安全复习整理">
+<meta property="og:url" content="https://littleghost2016.github.io/2018/07/16/无线网络安全复习整理/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="第一章7种主要安全威胁窃听、篡改、伪装、重放、非授权访问、拒绝服务、否认。 3种无线通信攻击方式无线窃听/假冒/篡改、信号重放、信号劫持。 不同协议层次安全防护措施   层次 功能 手段    应用层 +访问控制    传输层 +身份认证 端到端加密   网络层 … 端到端加密   链路层 +完整性、抗重放 链路加密   物理层 机密性、抗干扰 信道加密、跳频扩频   不同网络安全防护措施   网">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/07/16/无线网络安全复习整理/201807150043-GSM%E5%92%8C3G%E6%AF%94%E8%BE%83.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/07/16/无线网络安全复习整理/201807151122-STA%E4%B8%8EAP%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/07/16/无线网络安全复习整理/201807151723-BSS%E5%92%8CESS.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/07/16/无线网络安全复习整理/201807151819-WPA%E5%92%8CWPA2.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/07/16/无线网络安全复习整理/201807152300%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1%E6%96%B9%E6%B3%95.png">
+<meta property="og:updated_time" content="2020-03-30T02:20:47.055Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="无线网络安全复习整理">
+<meta name="twitter:description" content="第一章7种主要安全威胁窃听、篡改、伪装、重放、非授权访问、拒绝服务、否认。 3种无线通信攻击方式无线窃听/假冒/篡改、信号重放、信号劫持。 不同协议层次安全防护措施   层次 功能 手段    应用层 +访问控制    传输层 +身份认证 端到端加密   网络层 … 端到端加密   链路层 +完整性、抗重放 链路加密   物理层 机密性、抗干扰 信道加密、跳频扩频   不同网络安全防护措施   网">
+<meta name="twitter:image" content="https://littleghost2016.github.io/2018/07/16/无线网络安全复习整理/201807150043-GSM%E5%92%8C3G%E6%AF%94%E8%BE%83.png">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章"><span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7种主要安全威胁"><span class="toc-text">7种主要安全威胁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3种无线通信攻击方式"><span class="toc-text">3种无线通信攻击方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同协议层次安全防护措施"><span class="toc-text">不同协议层次安全防护措施</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同网络安全防护措施"><span class="toc-text">不同网络安全防护措施</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章"><span class="toc-text">第二章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2G"><span class="toc-text">2G</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GSM鉴权过程"><span class="toc-text">GSM鉴权过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSM存在的安全问题"><span class="toc-text">GSM存在的安全问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3G"><span class="toc-text">3G</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Network-access-security-网络接入安全"><span class="toc-text">Network access security-网络接入安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Provider-domain-security-网络域安全"><span class="toc-text">Provider domain security-网络域安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#User-domain-security"><span class="toc-text">User domain security</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Application-security"><span class="toc-text">Application security</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个协议，五元组的生成"><span class="toc-text">一个协议，五元组的生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSM和3G的安全对比"><span class="toc-text">GSM和3G的安全对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#鉴权过程"><span class="toc-text">鉴权过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4G"><span class="toc-text">4G</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LTE安全威胁"><span class="toc-text">LTE安全威胁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LTE-SAE的安全包括两个层次"><span class="toc-text">LTE/SAE的安全包括两个层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#只是认证向量中-CK，-IK变为Kasme"><span class="toc-text">只是认证向量中 CK， IK变为Kasme</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LTE中的安全问题"><span class="toc-text">LTE中的安全问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章"><span class="toc-text">第三章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#STA与AP的连接建立过程"><span class="toc-text">STA与AP的连接建立过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BSS和ESS"><span class="toc-text">BSS和ESS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全威胁"><span class="toc-text">安全威胁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSID两种机制"><span class="toc-text">SSID两种机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDOS"><span class="toc-text">DDOS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#802-11i-（WPA-WPA2区别）认证"><span class="toc-text">802.11i （WPA/WPA2区别）认证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSN工作流程"><span class="toc-text">RSN工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四次握手"><span class="toc-text">四次握手</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四章"><span class="toc-text">第四章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ad-Hoc安全问题"><span class="toc-text">Ad Hoc安全问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全路由-能判断是哪种协议类型的路由攻击"><span class="toc-text">安全路由-能判断是哪种协议类型的路由攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#密钥管理-要求和分类"><span class="toc-text">密钥管理-要求和分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本要求"><span class="toc-text">基本要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传感器-攻击手段和防御方法"><span class="toc-text">传感器-攻击手段和防御方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章"><span class="toc-text">第五章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#zigbee-基本信息：工作频段、传输距离-速率"><span class="toc-text">zigbee-基本信息：工作频段、传输距离/速率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#节点类型、组网形态"><span class="toc-text">节点类型、组网形态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全借鉴了802-15-4"><span class="toc-text">安全借鉴了802.15.4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三类安全模式"><span class="toc-text">三类安全模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三种密钥-特性"><span class="toc-text">三种密钥+特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#密钥生成两种方式：密钥传输、预安装"><span class="toc-text">密钥生成两种方式：密钥传输、预安装</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-无线网络安全复习整理" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">无线网络安全复习整理</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.07.16</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="7种主要安全威胁"><a href="#7种主要安全威胁" class="headerlink" title="7种主要安全威胁"></a>7种主要安全威胁</h2><p>窃听、篡改、伪装、重放、非授权访问、拒绝服务、否认。</p>
+<h2 id="3种无线通信攻击方式"><a href="#3种无线通信攻击方式" class="headerlink" title="3种无线通信攻击方式"></a>3种无线通信攻击方式</h2><p>无线窃听/假冒/篡改、信号重放、信号劫持。</p>
+<h2 id="不同协议层次安全防护措施"><a href="#不同协议层次安全防护措施" class="headerlink" title="不同协议层次安全防护措施"></a>不同协议层次安全防护措施</h2><table>
+<thead>
+<tr>
+<th align="center">层次</th>
+<th align="center">功能</th>
+<th align="center">手段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">应用层</td>
+<td align="center">+访问控制</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">传输层</td>
+<td align="center">+身份认证</td>
+<td align="center">端到端加密</td>
+</tr>
+<tr>
+<td align="center">网络层</td>
+<td align="center">…</td>
+<td align="center">端到端加密</td>
+</tr>
+<tr>
+<td align="center">链路层</td>
+<td align="center">+完整性、抗重放</td>
+<td align="center">链路加密</td>
+</tr>
+<tr>
+<td align="center">物理层</td>
+<td align="center">机密性、抗干扰</td>
+<td align="center">信道加密、跳频扩频</td>
+</tr>
+</tbody></table>
+<h2 id="不同网络安全防护措施"><a href="#不同网络安全防护措施" class="headerlink" title="不同网络安全防护措施"></a>不同网络安全防护措施</h2><table>
+<thead>
+<tr>
+<th align="center">网络</th>
+<th align="center">需求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">蜂窝网</td>
+<td align="center">+网络域安全</td>
+</tr>
+<tr>
+<td align="center">无线局域网</td>
+<td align="center">网络接入安全、用户域安全、应用域安全</td>
+</tr>
+<tr>
+<td align="center">无线个域网</td>
+<td align="center">无线传输安全</td>
+</tr>
+<tr>
+<td align="center">无线自组网</td>
+<td align="center">群组通信安全、动态组网安全</td>
+</tr>
+<tr>
+<td align="center">异构无线网</td>
+<td align="center">跨域接入安全、安全互联互通</td>
+</tr>
+</tbody></table>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="2G"><a href="#2G" class="headerlink" title="2G"></a>2G</h2><p><em>2G：支持话音和低速数据。</em></p>
+<p><em>2.5G：GPRS、WPA、蓝牙。</em></p>
+<p>IMSI — International Mobile Subscriber Identification，TMSI。AUC为每个用户提供三元组：随机数RAND、认证响应SRES、密钥Kc。<u>VLR处存储TMSI和IMSI之间的对应关系</u>，<em>有在用户开机或者VLR数据丢失的时候IMSI才被发送，平时仅在无线信道上发送移动用户相应的TMSI</em>。</p>
+<ul>
+<li>有线—线缆——明码传输</li>
+<li>无线—电磁波—加密传输</li>
+<li>有IMSI（可读出），K（过程中不传输，无法读出，网络侧也有相同数据）和ICCID这3组数据就可以复制SIM卡。</li>
+<li>鉴权算法A3，编码算法A5，数据加密密钥生成算法A8</li>
+<li>A3、A8、A5、K、Kc是不在网络中传递的，从而增强了网络的安全性。</li>
+</ul>
+<h3 id="GSM鉴权过程"><a href="#GSM鉴权过程" class="headerlink" title="GSM鉴权过程"></a>GSM鉴权过程</h3><blockquote>
+<p>MSC/VLR：移动交换中心</p>
+</blockquote>
+<p>AUC-128bit随机数-&gt;手机</p>
+<p>SIM卡-Ki+随机数-A3算法-生成SRES-&gt;AUC</p>
+<p>AUC比对自己的和发来的SRES</p>
+<h3 id="GSM存在的安全问题"><a href="#GSM存在的安全问题" class="headerlink" title="GSM存在的安全问题"></a>GSM存在的安全问题</h3><ul>
+<li>单项认证</li>
+<li>非端到端加密</li>
+<li>移动台第一次注册和漫游时，IMSI可能以明文方式发送到VLR/MSC</li>
+<li>加密密钥长度未64bit，太短</li>
+<li>未考虑数据完整性</li>
+<li>加密算法不公开，无法得到客观评价</li>
+<li>加密算法固定不变，缺乏算法和密钥协商部分</li>
+</ul>
+<h2 id="3G"><a href="#3G" class="headerlink" title="3G"></a>3G</h2><h3 id="Network-access-security-网络接入安全"><a href="#Network-access-security-网络接入安全" class="headerlink" title="Network access security-网络接入安全"></a>Network access security-网络接入安全</h3><p>用户身份/位置/行踪保密，密钥分发，实体认证，数据完整性用户数据与信令数据的保密</p>
+<h3 id="Provider-domain-security-网络域安全"><a href="#Provider-domain-security-网络域安全" class="headerlink" title="Provider domain security-网络域安全"></a>Provider domain security-网络域安全</h3><p>核心网络实体间安全交换数据：数据加密，数据认证，身份认证</p>
+<h3 id="User-domain-security"><a href="#User-domain-security" class="headerlink" title="User domain security"></a>User domain security</h3><p>用户与智能卡之间的认证，智能卡与终端之间的认证，链路保护</p>
+<h3 id="Application-security"><a href="#Application-security" class="headerlink" title="Application security"></a>Application security</h3><p>用户能知道一个安全特征集合是否在运行，并且用户可以根据自己的安全需求进行设置</p>
+<blockquote>
+<p>HLR（home location register）保存的是用户的基本信息，如你的SIM的卡号、手机号码、签约信息等，和动态信息，如当前的位置、是否已经关机等；<br>VLR(visiting location register)保存的是用户的动态信息和状态信息，以及从HLR下载的用户的签约信息。 </p>
+<p>当你从北京到上海之后，手机会自动向上海的VLR发起位置更新（登记），上海的VLR会将你现在的位置报告到北京的HLR。当他人呼你时，交换机首先向HLR查询你现在所在的位置，然后接可以呼到你了。</p>
+</blockquote>
+<h3 id="一个协议，五元组的生成"><a href="#一个协议，五元组的生成" class="headerlink" title="一个协议，五元组的生成"></a>一个协议，五元组的生成</h3><h3 id="GSM和3G的安全对比"><a href="#GSM和3G的安全对比" class="headerlink" title="GSM和3G的安全对比"></a>GSM和3G的安全对比</h3><p><img src="201807150043-GSM%E5%92%8C3G%E6%AF%94%E8%BE%83.png" alt></p>
+<h3 id="鉴权过程"><a href="#鉴权过程" class="headerlink" title="鉴权过程"></a>鉴权过程</h3><table>
+<thead>
+<tr>
+<th align="center">MS</th>
+<th align="center">VLR/SGSN</th>
+<th align="center">HE/HLR</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">认证请求</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">生成认证向量AV(1..n)</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">[存储认证向量组]+[选择一个]</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">RAND || AUTH</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">[验证AUTH || 计算RES]</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">RES</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">[比较RES和XRES]</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">计算IC和CK</td>
+<td align="center">选择IK和CK</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="4G"><a href="#4G" class="headerlink" title="4G"></a>4G</h2><h3 id="LTE安全威胁"><a href="#LTE安全威胁" class="headerlink" title="LTE安全威胁"></a>LTE安全威胁</h3><p>3G网络面临的安全威胁同样存在；对eNB（尤其是home eNB）的物理攻击是可能的，对eNB的网络攻击是可能的</p>
+<h3 id="LTE-SAE的安全包括两个层次"><a href="#LTE-SAE的安全包括两个层次" class="headerlink" title="LTE/SAE的安全包括两个层次"></a>LTE/SAE的安全包括两个层次</h3><ul>
+<li>接入层（ AS）安全： UE与 eNB之间的安全</li>
+<li>非接入层（ NAS）安全： UE与 MME之间的安全</li>
+</ul>
+<h3 id="只是认证向量中-CK，-IK变为Kasme"><a href="#只是认证向量中-CK，-IK变为Kasme" class="headerlink" title="只是认证向量中 CK， IK变为Kasme"></a>只是认证向量中 CK， IK变为Kasme</h3><h3 id="LTE中的安全问题"><a href="#LTE中的安全问题" class="headerlink" title="LTE中的安全问题"></a>LTE中的安全问题</h3><ul>
+<li>截获IMSI-<em>在UTRAN中UE无法拒绝网络要求明文IMSI</em></li>
+<li>跟踪UE-3种：<em>跟踪用户的临时标识；利用IMSI/TMSI和RNTI之间的联系；利用IP地址和TMSI/IMSI/RNTI</em></li>
+<li>强制切换eNB/强制切换到传统网络</li>
+</ul>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="STA与AP的连接建立过程"><a href="#STA与AP的连接建立过程" class="headerlink" title="STA与AP的连接建立过程"></a>STA与AP的连接建立过程</h2><table>
+<thead>
+<tr>
+<th align="center">有线网络——接入点（AP）</th>
+<th align="center"></th>
+<th align="center">无线终端（STA）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">固定间隔（通常10秒）广播信标</td>
+<td align="center">&lt;-探测请求-</td>
+<td align="center">扫描所有频段</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">-探测响应-&gt;</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&lt;-认证请求-</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">假定不使用安全措施，马上回复</td>
+<td align="center">-认证响应-&gt;</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&lt;-关联请求-</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">-关联响应-&gt;</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">&lt;-数据传输-</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p><img src="201807151122-STA%E4%B8%8EAP%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B.png" alt></p>
+<h2 id="BSS和ESS"><a href="#BSS和ESS" class="headerlink" title="BSS和ESS"></a>BSS和ESS</h2><p><img src="201807151723-BSS%E5%92%8CESS.png" alt></p>
+<h2 id="安全威胁"><a href="#安全威胁" class="headerlink" title="安全威胁"></a>安全威胁</h2><p>物理威胁：</p>
+<ul>
+<li>电缆</li>
+<li>天线</li>
+<li>无线网卡等</li>
+</ul>
+<p>干扰：</p>
+<ul>
+<li>微波</li>
+<li>人为干扰等</li>
+</ul>
+<p>偷窃用户设备：</p>
+<ul>
+<li>窃听、截取和监听</li>
+<li>欺骗和非授权访问（伪装成授权用户）——对策：使用外部双因子身份验证，如RADIUS或SecurID</li>
+<li>网络接管与篡改</li>
+<li>伪造AP</li>
+<li>破解密码</li>
+<li>拒绝服务攻击</li>
+<li>无线网络钓鱼攻击</li>
+<li>恶意软件和病毒</li>
+</ul>
+<h2 id="SSID两种机制"><a href="#SSID两种机制" class="headerlink" title="SSID两种机制"></a>SSID两种机制</h2><ul>
+<li>对于广播型SSID ，直接使用无线探测工具进行获取</li>
+<li>对于非广播型SSID，伪造AP发送断开连结帧，使客户端重新连结时进行捕获</li>
+</ul>
+<h2 id="DDOS"><a href="#DDOS" class="headerlink" title="DDOS"></a>DDOS</h2><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">未认证，未关联</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">认证洪水攻击</td>
+<td align="center">认证成功</td>
+<td align="center"></td>
+<td align="center">取消认证</td>
+<td align="center">取消认证洪水攻击</td>
+</tr>
+<tr>
+<td align="center">（发送认证请求*）</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">（伪造AP发送取消认证报文^）</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">已认证，未关联</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">关联洪水攻击</td>
+<td align="center">关联成功</td>
+<td align="center"></td>
+<td align="center">取消关联</td>
+<td align="center">取消关联洪水攻击</td>
+</tr>
+<tr>
+<td align="center">（发送关联请求*）</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">（伪造AP发送取消关联报文^）</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">已认证，已关联</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>*=使合法用户得不到响应 </p>
+<p>^=使合法用户不能完成认证/关联</p>
+</blockquote>
+<h2 id="802-11i-（WPA-WPA2区别）认证"><a href="#802-11i-（WPA-WPA2区别）认证" class="headerlink" title="802.11i （WPA/WPA2区别）认证"></a>802.11i （WPA/WPA2区别）认证</h2><ul>
+<li><p>WPA = IEEE 802.11i draft 3 = IEEE 802.1X/EAP + WEP(选择性项目)/TKIP</p>
+</li>
+<li><p>WPA2 = WPA+/CCMP</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="center">WPA</th>
+<th align="center">WPA2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PSK模式下主密钥手工输入</td>
+<td align="center">PSK模式下主密钥由手工输入和SSID组成（PMK)</td>
+</tr>
+<tr>
+<td align="center">使用TKIP算法——基于RC4</td>
+<td align="center">使用AES算法——完全脱离RC4算法</td>
+</tr>
+<tr>
+<td align="center">密钥分为主与临时密钥</td>
+<td align="center">主PMK、临时PTK、GTK（解密广播与多播消息）</td>
+</tr>
+<tr>
+<td align="center">AP间切换会导致语音中断</td>
+<td align="center">采用预授权方式来保证无缝切换</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ul>
+<li><p>无线局域网安全协议：开放系统认证 + 共享密钥认证（可选）</p>
+</li>
+<li><p><img src="201807151819-WPA%E5%92%8CWPA2.png" alt></p>
+</li>
+</ul>
+<h2 id="RSN工作流程"><a href="#RSN工作流程" class="headerlink" title="RSN工作流程"></a>RSN工作流程</h2><ul>
+<li><p>RSN安全机制只工作在数据链路层，并不提供端到端的应用层通信保护。</p>
+</li>
+<li><p>三种类型的设备：STA、AP、AS(Authentication Servers)</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="center">STA</th>
+<th align="center">AP</th>
+<th align="center">服务器</th>
+<th align="center">STA</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">发现（加密与认证机制满足AP要求）</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">[转发]</td>
+<td align="center">认证</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">密钥管理</td>
+<td align="center">密钥分配</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">（RSN只保护STA与AP数据链路层间的安全）</td>
+<td align="center"></td>
+<td align="center">加密的数据传输</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">连接中止</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>AP不参与认证</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="四次握手"><a href="#四次握手" class="headerlink" title="四次握手"></a>四次握手</h2><table>
+<thead>
+<tr>
+<th align="center">WirelessStation——AccessPoint</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">AP的IEEE802.1X控制端口关闭</td>
+</tr>
+<tr>
+<td align="center">&lt;-发送Anonce-</td>
+</tr>
+<tr>
+<td align="center">-发送Snonce（带MIC）-&gt;</td>
+</tr>
+<tr>
+<td align="center">&lt;-是否适用一对一密码（带MIC）-</td>
+</tr>
+<tr>
+<td align="center">-响应，四次握手结束-&gt;</td>
+</tr>
+<tr>
+<td align="center">AP的IEEE802.1X控制端口打开</td>
+</tr>
+</tbody></table>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><h2 id="Ad-Hoc安全问题"><a href="#Ad-Hoc安全问题" class="headerlink" title="Ad Hoc安全问题"></a>Ad Hoc安全问题</h2><blockquote>
+<p>无线局域网为单跳网络，不存在路由问题；主要研究集中在物理层和数据链路层；移动终端的所有通信必须经过无线接入点进行<br>Ad Hoc网络为多跳，的研究内容主要以路由协议为核心的网络层设计</p>
+</blockquote>
+<ul>
+<li>无线信道使得Ad Hoc网络可能遭受偷听、伪装、消息重放、消息修改等攻击</li>
+<li>节点可能布置在敌对环境中</li>
+<li>拓扑结构和成员是动态的，节点之间的信任关系也是动态变化的</li>
+<li>安全机制应该适应大规模网络</li>
+</ul>
+<h2 id="安全路由-能判断是哪种协议类型的路由攻击"><a href="#安全路由-能判断是哪种协议类型的路由攻击" class="headerlink" title="安全路由-能判断是哪种协议类型的路由攻击"></a>安全路由-能判断是哪种协议类型的路由攻击</h2><blockquote>
+<p><del>路由表驱动路由协议：</del><br><del>按需路由协议：</del><br><del>混合路由协议：（局部范围1，远距离2）</del></p>
+<p>先应式</p>
+<p>反应式</p>
+<p>混合式</p>
+</blockquote>
+<ul>
+<li>路由协议的攻击模型</li>
+</ul>
+<ul>
+<li><p>更改路由序号的重定向攻击（AODV与DSR）</p>
+</li>
+<li><p>更改跳数的重定向攻击（AODV）</p>
+<ul>
+<li>假冒攻击</li>
+<li>拒绝服务攻击</li>
+</ul>
+</li>
+<li><p>目的节点拒绝服务攻击</p>
+</li>
+<li><p>篡改源路由进行拒绝服务攻击（DSR）</p>
+<ul>
+<li>伪造报文攻击</li>
+</ul>
+</li>
+<li><p>伪造路由错误信息（AODV和DSR）</p>
+</li>
+<li><p>破坏路由状态（DSR）</p>
+</li>
+<li><p>路由表溢出</p>
+</li>
+<li><p>重放攻击</p>
+</li>
+<li><p>黑洞攻击</p>
+<ul>
+<li>自私节点的不合作攻击</li>
+</ul>
+</li>
+<li><p>能量消耗</p>
+</li>
+<li><p>自身数据发送延迟</p>
+</li>
+</ul>
+<h2 id="密钥管理-要求和分类"><a href="#密钥管理-要求和分类" class="headerlink" title="密钥管理-要求和分类"></a>密钥管理-要求和分类</h2><h3 id="基本要求"><a href="#基本要求" class="headerlink" title="基本要求"></a>基本要求</h3><ul>
+<li><p>前向保密：节点退出（主动地或者被强制地）通信组后不能够继续参与组通信<em>即它们无法利用自己拥有的组密钥解密后续组通信数据或者生成有效的加密数据</em></p>
+</li>
+<li><p>后向保密：当新的成员加入到通信组后，必须保证新加入的成员无法解密它加入以前的组通信报文</p>
+</li>
+<li><p>抗合谋攻击</p>
+</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li><p>集中式组密钥管理协议（只适用于小规模的组通信）：存在单一的密钥服务器KS对整个组的密钥进行管理。</p>
+</li>
+<li><p>分布式组密钥管理协议：分布式组密钥协议的特点是群组中没有固定的控制节点，组密钥由所有成员贡献的秘密份额协商生成。根据密钥份额的分布性可以分为部分分布式和完全分布式两种情况。</p>
+</li>
+<li><p>层次式组密钥管理协议：具有很强的可扩展性，层次结构也存在随着分层级数的增加</p>
+</li>
+</ul>
+<h2 id="传感器-攻击手段和防御方法"><a href="#传感器-攻击手段和防御方法" class="headerlink" title="传感器-攻击手段和防御方法"></a>传感器-攻击手段和防御方法</h2><ul>
+<li><img src="201807152300%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E5%92%8C%E9%98%B2%E5%BE%A1%E6%96%B9%E6%B3%95.png" alt></li>
+</ul>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><h2 id="zigbee-基本信息：工作频段、传输距离-速率"><a href="#zigbee-基本信息：工作频段、传输距离-速率" class="headerlink" title="zigbee-基本信息：工作频段、传输距离/速率"></a>zigbee-基本信息：工作频段、传输距离/速率</h2><ul>
+<li>2.4GHz-250kbps-16</li>
+<li>868MHz-20kbps-1</li>
+<li>915MHz-40kbps-16</li>
+</ul>
+<h2 id="节点类型、组网形态"><a href="#节点类型、组网形态" class="headerlink" title="节点类型、组网形态"></a>节点类型、组网形态</h2><ul>
+<li>全功能型节点、精简功能节点</li>
+<li>星型、网状星、簇状型</li>
+</ul>
+<h2 id="安全借鉴了802-15-4"><a href="#安全借鉴了802-15-4" class="headerlink" title="安全借鉴了802.15.4"></a>安全借鉴了802.15.4</h2><h2 id="三类安全模式"><a href="#三类安全模式" class="headerlink" title="三类安全模式"></a>三类安全模式</h2><ul>
+<li>无安全模式：默认，可能被窃听</li>
+<li>访问控制列表模式：通过访问控制列表ACL限制非法节点获取数据</li>
+<li>安全模式，同时使用访问控制和帧载荷密码保护</li>
+</ul>
+<h2 id="三种密钥-特性"><a href="#三种密钥-特性" class="headerlink" title="三种密钥+特性"></a>三种密钥+特性</h2><ul>
+<li><p>主密钥：用于配合ZigBee对称密钥的建立（SKKE）过程来派生其它密钥</p>
+</li>
+<li><p>网络密钥：保护广播和组数据的机密性和完整性，同时也为网络认证提供保护（仅在广播消息中使用）</p>
+</li>
+<li><p>链接密钥：保护两个设备之间单播数据的机密性和完整性</p>
+</li>
+</ul>
+<h2 id="密钥生成两种方式：密钥传输、预安装"><a href="#密钥生成两种方式：密钥传输、预安装" class="headerlink" title="密钥生成两种方式：密钥传输、预安装"></a>密钥生成两种方式：密钥传输、预安装</h2>
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/11/30/逆向工程复习整理/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/07/09/hello-world/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
