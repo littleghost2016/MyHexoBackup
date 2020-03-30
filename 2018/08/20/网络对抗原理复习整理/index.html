@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>网络对抗原理复习整理 | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="网络对抗原理,">
+  
+
+  <meta name="description" content="nmap oN/oX  ping -c -i -s -t  tcpdump -i 使标准输出变为缓冲行形式   -e 在输出行打印出数据链路层的头部信息，包括源mac和目的mac，以及网络层的协议   -c  -w 包写入文件中，不打印  -n 域名转换成IP地址后显示 ，不把网络地址转换成名字   -nn 每个监听到的数据包中的域名转换成IP、端口从应用名称转换成端口号   -v[v] 输出详细">
+<meta name="keywords" content="网络对抗原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络对抗原理复习整理">
+<meta property="og:url" content="https://littleghost2016.github.io/2018/08/20/网络对抗原理复习整理/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="nmap oN/oX  ping -c -i -s -t  tcpdump -i 使标准输出变为缓冲行形式   -e 在输出行打印出数据链路层的头部信息，包括源mac和目的mac，以及网络层的协议   -c  -w 包写入文件中，不打印  -n 域名转换成IP地址后显示 ，不把网络地址转换成名字   -nn 每个监听到的数据包中的域名转换成IP、端口从应用名称转换成端口号   -v[v] 输出详细">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-30T03:01:24.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络对抗原理复习整理">
+<meta name="twitter:description" content="nmap oN/oX  ping -c -i -s -t  tcpdump -i 使标准输出变为缓冲行形式   -e 在输出行打印出数据链路层的头部信息，包括源mac和目的mac，以及网络层的协议   -c  -w 包写入文件中，不打印  -n 域名转换成IP地址后显示 ，不把网络地址转换成名字   -nn 每个监听到的数据包中的域名转换成IP、端口从应用名称转换成端口号   -v[v] 输出详细">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap"><span class="toc-text">nmap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ping"><span class="toc-text">ping</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tcpdump"><span class="toc-text">tcpdump</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DDoS"><span class="toc-text">DDoS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件"><span class="toc-text">条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例如"><span class="toc-text">例如</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CC-过量访问"><span class="toc-text">CC/ 过量访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清洗"><span class="toc-text">清洗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#四层清洗"><span class="toc-text">四层清洗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七层清洗"><span class="toc-text">七层清洗</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防御方法"><span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLMAP"><span class="toc-text">SQLMAP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防御体系构建"><span class="toc-text">防御体系构建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#渗透路径的启示"><span class="toc-text">渗透路径的启示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启示"><span class="toc-text">启示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分层"><span class="toc-text">分层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全域划分"><span class="toc-text">安全域划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#审计"><span class="toc-text">审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测方式"><span class="toc-text">检测方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2018年安全事件"><span class="toc-text">2018年安全事件</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-网络对抗原理复习整理" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">网络对抗原理复习整理</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.08.20</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h1><ul>
+<li>oN/oX</li>
+</ul>
+<h1 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h1><ul>
+<li>-c</li>
+<li>-i</li>
+<li>-s</li>
+<li>-t</li>
+</ul>
+<h1 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h1><ul>
+<li><p>-i 使标准输出变为缓冲行形式 </p>
+</li>
+<li><p>-e 在输出行打印出数据链路层的头部信息，包括源mac和目的mac，以及网络层的协议 </p>
+</li>
+<li><p>-c</p>
+</li>
+<li><p>-w 包写入文件中，不打印</p>
+</li>
+<li><p>-n 域名转换成IP地址后显示 ，不把网络地址转换成名字 </p>
+</li>
+<li><p>-nn 每个监听到的数据包中的域名转换成IP、端口从应用名称转换成端口号 </p>
+</li>
+<li><p>-v[v] 输出详细的报文信息 </p>
+</li>
+<li><p>-X[X] 以16进制[ASCII]展示</p>
+</li>
+</ul>
+<h1 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h1><h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><ul>
+<li><p>不校验来源</p>
+</li>
+<li><p>返回比请求大</p>
+</li>
+</ul>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><ul>
+<li>NTP</li>
+<li>BT</li>
+<li>DNS</li>
+</ul>
+<h2 id="CC-过量访问"><a href="#CC-过量访问" class="headerlink" title="CC/ 过量访问"></a>CC/ 过量访问</h2><ul>
+<li>低于带宽，高于处理能力</li>
+</ul>
+<h2 id="清洗"><a href="#清洗" class="headerlink" title="清洗"></a>清洗</h2><h3 id="四层清洗"><a href="#四层清洗" class="headerlink" title="四层清洗"></a>四层清洗</h3><ul>
+<li><p>支持非 HTTP 流量</p>
+</li>
+<li><p>不需要 SSL 证书</p>
+</li>
+</ul>
+<h3 id="七层清洗"><a href="#七层清洗" class="headerlink" title="七层清洗"></a>七层清洗</h3><ul>
+<li>支持防 CC</li>
+<li>细粒度清洗</li>
+</ul>
+<h2 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h2><ul>
+<li>准备备用 IP （回源 IP ）</li>
+<li>配置回源 IP ACL ，白名单</li>
+<li>配置供应商高防 IP 与回源策略</li>
+<li>测试真实 IP 透传</li>
+<li>制定预案与响应策略</li>
+<li>演练</li>
+<li>供应商选择与商务谈判</li>
+</ul>
+<h1 id="SQLMAP"><a href="#SQLMAP" class="headerlink" title="SQLMAP"></a>SQLMAP</h1><h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li>-r REQUESTFILE 从一个文件中载入HTTP请求 </li>
+<li>-level 执行测试的等级 </li>
+<li>-risk 执行测试的风险</li>
+<li>–current-user 检索数据库管理系统当前用户 </li>
+<li>-technique BEUST</li>
+<li>–time-sec=TIMESEC DBMS响应的延迟时间（默认为5秒） </li>
+<li>–dbms=DBMS 强制后端的DBMS为此值 </li>
+</ul>
+<h1 id="防御体系构建"><a href="#防御体系构建" class="headerlink" title="防御体系构建"></a>防御体系构建</h1><ul>
+<li>让系统更规范</li>
+<li>加强对信息的掌握</li>
+<li>安全评估</li>
+<li>入侵检测</li>
+<li>及时响应</li>
+</ul>
+<h1 id="渗透路径的启示"><a href="#渗透路径的启示" class="headerlink" title="渗透路径的启示"></a>渗透路径的启示</h1><h2 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h2><ul>
+<li>网络访问的隔离与限制</li>
+<li>漏洞的发现和利用</li>
+<li>账号与权限</li>
+</ul>
+<h2 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h2><ul>
+<li><p>客户端安全</p>
+</li>
+<li><p>网络与系统安全</p>
+</li>
+<li><p>应用安全</p>
+</li>
+<li><p>业务安全</p>
+</li>
+<li><p>数据安全</p>
+</li>
+</ul>
+<h2 id="安全域划分"><a href="#安全域划分" class="headerlink" title="安全域划分"></a>安全域划分</h2><table>
+<thead>
+<tr>
+<th align="center">网络准入</th>
+<th>←</th>
+<th>外网</th>
+<th>←→</th>
+<th>端口管理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">↓</td>
+<td></td>
+<td></td>
+<td></td>
+<td>↑↓</td>
+</tr>
+<tr>
+<td align="center">办公网</td>
+<td>→</td>
+<td>跳板机</td>
+<td>→</td>
+<td>内网</td>
+</tr>
+</tbody></table>
+<h2 id="审计"><a href="#审计" class="headerlink" title="审计"></a>审计</h2><ul>
+<li>事前：风险评估、资格评估</li>
+<li>事中：入侵检测</li>
+<li>事后：追溯 + 制度</li>
+</ul>
+<h2 id="检测方式"><a href="#检测方式" class="headerlink" title="检测方式"></a>检测方式</h2><ul>
+<li><p>误用检测 - 黑名单</p>
+</li>
+<li><p>异常检测 - 白名单</p>
+</li>
+</ul>
+<h1 id="2018年安全事件"><a href="#2018年安全事件" class="headerlink" title="2018年安全事件"></a>2018年安全事件</h1><p>微信支付SDK的XXE漏洞，语言为JAVA，查看SDK给的README.md说明，其中表示在支付结果的回掉接口notify_url 处使用，向商户的notify_url接口发送dtd脏数据，商户服务器加载远程dtd文件，商户服务器将key值发送至attack服务器。漏洞本身只是很简单的XXE漏洞造成的任意文件读取，因为漏洞所处的关键业务点使得造成的损失巨大，但是由于notify_url的使用过程中客户全程并不参与，所以在我看来notify_url的获取方式是该漏洞破坏性的瓶颈。 </p>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/07/16/无线网络安全复习整理/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/07/09/hello-world/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
