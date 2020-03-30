@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
 <meta property="og:description" content="nmap oN/oX  ping -c -i -s -t  tcpdump -i 使标准输出变为缓冲行形式   -e 在输出行打印出数据链路层的头部信息，包括源mac和目的mac，以及网络层的协议   -c  -w 包写入文件中，不打印  -n 域名转换成IP地址后显示 ，不把网络地址转换成名字   -nn 每个监听到的数据包中的域名转换成IP、端口从应用名称转换成端口号   -v[v] 输出详细">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-30T03:01:24.659Z">
+<meta property="og:updated_time" content="2020-03-30T03:06:16.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络对抗原理复习整理">
 <meta name="twitter:description" content="nmap oN/oX  ping -c -i -s -t  tcpdump -i 使标准输出变为缓冲行形式   -e 在输出行打印出数据链路层的头部信息，包括源mac和目的mac，以及网络层的协议   -c  -w 包写入文件中，不打印  -n 域名转换成IP地址后显示 ，不把网络地址转换成名字   -nn 每个监听到的数据包中的域名转换成IP、端口从应用名称转换成端口号   -v[v] 输出详细">
@@ -147,7 +147,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap"><span class="toc-text">nmap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ping"><span class="toc-text">ping</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tcpdump"><span class="toc-text">tcpdump</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DDoS"><span class="toc-text">DDoS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件"><span class="toc-text">条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例如"><span class="toc-text">例如</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CC-过量访问"><span class="toc-text">CC/ 过量访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清洗"><span class="toc-text">清洗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#四层清洗"><span class="toc-text">四层清洗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七层清洗"><span class="toc-text">七层清洗</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防御方法"><span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLMAP"><span class="toc-text">SQLMAP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防御体系构建"><span class="toc-text">防御体系构建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#渗透路径的启示"><span class="toc-text">渗透路径的启示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启示"><span class="toc-text">启示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分层"><span class="toc-text">分层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全域划分"><span class="toc-text">安全域划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#审计"><span class="toc-text">审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测方式"><span class="toc-text">检测方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2018年安全事件"><span class="toc-text">2018年安全事件</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap"><span class="toc-text">nmap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ping"><span class="toc-text">ping</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tcpdump"><span class="toc-text">tcpdump</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DDoS"><span class="toc-text">DDoS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件"><span class="toc-text">条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例如"><span class="toc-text">例如</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CC-过量访问"><span class="toc-text">CC/ 过量访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清洗"><span class="toc-text">清洗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#四层清洗"><span class="toc-text">四层清洗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七层清洗"><span class="toc-text">七层清洗</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防御方法"><span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLMAP"><span class="toc-text">SQLMAP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防御体系构建"><span class="toc-text">防御体系构建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#渗透路径的启示"><span class="toc-text">渗透路径的启示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启示"><span class="toc-text">启示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分层"><span class="toc-text">分层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全域划分"><span class="toc-text">安全域划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#审计"><span class="toc-text">审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测方式"><span class="toc-text">检测方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2018年安全事件"><span class="toc-text">2018年安全事件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防止SQL注入"><span class="toc-text">防止SQL注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-过滤-转义"><span class="toc-text">1.过滤/转义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-参数化"><span class="toc-text">2.参数化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器被攻击"><span class="toc-text">服务器被攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-分析"><span class="toc-text">1.分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-紧急处理"><span class="toc-text">2.紧急处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-进一步加固"><span class="toc-text">3.进一步加固</span></a></li></ol></li></ol>
   </div>
 
 
@@ -323,6 +323,26 @@
 </li>
 </ul>
 <h1 id="2018年安全事件"><a href="#2018年安全事件" class="headerlink" title="2018年安全事件"></a>2018年安全事件</h1><p>微信支付SDK的XXE漏洞，语言为JAVA，查看SDK给的README.md说明，其中表示在支付结果的回掉接口notify_url 处使用，向商户的notify_url接口发送dtd脏数据，商户服务器加载远程dtd文件，商户服务器将key值发送至attack服务器。漏洞本身只是很简单的XXE漏洞造成的任意文件读取，因为漏洞所处的关键业务点使得造成的损失巨大，但是由于notify_url的使用过程中客户全程并不参与，所以在我看来notify_url的获取方式是该漏洞破坏性的瓶颈。 </p>
+<h1 id="防止SQL注入"><a href="#防止SQL注入" class="headerlink" title="防止SQL注入"></a>防止SQL注入</h1><h2 id="1-过滤-转义"><a href="#1-过滤-转义" class="headerlink" title="1.过滤/转义"></a>1.过滤/转义</h2><ul>
+<li>防火墙：直接加在客户端和服务端中间，不修改原有的框架或者体系，防火墙可以插件的方式加入并启用功能。缺点：性能好的waf比较贵。</li>
+<li>修改代码：可根据是实际情况修改。缺点：需要技术支持。</li>
+</ul>
+<h2 id="2-参数化"><a href="#2-参数化" class="headerlink" title="2.参数化"></a>2.参数化</h2><h1 id="服务器被攻击"><a href="#服务器被攻击" class="headerlink" title="服务器被攻击"></a>服务器被攻击</h1><h2 id="1-分析"><a href="#1-分析" class="headerlink" title="1.分析"></a>1.分析</h2><ul>
+<li>22：SSH登陆密码泄露。密码被记录在纸上/云笔记上/github上；弱密码；被运维人员交易。</li>
+<li>80：上传文件漏洞，僵尸程序被上传了。</li>
+<li>6397：Redis对外开放，可能有漏洞被利用。</li>
+</ul>
+<h2 id="2-紧急处理"><a href="#2-紧急处理" class="headerlink" title="2.紧急处理"></a>2.紧急处理</h2><ul>
+<li>22：关闭SSH端口，更换密码。</li>
+<li>80：代码审计。</li>
+<li>6379：关闭端口。</li>
+</ul>
+<h2 id="3-进一步加固"><a href="#3-进一步加固" class="headerlink" title="3.进一步加固"></a>3.进一步加固</h2><ul>
+<li>22：转移端口，加强密码管理。</li>
+<li>80：更换成HTTPS服务。</li>
+<li>6379：禁止Redis服务端口对外开放。</li>
+<li>22和6379只对内部办公网开放，办公网要连接SSH和Redis都要经过跳板机。外网连接内网要通过VPN。</li>
+</ul>
 
     
   </div>
