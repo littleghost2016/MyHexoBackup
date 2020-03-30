@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>通信原理复习整理 | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="通信原理,">
+  
+
+  <meta name="description" content="第一部分-概论消息是信息的表现形式，信息是消息的内涵。消息的传输载体、电表示形式。 信源-&amp;gt;发送设备-&amp;gt;信道(+噪声源)-&amp;gt;接收设备-&amp;gt;信宿。 模拟信号-信号参量取值连续，数字信号-信号参量取值为有限个。 半双工通信：通信双方都能收发消息，但不能同时。 消息出现的概率越小，信息量就越大。 等概率-&amp;gt;I=log(2, 1/概率)&amp;emsp;非等概率-&amp;gt;次数加权求平">
+<meta name="keywords" content="通信原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通信原理复习整理">
+<meta property="og:url" content="https://littleghost2016.github.io/2017/12/29/通信原理复习整理/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="第一部分-概论消息是信息的表现形式，信息是消息的内涵。消息的传输载体、电表示形式。 信源-&amp;gt;发送设备-&amp;gt;信道(+噪声源)-&amp;gt;接收设备-&amp;gt;信宿。 模拟信号-信号参量取值连续，数字信号-信号参量取值为有限个。 半双工通信：通信双方都能收发消息，但不能同时。 消息出现的概率越小，信息量就越大。 等概率-&amp;gt;I=log(2, 1/概率)&amp;emsp;非等概率-&amp;gt;次数加权求平">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-30T07:15:08.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通信原理复习整理">
+<meta name="twitter:description" content="第一部分-概论消息是信息的表现形式，信息是消息的内涵。消息的传输载体、电表示形式。 信源-&amp;gt;发送设备-&amp;gt;信道(+噪声源)-&amp;gt;接收设备-&amp;gt;信宿。 模拟信号-信号参量取值连续，数字信号-信号参量取值为有限个。 半双工通信：通信双方都能收发消息，但不能同时。 消息出现的概率越小，信息量就越大。 等概率-&amp;gt;I=log(2, 1/概率)&amp;emsp;非等概率-&amp;gt;次数加权求平">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一部分-概论"><span class="toc-text">第一部分-概论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分-模拟信号"><span class="toc-text">第三部分-模拟信号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三部分-数字信号"><span class="toc-text">第三部分-数字信号</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-通信原理复习整理" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">通信原理复习整理</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.12.29</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="第一部分-概论"><a href="#第一部分-概论" class="headerlink" title="第一部分-概论"></a>第一部分-概论</h1><p>消息是信息的表现形式，信息是消息的内涵。消息的传输载体、电表示形式。</p>
+<p>信源-&gt;发送设备-&gt;信道(+噪声源)-&gt;接收设备-&gt;信宿。</p>
+<p>模拟信号-信号参量取值连续，数字信号-信号参量取值为有限个。</p>
+<p>半双工通信：通信双方都能收发消息，但不能同时。</p>
+<p>消息出现的概率越小，信息量就越大。</p>
+<p>等概率-&gt;I=log(2, 1/概率)&emsp;非等概率-&gt;次数加权求平均。</p>
+<p>不确定度越高(有序度越低)，信源熵值越高。</p>
+<p>通信系统的主要性能指标-有效性和可靠性。</p>
+<h1 id="第三部分-模拟信号"><a href="#第三部分-模拟信号" class="headerlink" title="第三部分-模拟信号"></a>第三部分-模拟信号</h1><p>NBFM的带宽约为调制信号带宽的2倍</p>
+<p>WBFM的载频fc=n2(n1*f1-f2)</p>
+<p>最大频偏deltaf=n1<em>n2</em>deltaf1</p>
+<p>调频指数mf=deltaf/fm</p>
+<p>输出信噪比=制度增益×输入信噪比(Si/(n0×B))</p>
+<p>AM/DSB–2fm</p>
+<p>SSB–fm</p>
+<p>VSB–略大于fm</p>
+<p>fm–2(mf+1)fm / 2(deltaf+fm)</p>
+<p>FM制度增益=3<em>mf*</em>2(mf+1)</p>
+<h1 id="第三部分-数字信号"><a href="#第三部分-数字信号" class="headerlink" title="第三部分-数字信号"></a>第三部分-数字信号</h1><p>数字化过程：抽样、量化、编码</p>
+<p>奈奎斯特抽样定理</p>
+<p>三种同步：载波同步、码元同步、群同步、网同步</p>
+<p>起止式同步：开始1</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/11/30/逆向工程复习整理/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/06/28/网络协议分析复习整理/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
