@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="LittleGhost&#39;s Blog">
 <meta property="og:description" content="nmap oN/oX  ping -c -i -s -t  tcpdump -i 使标准输出变为缓冲行形式   -e 在输出行打印出数据链路层的头部信息，包括源mac和目的mac，以及网络层的协议   -c  -w 包写入文件中，不打印  -n 域名转换成IP地址后显示 ，不把网络地址转换成名字   -nn 每个监听到的数据包中的域名转换成IP、端口从应用名称转换成端口号   -v[v] 输出详细">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-30T03:06:16.820Z">
+<meta property="og:updated_time" content="2020-03-30T03:13:15.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络对抗原理复习整理">
 <meta name="twitter:description" content="nmap oN/oX  ping -c -i -s -t  tcpdump -i 使标准输出变为缓冲行形式   -e 在输出行打印出数据链路层的头部信息，包括源mac和目的mac，以及网络层的协议   -c  -w 包写入文件中，不打印  -n 域名转换成IP地址后显示 ，不把网络地址转换成名字   -nn 每个监听到的数据包中的域名转换成IP、端口从应用名称转换成端口号   -v[v] 输出详细">
@@ -147,7 +147,7 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap"><span class="toc-text">nmap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ping"><span class="toc-text">ping</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tcpdump"><span class="toc-text">tcpdump</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DDoS"><span class="toc-text">DDoS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件"><span class="toc-text">条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例如"><span class="toc-text">例如</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CC-过量访问"><span class="toc-text">CC/ 过量访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清洗"><span class="toc-text">清洗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#四层清洗"><span class="toc-text">四层清洗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七层清洗"><span class="toc-text">七层清洗</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防御方法"><span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLMAP"><span class="toc-text">SQLMAP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防御体系构建"><span class="toc-text">防御体系构建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#渗透路径的启示"><span class="toc-text">渗透路径的启示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启示"><span class="toc-text">启示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分层"><span class="toc-text">分层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全域划分"><span class="toc-text">安全域划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#审计"><span class="toc-text">审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测方式"><span class="toc-text">检测方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2018年安全事件"><span class="toc-text">2018年安全事件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防止SQL注入"><span class="toc-text">防止SQL注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-过滤-转义"><span class="toc-text">1.过滤/转义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-参数化"><span class="toc-text">2.参数化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器被攻击"><span class="toc-text">服务器被攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-分析"><span class="toc-text">1.分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-紧急处理"><span class="toc-text">2.紧急处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-进一步加固"><span class="toc-text">3.进一步加固</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap"><span class="toc-text">nmap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ping"><span class="toc-text">ping</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tcpdump"><span class="toc-text">tcpdump</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DDoS"><span class="toc-text">DDoS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#条件"><span class="toc-text">条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例如"><span class="toc-text">例如</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CC-过量访问"><span class="toc-text">CC/ 过量访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清洗"><span class="toc-text">清洗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#四层清洗"><span class="toc-text">四层清洗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七层清洗"><span class="toc-text">七层清洗</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防御方法"><span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLMAP"><span class="toc-text">SQLMAP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防御体系构建"><span class="toc-text">防御体系构建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#渗透路径的启示"><span class="toc-text">渗透路径的启示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启示"><span class="toc-text">启示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分层"><span class="toc-text">分层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全域划分"><span class="toc-text">安全域划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#审计"><span class="toc-text">审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检测方式"><span class="toc-text">检测方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2018年安全事件"><span class="toc-text">2018年安全事件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#防止SQL注入"><span class="toc-text">防止SQL注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-过滤-转义"><span class="toc-text">1.过滤/转义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-参数化"><span class="toc-text">2.参数化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器被攻击"><span class="toc-text">服务器被攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-分析"><span class="toc-text">1.分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-紧急处理"><span class="toc-text">2.紧急处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-进一步加固"><span class="toc-text">3.进一步加固</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SaaS和私有化部署讨论"><span class="toc-text">SaaS和私有化部署讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Safety"><span class="toc-text">Safety</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security"><span class="toc-text">Security</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-软件安全"><span class="toc-text">1.软件安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-数据安全"><span class="toc-text">2.数据安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-运行环境安全"><span class="toc-text">3.运行环境安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-数据恢复"><span class="toc-text">4.数据恢复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-用户管理和登陆"><span class="toc-text">5.用户管理和登陆</span></a></li></ol></li></ol></li></ol>
   </div>
 
 
@@ -338,11 +338,30 @@
 <li>6379：关闭端口。</li>
 </ul>
 <h2 id="3-进一步加固"><a href="#3-进一步加固" class="headerlink" title="3.进一步加固"></a>3.进一步加固</h2><ul>
-<li>22：转移端口，加强密码管理。</li>
-<li>80：更换成HTTPS服务。</li>
-<li>6379：禁止Redis服务端口对外开放。</li>
-<li>22和6379只对内部办公网开放，办公网要连接SSH和Redis都要经过跳板机。外网连接内网要通过VPN。</li>
+<li><p>22：转移端口，加强密码管理。</p>
+</li>
+<li><p>80：更换成HTTPS服务。</p>
+</li>
+<li><p>6379：禁止Redis服务端口对外开放。</p>
+</li>
+<li><p>22和6379只对内部办公网开放，办公网要连接SSH和Redis都要经过跳板机。外网连接内网要通过VPN。</p>
+</li>
 </ul>
+<h1 id="SaaS和私有化部署讨论"><a href="#SaaS和私有化部署讨论" class="headerlink" title="SaaS和私有化部署讨论"></a>SaaS和私有化部署讨论</h1><blockquote>
+<p>以下为个人浅显的理解。</p>
+</blockquote>
+<p>题目：SaaS部署的系统（例如CRM系统、ERP系统）和私有化部署在安全性上有什么差异，请就此进行多维度、全面、利弊关系的分析，并说明企业如何决策选择合适的部署模式？</p>
+<h2 id="Safety"><a href="#Safety" class="headerlink" title="Safety"></a>Safety</h2><p>「SaaS」一般为大型机房，服务提供商一般会考虑到机房自身的承受突发自然灾害、承受断电断网、人为损害等物理伤害的因素，保证自己能提供不间断服务，或者代价不大的自身升级。</p>
+<p>「私有化部署」中大型企业有自己的机房，情况大体同「SaaS」。小企业的机房选址可能并不能满足所有的最有条件，可能会出现自然灾害、断电断网、人为伤害等的情况。</p>
+<h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h3 id="1-软件安全"><a href="#1-软件安全" class="headerlink" title="1.软件安全"></a>1.软件安全</h3><p>「SaaS」可及时升级自身的软件版本来修复漏洞或者升级功能。</p>
+<p>「私有化部署」可能不能及时更新软件，导致漏洞在网络上大范围传播后仍可在私有化部署的平台进行攻击。</p>
+<h3 id="2-数据安全"><a href="#2-数据安全" class="headerlink" title="2.数据安全"></a>2.数据安全</h3><p>「SaaS」一般提供更强的数据防护能力。若各个所提供的服务间隔离被打破（或者未做有效保障互相关联时的安全措施），则有可能因其中的某一数据而导致其他服务数据泄露，即有可能会出现“千里之堤，溃于蚁穴”的安全状况。</p>
+<p>「私有化部署」单从自身企业的角度来看，可能会使自己的数据泄露；但规模和「SaaS」部署的情况比，会小很多。</p>
+<h3 id="3-运行环境安全"><a href="#3-运行环境安全" class="headerlink" title="3.运行环境安全"></a>3.运行环境安全</h3><p>「SaaS」作为服务提供商，一般会比「私有化部署」提供更多一点的安全措施，包括更有效的防火墙规则、更强的加密方式、抵御更多DDoS流量、反爬虫、防注入挂马等能力。</p>
+<h3 id="4-数据恢复"><a href="#4-数据恢复" class="headerlink" title="4.数据恢复"></a>4.数据恢复</h3><p>「SaaS」一般提供及时的数据恢复功能。</p>
+<p>「私有化部署」可能受限于自身规模而不能恢复最近可用的数据（如西电睿思曾因为一次硬盘使用时间过长损耗过度导致数据丢失，所有数据被迫恢复到半年以前的数据）。</p>
+<h3 id="5-用户管理和登陆"><a href="#5-用户管理和登陆" class="headerlink" title="5.用户管理和登陆"></a>5.用户管理和登陆</h3><p>「SaaS」一般提供完整的3A认证方案。</p>
+<p>「私有化部署」不一定会有完善的认证方式。</p>
 
     
   </div>
