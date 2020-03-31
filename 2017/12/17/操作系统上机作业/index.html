@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>操作系统上机作业 | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="操作系统,python,">
+  
+
+  <meta name="description" content="实验一题干用两个进程来模拟汽车司机与售票员之间的协同关系：一方面只有售票员把车门关好了司机才能关门，因此，售票员管好车门应通知司机开车；另一方面，只有当汽车已经停下，售票员才能开门上下客，故司机停车后应通知售票员。汽车当前正在始发站停车上客，试设必要的信号量并赋初值，写出它们的同步过程。 实验目的通过使用信号量及有关的P、V操作，实现操作系统中一般的同步机制。 实验思路整体框架：一名司机和一名售票">
+<meta name="keywords" content="操作系统,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统上机作业">
+<meta property="og:url" content="https://littleghost2016.github.io/2017/12/17/操作系统上机作业/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="实验一题干用两个进程来模拟汽车司机与售票员之间的协同关系：一方面只有售票员把车门关好了司机才能关门，因此，售票员管好车门应通知司机开车；另一方面，只有当汽车已经停下，售票员才能开门上下客，故司机停车后应通知售票员。汽车当前正在始发站停车上客，试设必要的信号量并赋初值，写出它们的同步过程。 实验目的通过使用信号量及有关的P、V操作，实现操作系统中一般的同步机制。 实验思路整体框架：一名司机和一名售票">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/17/操作系统上机作业/clip_image002.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/17/操作系统上机作业/clip_image003.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/17/操作系统上机作业/clip_image004.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/17/操作系统上机作业/clip_image002-1585663704698.jpg">
+<meta property="og:updated_time" content="2020-03-31T14:14:02.093Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="操作系统上机作业">
+<meta name="twitter:description" content="实验一题干用两个进程来模拟汽车司机与售票员之间的协同关系：一方面只有售票员把车门关好了司机才能关门，因此，售票员管好车门应通知司机开车；另一方面，只有当汽车已经停下，售票员才能开门上下客，故司机停车后应通知售票员。汽车当前正在始发站停车上客，试设必要的信号量并赋初值，写出它们的同步过程。 实验目的通过使用信号量及有关的P、V操作，实现操作系统中一般的同步机制。 实验思路整体框架：一名司机和一名售票">
+<meta name="twitter:image" content="https://littleghost2016.github.io/2017/12/17/操作系统上机作业/clip_image002.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实验一"><span class="toc-text">实验一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题干"><span class="toc-text">题干</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验目的"><span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验思路"><span class="toc-text">实验思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果"><span class="toc-text">实验结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源代码（Python3-6-2）"><span class="toc-text">源代码（Python3.6.2）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验二"><span class="toc-text">实验二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#题干-1"><span class="toc-text">题干</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验目的-1"><span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验思路-1"><span class="toc-text">实验思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验结果-1"><span class="toc-text">实验结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源代码（Python3-6-2）-1"><span class="toc-text">源代码（Python3.6.2）</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-操作系统上机作业" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">操作系统上机作业</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.12.17</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="实验一"><a href="#实验一" class="headerlink" title="实验一"></a>实验一</h1><h2 id="题干"><a href="#题干" class="headerlink" title="题干"></a>题干</h2><p>用两个进程来模拟汽车司机与售票员之间的协同关系：一方面只有售票员把车门关好了司机才能关门，因此，售票员管好车门应通知司机开车；另一方面，只有当汽车已经停下，售票员才能开门上下客，故司机停车后应通知售票员。汽车当前正在始发站停车上客，试设必要的信号量并赋初值，写出它们的同步过程。</p>
+<h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>通过使用信号量及有关的P、V操作，实现操作系统中一般的同步机制。</p>
+<h2 id="实验思路"><a href="#实验思路" class="headerlink" title="实验思路"></a>实验思路</h2><p>整体框架：一名司机和一名售票员各自是一个线程；</p>
+<p>两个信号量：S1—是否关车门可以发动公交车；S2—是否到站可以开车门；</p>
+<p>司 机：控制着汽车的到站停车[V(S2)]+售票员关门后通知司机可以发车启动[P(S1)]；</p>
+<p>售票员：司机到站停车后通知售票员可以开车门[P(S1)]+乘客上车后关车门[V(S2)]；</p>
+<p>说明：为了简化输出，假设每次上下车的人数符合常识，故没有设置相应变量表示人数的变化和上下车的实际动作。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>通过实践反映出两个线程之间实现了同步</p>
+<p><img src="clip_image002.jpg" alt="img"></p>
+<p>当只有司机进程的时候，司机到站后S1信号量没有被售票员进行V操作，只有一直等待：</p>
+<p><img src="clip_image003.png" alt="img"></p>
+<p>当只有售票员进程的时候，售票员没有接到司机停车的信号（即S2信号没有置为1），只有一直等待到站：</p>
+<p><img src="clip_image004.png" alt="img"></p>
+<h2 id="源代码（Python3-6-2）"><a href="#源代码（Python3-6-2）" class="headerlink" title="源代码（Python3.6.2）"></a>源代码（Python3.6.2）</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导入和线程、时间有关的包</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">s1 = <span class="number">0</span></span><br><span class="line"><span class="comment"># 1：售票员通知司机可以开车，0：司机通知售票员不能开门</span></span><br><span class="line">s2 = <span class="number">0</span></span><br><span class="line"><span class="comment"># 1：司机通知售票员可以开门，0：售票员通知司机不能开车</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Driver</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="string">"""司机类"""</span></span><br><span class="line">	<span class="comment"># 司机执行的程序</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">drive</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">			self.v()</span><br><span class="line">			time.sleep(<span class="number">1</span>)</span><br><span class="line">			self.p()</span><br><span class="line">			time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 申请信号量s1</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">p</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">global</span> s1</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> s1 != <span class="number">1</span>:</span><br><span class="line">			time.sleep(<span class="number">0.5</span>)</span><br><span class="line">		time.sleep(<span class="number">0.5</span>)</span><br><span class="line">		s1 -= <span class="number">1</span></span><br><span class="line">		print(<span class="string">'&#123;&#125;  司 机-汽车启动！'</span>.format(time.ctime()))</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 释放信号量s2</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">v</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">global</span> s2</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> s2 != <span class="number">0</span>:</span><br><span class="line">			time.sleep(<span class="number">0.5</span>)</span><br><span class="line">		time.sleep(<span class="number">0.5</span>)</span><br><span class="line">		s2 += <span class="number">1</span></span><br><span class="line">		print(<span class="string">'&#123;&#125;  司 机-到站！'</span>.format(time.ctime()))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Conductor</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="string">"""售票员类"""</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">sellTicket</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">			self.p()</span><br><span class="line">			time.sleep(<span class="number">1</span>)</span><br><span class="line">			self.v()</span><br><span class="line">			time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 申请信号量s2</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">p</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">global</span> s2</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> s2 != <span class="number">1</span>:</span><br><span class="line">			time.sleep(<span class="number">0.5</span>)</span><br><span class="line">		time.sleep(<span class="number">0.5</span>)</span><br><span class="line">		s2 -= <span class="number">1</span></span><br><span class="line">		print(<span class="string">'&#123;&#125;  售票员-开车门！'</span>.format(time.ctime()))</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 释放信号量s1</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">v</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">global</span> s1</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span> s1 != <span class="number">0</span>:</span><br><span class="line">			time.sleep(<span class="number">0.5</span>)</span><br><span class="line">		time.sleep(<span class="number">0.5</span>)</span><br><span class="line">		s1 += <span class="number">1</span></span><br><span class="line">		print(<span class="string">'&#123;&#125;  售票员-关车门！'</span>.format(time.ctime()))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	<span class="comment"># 实例化司机类</span></span><br><span class="line">	driver = Driver()</span><br><span class="line">	<span class="comment"># 实例化售票员类</span></span><br><span class="line">	conductor = Conductor()</span><br><span class="line">	<span class="comment"># 创建司机执行的线程</span></span><br><span class="line">	t1 = threading.Thread(target=driver.drive)</span><br><span class="line">	<span class="comment"># 创建售票员执行的线程</span></span><br><span class="line">	t2 = threading.Thread(target=conductor.sellTicket)</span><br><span class="line">	<span class="comment"># 线程启动</span></span><br><span class="line">	t1.start()</span><br><span class="line">	t2.start()</span><br></pre></td></tr></table></figure>
+
+<h1 id="实验二"><a href="#实验二" class="headerlink" title="实验二"></a>实验二</h1><h2 id="题干-1"><a href="#题干-1" class="headerlink" title="题干"></a>题干</h2><p>固定分区法就是把内存区固定地划分为若干个大小不等的区域。系统对内存的管理和控制通过数据结构—-分区说明表进行，分区说明表各分区号、分区大小、起始地址和是否是空闲区。内存的分配和释放、存储保护以及地址变换等都通过分区说明表进行。要求：模拟内存分区的分配与回收过程。</p>
+<h2 id="实验目的-1"><a href="#实验目的-1" class="headerlink" title="实验目的"></a>实验目的</h2><p>固定分区管理方式的主存分配回收模拟系统的设计。</p>
+<h2 id="实验思路-1"><a href="#实验思路-1" class="headerlink" title="实验思路"></a>实验思路</h2><ol>
+<li>初始化分区状态表，每个分区都包括唯一的序号(no)、分区大小(size)、起始地址(sa)、是否空闲的标志(flag)。</li>
+<li>假设有若干个需要分配的内存（大小有random包随机生成），对每个需要分配空间的任务分配一个线程，完成查找一个可存放空间的工作、分区使用结束后释放的工作。</li>
+<li>加入某一个或几个待分配的空间当前没有被分配，则将其所需空间加入到一个等待列表中等待下一次检查哪里可以分配，直到所有程序被分配且使用完释放后主程序结束。</li>
+</ol>
+<h2 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h2><p>此为共5个所需分配的任务</p>
+<p><img src="clip_image002-1585663704698.jpg" alt="img"></p>
+<h2 id="源代码（Python3-6-2）-1"><a href="#源代码（Python3-6-2）-1" class="headerlink" title="源代码（Python3.6.2）"></a>源代码（Python3.6.2）</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导入和线程、时间、随机数有关的包</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cumputer</span><span class="params">(object)</span>:</span></span><br><span class="line">	<span class="string">"""docstring for Cumputer"""</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="comment"># Partition status table--分区状态表</span></span><br><span class="line">		self.tablelist = []</span><br><span class="line">		<span class="comment"># 包含要存放的分区的列表</span></span><br><span class="line">		self.runlist = []</span><br><span class="line">		<span class="comment"># 包含暂时无法存放的分区的列表</span></span><br><span class="line">		self.waitlist = []</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 初始化分区状态表</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">inittablelist</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="comment"># ordinary number--序号</span></span><br><span class="line">		<span class="comment"># 特别说明：假设第一块为系统所用分区，不可用于分配空间</span></span><br><span class="line">		on = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">		<span class="comment"># 各个分区的大小</span></span><br><span class="line">		size = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>, <span class="number">40</span>, <span class="number">40</span>, <span class="number">40</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>]</span><br><span class="line">		<span class="comment"># start address--分区起始地址</span></span><br><span class="line">		sa = [<span class="number">0</span>, <span class="number">10</span>, <span class="number">30</span>, <span class="number">50</span>, <span class="number">70</span>, <span class="number">110</span>, <span class="number">150</span>, <span class="number">190</span>, <span class="number">290</span>, <span class="number">390</span>]</span><br><span class="line">		<span class="comment"># 该分区是否可用的标志</span></span><br><span class="line">		flag = [<span class="literal">False</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">True</span>, ]</span><br><span class="line"></span><br><span class="line">		<span class="comment"># 将每个分区的属性写成分区表动态表</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> on:</span><br><span class="line">			temp_dic = &#123;</span><br><span class="line">				<span class="string">'on'</span>: i,</span><br><span class="line">				<span class="string">'size'</span>: size[i],</span><br><span class="line">				<span class="string">'sa'</span>: sa[i],</span><br><span class="line">				<span class="string">'flag'</span>: flag[i],</span><br><span class="line">			&#125;</span><br><span class="line">			self.tablelist.append(temp_dic)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 主程序</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">running</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="comment"># 首先初始化分区状态表</span></span><br><span class="line">		self.inittablelist()</span><br><span class="line"></span><br><span class="line">		<span class="comment"># 假设需要分配10个空间</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">			<span class="comment"># 创建对应线程</span></span><br><span class="line">			self.runlist.append(threading.Thread(target=self.work, args=(random.randint(<span class="number">1</span>, <span class="number">20</span>) * <span class="number">10</span>, )))</span><br><span class="line">		<span class="comment"># 每个进程开始执行</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> self.runlist:</span><br><span class="line">			i.start()</span><br><span class="line">		<span class="comment"># 所有进程执行后才继续主线程</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> self.runlist:</span><br><span class="line">			i.join()</span><br><span class="line"></span><br><span class="line">		<span class="comment"># 当等待分配列表里还有成员时一直循环</span></span><br><span class="line">		<span class="keyword">while</span> len(self.waitlist) != <span class="number">0</span>:</span><br><span class="line">			<span class="comment"># 清空运行列表</span></span><br><span class="line">			self.runlist = []</span><br><span class="line">			<span class="comment"># 为等待列表里的成员创建线程和启动线程</span></span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> range(len(self.waitlist)):</span><br><span class="line">				self.runlist.append(threading.Thread(target=self.work, args=(self.waitlist[<span class="number">0</span>],)))</span><br><span class="line">				self.waitlist.pop(<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> self.runlist:</span><br><span class="line">				i.start()</span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> self.runlist:</span><br><span class="line">				i.join()</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 线程函数</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">work</span><span class="params">(self, given_size)</span>:</span></span><br><span class="line">		<span class="comment"># result存放查找的结果</span></span><br><span class="line">		result = self.find_a_place(given_size)</span><br><span class="line">		<span class="comment"># 若找到一个可用的分区</span></span><br><span class="line">		<span class="keyword">if</span> result[<span class="number">0</span>] == <span class="number">1</span>:</span><br><span class="line">			print(<span class="string">'&#123;&#125;  &#123;&#125;工作已分配--&#123;&#125;'</span>.format(time.ctime(), given_size, self.tablelist[result[<span class="number">1</span>]]))</span><br><span class="line">		<span class="comment"># 若没有找到则将所需空间加入到等待列表</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			print(<span class="string">'&#123;&#125;  &#123;&#125;错误！没有空间存放！'</span>.format(time.ctime(), given_size))</span><br><span class="line">			self.waitlist.append(given_size)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">		<span class="comment"># 模拟占用分区的时间</span></span><br><span class="line">		time.sleep(random.randint(<span class="number">2</span>, <span class="number">4</span>))</span><br><span class="line"></span><br><span class="line">		<span class="comment"># 释放分区</span></span><br><span class="line">		self.release_the_place(result[<span class="number">1</span>])</span><br><span class="line">		print(<span class="string">'&#123;&#125;  &#123;&#125;空间已释放！'</span>.format(time.ctime(), given_size))</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 查找有没有课分配的分区</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">find_a_place</span><span class="params">(self, given_size)</span>:</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> self.tablelist:</span><br><span class="line">			<span class="keyword">with</span> threading.Lock():</span><br><span class="line">				<span class="comment"># 查找比所需分区大且可以被使用的分区</span></span><br><span class="line">				<span class="keyword">if</span> given_size &lt;= i[<span class="string">'size'</span>] <span class="keyword">and</span> i[<span class="string">'flag'</span>]:</span><br><span class="line">					<span class="comment"># 更改标志表示已被使用</span></span><br><span class="line">					i[<span class="string">'flag'</span>] = <span class="literal">False</span></span><br><span class="line">					<span class="comment"># 成功则返回1和序号</span></span><br><span class="line">					<span class="keyword">return</span> [<span class="number">1</span>, i[<span class="string">'on'</span>]]</span><br><span class="line">		<span class="comment"># 失败则返回0和-1</span></span><br><span class="line">		<span class="keyword">return</span> [<span class="number">0</span>, <span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 释放已占用的分区</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">release_the_place</span><span class="params">(self, given_on)</span>:</span></span><br><span class="line">		<span class="keyword">with</span> threading.Lock():</span><br><span class="line">			<span class="comment"># 更改标志后该分区又可被使用</span></span><br><span class="line">			self.tablelist[given_on][<span class="string">'flag'</span>] = <span class="literal">True</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	<span class="comment"># 实例化计算机类并执行程序</span></span><br><span class="line">	cumputer = Cumputer()</span><br><span class="line">	cumputer.running()</span><br></pre></td></tr></table></figure>
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/11/30/逆向工程复习整理/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/12/29/通信原理复习整理/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
