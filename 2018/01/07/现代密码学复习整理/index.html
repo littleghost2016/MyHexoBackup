@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>现代密码学复习整理 | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="密码学,">
+  
+
+  <meta name="description" content="第一章（公钥） 信息系统面临的人为攻击主可分为哪两类？每一类各包括哪几种攻击。主动攻击（中断、篡改、伪造）和被动攻击（获取信息内容、业务流分析）。  信息安全的基本模型是什么样的。​      为了保护信息的保密性，抗击密码分析，保密系统应当满足什么要求; Kerckhoffs原则的含义。    从截获的密文或某些已知明文密文对，要决定密钥或任意明文在计算上是不可行的 系统的保密性不依赖于对加密体">
+<meta name="keywords" content="密码学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="现代密码学复习整理">
+<meta property="og:url" content="https://littleghost2016.github.io/2018/01/07/现代密码学复习整理/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="第一章（公钥） 信息系统面临的人为攻击主可分为哪两类？每一类各包括哪几种攻击。主动攻击（中断、篡改、伪造）和被动攻击（获取信息内容、业务流分析）。  信息安全的基本模型是什么样的。​      为了保护信息的保密性，抗击密码分析，保密系统应当满足什么要求; Kerckhoffs原则的含义。    从截获的密文或某些已知明文密文对，要决定密钥或任意明文在计算上是不可行的 系统的保密性不依赖于对加密体">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/01/07/现代密码学复习整理/clip_image002.jpg">
+<meta property="og:updated_time" content="2020-04-01T10:31:00.790Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="现代密码学复习整理">
+<meta name="twitter:description" content="第一章（公钥） 信息系统面临的人为攻击主可分为哪两类？每一类各包括哪几种攻击。主动攻击（中断、篡改、伪造）和被动攻击（获取信息内容、业务流分析）。  信息安全的基本模型是什么样的。​      为了保护信息的保密性，抗击密码分析，保密系统应当满足什么要求; Kerckhoffs原则的含义。    从截获的密文或某些已知明文密文对，要决定密钥或任意明文在计算上是不可行的 系统的保密性不依赖于对加密体">
+<meta name="twitter:image" content="https://littleghost2016.github.io/2018/01/07/现代密码学复习整理/clip_image002.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章（公钥）"><span class="toc-text">第一章（公钥）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章"><span class="toc-text">第二章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第三章"><span class="toc-text">第三章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四章"><span class="toc-text">第四章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章"><span class="toc-text">第五章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第六章"><span class="toc-text">第六章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第七章"><span class="toc-text">第七章</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-现代密码学复习整理" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">现代密码学复习整理</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.01.07</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="第一章（公钥）"><a href="#第一章（公钥）" class="headerlink" title="第一章（公钥）"></a>第一章（公钥）</h1><ol>
+<li><p>信息系统面临的人为攻击主可分为哪两类？每一类各包括哪几种攻击。<br>主动攻击（中断、篡改、伪造）和被动攻击（获取信息内容、业务流分析）。</p>
+</li>
+<li><p>信息安全的基本模型是什么样的。<br>​    <img src="clip_image002.jpg" alt="img"></p>
+</li>
+<li><p>为了保护信息的保密性，抗击密码分析，保密系统应当满足什么要求; Kerckhoffs原则的含义。</p>
+</li>
+</ol>
+<ul>
+<li>从截获的密文或某些已知明文密文对，要决定密钥或任意明文在计算上是不可行的</li>
+<li>系统的保密性不依赖于对加密体制或算法的保密，而依赖于密钥（Kerckhoffs原则）</li>
+<li>加密和解密算法适用于密钥空间中的所有元素</li>
+<li>系统便于实现和使用</li>
+</ul>
+<ol start="4">
+<li><p>安全业务的种类<br>保密、认证、完整性、不可否认、访问控制</p>
+</li>
+<li><p>对密码系统的攻击的类型<br>唯密文、已知明文、选择明文、选择密文</p>
+</li>
+</ol>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><ol>
+<li>流密码的基本概念</li>
+<li>反馈移位寄存器的输出和周期，例2-2，例2-3。</li>
+<li>产生m序列的充分必要条件。</li>
+<li>P（x）为本原多项式</li>
+</ol>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><ol>
+<li><p>分组密码概述</p>
+</li>
+<li><p>DES算法的加密算法结构，S盒的输入和输出的定义；<br>输入6比特，输出4比特</p>
+</li>
+<li><p>分组密码的运行模式有哪些，它们的错误传播特点？CBC模式的错误传播是什么样的。<br>ECB/CBC明文出错：影响所有密文；密文出错，影响本组和下一组密文/<br>CFB密文出错1比特，影响（例如8比特）（8/1）+1组</p>
+</li>
+<li><p>AES密码算法的分组长度，密钥长度和迭代轮数的关系，与密钥扩展所需比特数的关系；<br>AES密码算法的轮函数组成；<br>分组长度和密钥长度可变（128/192/256）</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>4</th>
+<th>6</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4</td>
+<td>10</td>
+<td>12</td>
+<td>14</td>
+</tr>
+<tr>
+<td>6</td>
+<td>12</td>
+<td>12</td>
+<td>14</td>
+</tr>
+<tr>
+<td>8</td>
+<td>14</td>
+<td>14</td>
+<td>14</td>
+</tr>
+<tr>
+<td>轮密钥的比特数=分组长度*轮数+1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>中国商用密码算法SM4的基本情况，例如分组长度，密钥长度，迭代轮数；</p>
+</li>
+</ol>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><ol>
+<li>公钥密码体制的基本概念；</li>
+<li>RSA算法的细节，例如密钥的产生，加密和解密运算，解密运算的正确性证明。</li>
+<li>Rabin密码体制的安全基础。</li>
+<li>椭圆曲线密码体制的安全基础，椭圆曲线群的点如何确定，点的加法和倍数运算如何定义。</li>
+<li>中国商用椭圆曲线密码算法标准SM2的安全基础。</li>
+</ol>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><ol>
+<li>单钥和公钥加密体制的密钥分配的基本方法</li>
+<li>随机数序列在密码学应用中应该满足什么要求；随机数的产生方法。</li>
+<li>秘密分割或秘密共享的概念，门限方案的概念；</li>
+</ol>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><ol>
+<li>消息认证码的定义及使用方式；</li>
+<li>哈希函数的定义，相关概念，使用方式；</li>
+<li>MD5哈希算法的基本描述，算法框图；</li>
+<li>SHA算法的基本描述；、</li>
+<li>SM3哈希算法的基本情况；</li>
+</ol>
+<h1 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h1><ol>
+<li>数字签名的基本概念</li>
+<li>DSS数字签名标准，DSA数字签名算法；</li>
+<li>认证协议的基本概念，相互认证，单向认证。</li>
+</ol>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/12/29/通信原理复习整理/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/01/12/软件逆向工程上机作业/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
