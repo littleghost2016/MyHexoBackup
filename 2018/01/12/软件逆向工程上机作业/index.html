@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>软件逆向工程上机作业 | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="逆向,">
+  
+
+  <meta name="description" content="实验一:用x86汇编语言实现以下C语言函数功能    函数 功能    unsigned intstrlen(char *s); 计算给定字符串的长度，不包括’\0’在内   char strchr(const char s,charc); 查找字符串s中首次出现字符c的位置，返回首次出现c的位置的指针，如果s中不存在c则返回0   intstrcmp(const char *s1,const c">
+<meta name="keywords" content="逆向">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件逆向工程上机作业">
+<meta property="og:url" content="https://littleghost2016.github.io/2018/01/12/软件逆向工程上机作业/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="实验一:用x86汇编语言实现以下C语言函数功能    函数 功能    unsigned intstrlen(char *s); 计算给定字符串的长度，不包括’\0’在内   char strchr(const char s,charc); 查找字符串s中首次出现字符c的位置，返回首次出现c的位置的指针，如果s中不存在c则返回0   intstrcmp(const char *s1,const c">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/01/12/软件逆向工程上机作业/clip_image002.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/01/12/软件逆向工程上机作业/clip_image004.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/01/12/软件逆向工程上机作业/clip_image006.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2018/01/12/软件逆向工程上机作业/clip_image008.png">
+<meta property="og:updated_time" content="2020-04-01T04:55:38.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件逆向工程上机作业">
+<meta name="twitter:description" content="实验一:用x86汇编语言实现以下C语言函数功能    函数 功能    unsigned intstrlen(char *s); 计算给定字符串的长度，不包括’\0’在内   char strchr(const char s,charc); 查找字符串s中首次出现字符c的位置，返回首次出现c的位置的指针，如果s中不存在c则返回0   intstrcmp(const char *s1,const c">
+<meta name="twitter:image" content="https://littleghost2016.github.io/2018/01/12/软件逆向工程上机作业/clip_image002.png">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实验一"><span class="toc-text">实验一:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验要求"><span class="toc-text">实验要求:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验过程及结果"><span class="toc-text">实验过程及结果:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#strchr"><span class="toc-text">strchr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strcmp"><span class="toc-text">strcmp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strlen"><span class="toc-text">strlen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strset"><span class="toc-text">strset</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实验二"><span class="toc-text">实验二</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验内容"><span class="toc-text">实验内容:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验过程及结果-1"><span class="toc-text">实验过程及结果:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-软件逆向工程上机作业" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">软件逆向工程上机作业</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.01.12</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="实验一"><a href="#实验一" class="headerlink" title="实验一:"></a>实验一:</h1><p>用x86汇编语言实现以下C语言函数功能</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>unsigned intstrlen(char *s);</td>
+<td>计算给定字符串的长度，不包括’\0’在内</td>
+</tr>
+<tr>
+<td>char <em>strchr(const char</em> s,charc);</td>
+<td>查找字符串s中首次出现字符c的位置，返回首次出现c的位置的指针，如果s中不存在c则返回0</td>
+</tr>
+<tr>
+<td>intstrcmp(const char *s1,const char *s2);</td>
+<td>当s1&lt;s2时，返回为-1；当s1==s2时，返回值= 0；当s1&gt;s2时，返回1。</td>
+</tr>
+<tr>
+<td>char *strset(char *s, char c);</td>
+<td>把字符串s中的所有字符都设置成字符c</td>
+</tr>
+</tbody></table>
+<h2 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求:"></a>实验要求:</h2><ol>
+<li>学习用MASM32 + Visual Studio进行汇编程序开发的基本方法。</li>
+<li>在老师提供的程序框架下，依次实现上表中的4个函数功能。</li>
+<li>完成上机报告（word或pdf），详细陈述程序设计思路和关键语句含义。</li>
+</ol>
+<h2 id="实验过程及结果"><a href="#实验过程及结果" class="headerlink" title="实验过程及结果:"></a>实验过程及结果:</h2><h3 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h3><p>实验思路：使用SCASB将给定字符串诸位与chr进行比较，若一样则记录当前地址，要计算的偏移量为当前地址与开始地址的差值。</p>
+<p>代码及注释：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">; strchr.asm</span><br><span class="line"></span><br><span class="line">.386</span><br><span class="line">.model flat, stdcall</span><br><span class="line"></span><br><span class="line">include kernel32.inc</span><br><span class="line">includelib kernel32.lib</span><br><span class="line"></span><br><span class="line">include msvcrt.inc</span><br><span class="line">includelib msvcrt.lib</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">szText  db  &quot;Reverse Engineering&quot;, 0</span><br><span class="line">chr     db  &apos;i&apos;</span><br><span class="line">format  db  &quot;%d&quot;, 0AH, 0</span><br><span class="line"></span><br><span class="line">.code</span><br><span class="line"></span><br><span class="line">main PROC</span><br><span class="line">    LEA EDI, szText             ;将字符串偏移地址送给EDI</span><br><span class="line">    MOV ECX,0FFFFFFFFH          ;ECX置为-1</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">    ;strchr逻辑</span><br><span class="line">    ;SCAS:将AL/AX/EAX与[EDI]比较，并对EDI自增/自减</span><br><span class="line">    MOV AL, chr                 ;将要比较的字符&apos;i&apos;送给AL</span><br><span class="line">    MOV EBX, EDI                ;保存szText首地址</span><br><span class="line">    REPNE SCASB                 ;执行SCASB逻辑</span><br><span class="line">    SUB EDI, EBX                ;&apos;i&apos;在字符串中的位置=EDI-EBX</span><br><span class="line"></span><br><span class="line">    INVOKE crt_printf, addr format, EDI;输出结果</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">    INVOKE crt_getchar</span><br><span class="line">    INVOKE ExitProcess, 0</span><br><span class="line">main ENDP</span><br><span class="line"></span><br><span class="line">END main</span><br></pre></td></tr></table></figure>
+
+<p><img src="clip_image002.png" alt="img"></p>
+<h3 id="strcmp"><a href="#strcmp" class="headerlink" title="strcmp"></a>strcmp</h3><p>实验思路：使用SCASB和STOSB将两个字符串逐位进行比较。逐个比较字符的过程中，若不相等则根据实际的大小关系得出结果；若为空则比较完成，跳转到返回结果初；若相等则继续比较下一个字符。</p>
+<p>代码及注释：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">; strcmp.asm</span><br><span class="line"></span><br><span class="line">.386</span><br><span class="line">.model flat, stdcall</span><br><span class="line"></span><br><span class="line">include kernel32.inc</span><br><span class="line">includelib kernel32.lib</span><br><span class="line"></span><br><span class="line">include msvcrt.inc</span><br><span class="line">includelib msvcrt.lib</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">format      db  &quot;%d&quot;, 0AH, 0</span><br><span class="line">szText      db  &quot;Reverse Engineering&quot;, 0</span><br><span class="line">szText2     db  &quot;Reverse Engineering&quot;, 0    ;szText==szText2</span><br><span class="line">szText3     db  &quot;Reverse Eng&quot;, 0            ;szText&gt;szText3</span><br><span class="line">szText4     db  &quot;Reverse Engj&quot;, 0           ;szText&lt;szText4</span><br><span class="line">szText5     db  &quot;Reverse Engh&quot;, 0           ;szText&gt;szText5</span><br><span class="line"></span><br><span class="line">.code</span><br><span class="line"></span><br><span class="line">main PROC</span><br><span class="line">;重复将四次比较结果输出</span><br><span class="line">    LEA ESI, szText</span><br><span class="line">    LEA EDI, szText2    ;result=0</span><br><span class="line">    call compare</span><br><span class="line">    LEA ESI, szText</span><br><span class="line">    LEA EDI, szText3    ;result=1</span><br><span class="line">    call compare</span><br><span class="line">    LEA ESI, szText</span><br><span class="line">    LEA EDI, szText4    ;result=-1</span><br><span class="line">    call compare</span><br><span class="line">    LEA ESI, szText</span><br><span class="line">    LEA EDI, szText5    ;result=1</span><br><span class="line">    call compare</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">    ;strcmp逻辑</span><br><span class="line"></span><br><span class="line">    INVOKE crt_getchar</span><br><span class="line">    INVOKE ExitProcess, 0</span><br><span class="line"></span><br><span class="line">COMPARE:</span><br><span class="line">    LODSB               ;将ds:esi的第一个字节装入寄存器AL，同时[esi]+1</span><br><span class="line">    SCASB               ;将es:edi的第一个字节和AL相减，同时[edi]+1</span><br><span class="line">                        ;cmpsb 将edi 和 esi的字节相减</span><br><span class="line">    JNE NOTEQ           ;不相等，转到NOTEQ处理</span><br><span class="line">             </span><br><span class="line">    TEST AL, AL         ;看看AL是否为NULL</span><br><span class="line">    JNE COMPARE         ;不为空，则比较下一个</span><br><span class="line">    XOR EAX, EAX        ;为空,将寄存器EAX清空为0</span><br><span class="line">    JMP ENDCMP          ;跳转到返回结果的地方</span><br><span class="line"></span><br><span class="line">NOTEQ:                  ;不相等</span><br><span class="line">    MOV EAX, -1         ;不相等时的处理,将EAX置-1</span><br><span class="line">    JL ENDCMP           ;如果是大于的话,跳到返回结果的地方</span><br><span class="line">    NEG EAX             ;将EAX取反,变为1</span><br><span class="line">             </span><br><span class="line">ENDCMP:       </span><br><span class="line">    MOV EDI, EAX        ;结果存入result</span><br><span class="line">    INVOKE crt_printf, addr format, EDI</span><br><span class="line">    RET</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">main ENDP</span><br><span class="line"></span><br><span class="line">END main</span><br></pre></td></tr></table></figure>
+
+<p><img src="clip_image004.png" alt="img"></p>
+<h3 id="strlen"><a href="#strlen" class="headerlink" title="strlen"></a>strlen</h3><p>实验思路：依次比较字符串每个字符是否为空（空位字符串结束标志），在二进制表示下，计算ECX的值，最后将结果放入EDI中。</p>
+<p>代码及注释：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">; strlen.asm</span><br><span class="line"></span><br><span class="line">.386</span><br><span class="line">.model flat, stdcall</span><br><span class="line"></span><br><span class="line">include kernel32.inc</span><br><span class="line">includelib kernel32.lib</span><br><span class="line"></span><br><span class="line">include msvcrt.inc</span><br><span class="line">includelib msvcrt.lib</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">szText  db  &quot;Reverse Engineering&quot;, 0</span><br><span class="line">format  db  &quot;length = %d&quot;, 0AH, 0</span><br><span class="line"></span><br><span class="line">.code</span><br><span class="line"></span><br><span class="line">main PROC</span><br><span class="line">    LEA EDI, szText             ;将字符串偏移地址送给EDI</span><br><span class="line">    MOV ECX,0FFFFFFFFH          ;ECX置为-1</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">    ;strlen逻辑</span><br><span class="line">    XOR EAX, EAX                ;EAX清零</span><br><span class="line">    REPNE SCASB                 ;执行SCASB逻辑，ECX=-1-(字符串长度+1)</span><br><span class="line">    ADD ECX, 2                  ;ECX=-(字符串长度)</span><br><span class="line">    NEG ECX                     ;ECX=字符串长度</span><br><span class="line">    MOV EDI, ECX                ;将结果送到EDI</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">    INVOKE crt_printf, addr format, EDI;输出结果</span><br><span class="line"></span><br><span class="line">    INVOKE crt_getchar</span><br><span class="line">    INVOKE ExitProcess, 0</span><br><span class="line">main ENDP</span><br><span class="line"></span><br><span class="line">END main</span><br></pre></td></tr></table></figure>
+
+<p><img src="clip_image006.png" alt="img"></p>
+<h3 id="strset"><a href="#strset" class="headerlink" title="strset"></a>strset</h3><p>实验思路：先用strlen将字符串长度读取并存入ECX中，再用STOSB将chr所存放的字符逐位替换原字符串中的字符。</p>
+<p>关键代码及注释：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">; strset.asm</span><br><span class="line"></span><br><span class="line">.386</span><br><span class="line">.model flat, stdcall</span><br><span class="line"></span><br><span class="line">include kernel32.inc</span><br><span class="line">includelib kernel32.lib</span><br><span class="line"></span><br><span class="line">include msvcrt.inc</span><br><span class="line">includelib msvcrt.lib</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">szText  db  &quot;Reverse Engineering&quot;, 0</span><br><span class="line">chr     db  &apos;j&apos;</span><br><span class="line"></span><br><span class="line">.code</span><br><span class="line"></span><br><span class="line">main PROC</span><br><span class="line">    LEA EDI, szText             ;将字符串偏移地址送给EDI</span><br><span class="line">    MOV ECX,0FFFFFFFFH          ;ECX置为-1</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">    ;strlen逻辑</span><br><span class="line">    XOR EAX, EAX                ;EAX清零</span><br><span class="line">    REPNE SCASB                 ;执行SCASB逻辑，ECX=-1-(字符串长度+1)</span><br><span class="line">    ADD ECX, 2                  ;ECX=-(字符串长度)</span><br><span class="line">    NEG ECX                     ;ECX=字符串长度</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line"></span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">    ;strset逻辑</span><br><span class="line">    ;STOS:将AL/AX/EAX的值写入EDI指向的内存</span><br><span class="line">    MOV AL, chr                 ;将要写入的字符串送到AL</span><br><span class="line">    LEA EDI, szText             ;重新将字符串偏移地址送给EDI</span><br><span class="line">    REP STOSB                   ;执行STOSB逻辑</span><br><span class="line">    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span><br><span class="line">    INVOKE crt_printf, addr szText;输出结果</span><br><span class="line"></span><br><span class="line">    INVOKE crt_getchar</span><br><span class="line">    INVOKE ExitProcess, 0</span><br><span class="line">main ENDP</span><br><span class="line"></span><br><span class="line">END main</span><br></pre></td></tr></table></figure>
+
+<p><img src="clip_image008.png" alt="img"></p>
+<h1 id="实验二"><a href="#实验二" class="headerlink" title="实验二"></a>实验二</h1><h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容:"></a>实验内容:</h2><p>修改第6章的HookDll.cpp，钩取对notepad的输入，使得：</p>
+<ol>
+<li>输入文本仍能正常显示；</li>
+<li>所有输入文本能够记录到input.txt文件中。</li>
+</ol>
+<h2 id="实验过程及结果-1"><a href="#实验过程及结果-1" class="headerlink" title="实验过程及结果:"></a>实验过程及结果:</h2><p>实验思路：原HookDll.cpp的关键回调函数如下，主要更改代码以实现功能的地方用“**”标注：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">LRESULT CALLBACK <span class="title">KeyboardProc</span><span class="params">(<span class="keyword">int</span> nCode, WPARAM wParam, LPARAM lParam)</span></span>&#123;</span><br><span class="line">……</span><br><span class="line">        <span class="keyword">if</span>( !_stricmp(p + <span class="number">1</span>, <span class="string">"notepad.exe"</span>) )</span><br><span class="line">                 <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                 <span class="comment">//**主要更改的逻辑在这里**</span></span><br><span class="line">……</span><br><span class="line">    <span class="comment">// 当前进程不是notepad.exe，将消息传递给下一个钩子</span></span><br><span class="line">        <span class="keyword">return</span> CallNextHookEx(g_hHook, nCode, wParam, lParam);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>return 1;</code>的意思是：如果进程是<code>notepad.exe</code>，则不会将消息传递给下一个钩子，而实验要求消息可以正常显示出来，并且将所打印的消息记录到另一个文件夹中，则可以将问题分解为2个：</p>
+<ol>
+<li><p>将键盘输入的消息记录到某处，并且不会在这个时候return 1而是继续将消息传递给下一个钩子。解决方案：此回调函数的wParam参数包含了WPARAM类型的按键的虚键码，将此参数的内容转换成可读的字符类型即可。</p>
+</li>
+<li><p>将保存着wParam内容的参数用文件读写的方式以”a”的方式写入，即可在一个文件夹内保存。解决方案：使用C的fopen函数或者Windows编程中的CreateFile函数</p>
+<blockquote>
+<p>参考来自：<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/en-us/library/windows/desktop/aa363858(v=vs.85).aspx</a></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"windows.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"tchar.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ctype.h"</span></span></span><br><span class="line"></span><br><span class="line">HINSTANCE g_hInstance = <span class="literal">NULL</span>;</span><br><span class="line">HHOOK g_hHook = <span class="literal">NULL</span>;</span><br><span class="line">HWND g_hWnd = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BOOL WINAPI <span class="title">DllMain</span><span class="params">(HINSTANCE hinstDLL, DWORD dwReason, LPVOID lpvReserved)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (dwReason)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> DLL_PROCESS_ATTACH:</span><br><span class="line">		g_hInstance = hinstDLL;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">case</span> DLL_PROCESS_DETACH:</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> TRUE;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LRESULT CALLBACK <span class="title">KeyboardProc</span><span class="params">(<span class="keyword">int</span> nCode, WPARAM wParam, LPARAM lParam)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> szPath[MAX_PATH] = &#123;</span><br><span class="line">		<span class="number">0</span>,</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">char</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">char</span> ch;  <span class="comment">//ch存放按键的内容</span></span><br><span class="line">	FILE *fp; <span class="comment">//打开文件流</span></span><br><span class="line">	<span class="comment">//ToAscii函数参数</span></span><br><span class="line">	byte ks[<span class="number">256</span>];</span><br><span class="line">	GetKeyboardState(ks); <span class="comment">//函数功能:该函数将256个虚拟键的状态拷贝到指定的缓冲区中</span></span><br><span class="line">	WORD w;</span><br><span class="line">	UINT scan = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (nCode &gt;= <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// bit 31 : 0 =&gt; press, 1 =&gt; release</span></span><br><span class="line">		<span class="keyword">if</span> (!(lParam &amp; <span class="number">0x80000000</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			GetModuleFileNameA(<span class="literal">NULL</span>, szPath, MAX_PATH);</span><br><span class="line">			p = <span class="built_in">strrchr</span>(szPath, <span class="string">'\\'</span>);</span><br><span class="line">			<span class="comment">//若加载当前DLL的进程的可执行文件名称为notepad.exe，则消息不会传递给下一个钩子</span></span><br><span class="line">			<span class="keyword">if</span> (!_stricmp(p + <span class="number">1</span>, <span class="string">"notepad.exe"</span>))</span><br><span class="line">			&#123;</span><br><span class="line">				ToAscii(wParam, scan, ks, &amp;w, <span class="number">0</span>);</span><br><span class="line">				<span class="comment">//函数功能：该函数将指定的虚拟键码和键盘状态翻译为相应的字符或字符串。</span></span><br><span class="line">				<span class="comment">//该函数使用由给定的键盘布局句柄标识的物理键盘布局和输入语言来翻译代码。</span></span><br><span class="line">				<span class="comment">//函数原型：int ToAscii(UINT uVirtKey,UINT uScanCode,PBYTE lpKeyState,LPWORD lpChar,UINT uFlags);</span></span><br><span class="line">				ch = (<span class="keyword">char</span>)w;</span><br><span class="line"></span><br><span class="line">				fp = fopen(<span class="string">"input.txt"</span>, <span class="string">"a"</span>); <span class="comment">//打开流</span></span><br><span class="line">				<span class="built_in">fprintf</span>(fp, <span class="string">"%c"</span>, ch);		  <span class="comment">//写入文件操作</span></span><br><span class="line">				fclose(fp);					  <span class="comment">//关闭流</span></span><br><span class="line">											  <span class="comment">//return 1;</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 当前进程不是notepad.exe，将消息传递给下一个钩子</span></span><br><span class="line">	<span class="keyword">return</span> CallNextHookEx(g_hHook, nCode, wParam, lParam);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	__declspec(dllexport) <span class="function"><span class="keyword">void</span> <span class="title">HookStart</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		g_hHook = SetWindowsHookEx(WH_KEYBOARD, KeyboardProc, g_hInstance, <span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	__declspec(dllexport) <span class="function"><span class="keyword">void</span> <span class="title">HookStop</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (g_hHook)</span><br><span class="line">		&#123;</span><br><span class="line">			UnhookWindowsHookEx(g_hHook);</span><br><span class="line">			g_hHook = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/12/29/通信原理复习整理/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/01/15/操作系统复习整理/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
