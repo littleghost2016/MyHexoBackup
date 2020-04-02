@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>嵌入式系统上机作业 | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="嵌入式,">
+  
+
+  <meta name="description" content="一、实验平台1.1平台简介EMSBC2410 开发平台是一款基于 ARM9 的嵌入式开发实验平台，它基于三星公司的 ARM9 处理器 S3C2410A，它适用于设计工业控制、消费电子、移动手持设备类产品，具有高性能、低功耗、接口丰富、功能可剪裁、体积小等优良特性。EMSBC2410 平台外设丰富，包含串口、USB 主口、USB 从口、网卡、SD 卡、音频、键盘、液晶屏、触摸屏、JTAG 调试口、N">
+<meta name="keywords" content="嵌入式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式系统上机作业">
+<meta property="og:url" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="一、实验平台1.1平台简介EMSBC2410 开发平台是一款基于 ARM9 的嵌入式开发实验平台，它基于三星公司的 ARM9 处理器 S3C2410A，它适用于设计工业控制、消费电子、移动手持设备类产品，具有高性能、低功耗、接口丰富、功能可剪裁、体积小等优良特性。EMSBC2410 平台外设丰富，包含串口、USB 主口、USB 从口、网卡、SD 卡、音频、键盘、液晶屏、触摸屏、JTAG 调试口、N">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image002.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image004.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image006.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image008.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image010.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image012.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image014.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image016.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image018.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image020.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image022.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image024.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image026.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image028.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image030.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image032.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image034.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image036.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image038.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image040.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image042.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image044.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image046.png">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image048.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image050.jpg">
+<meta property="og:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image052.png">
+<meta property="og:updated_time" content="2020-04-02T02:57:24.205Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="嵌入式系统上机作业">
+<meta name="twitter:description" content="一、实验平台1.1平台简介EMSBC2410 开发平台是一款基于 ARM9 的嵌入式开发实验平台，它基于三星公司的 ARM9 处理器 S3C2410A，它适用于设计工业控制、消费电子、移动手持设备类产品，具有高性能、低功耗、接口丰富、功能可剪裁、体积小等优良特性。EMSBC2410 平台外设丰富，包含串口、USB 主口、USB 从口、网卡、SD 卡、音频、键盘、液晶屏、触摸屏、JTAG 调试口、N">
+<meta name="twitter:image" content="https://littleghost2016.github.io/2017/12/03/嵌入式系统上机作业/clip_image002.jpg">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、实验平台"><span class="toc-text">一、实验平台</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1平台简介"><span class="toc-text">1.1平台简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2平台图示"><span class="toc-text">1.2平台图示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3元件布局"><span class="toc-text">1.3元件布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4开发环境"><span class="toc-text">1.4开发环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实验内容"><span class="toc-text">二、实验内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ARM开发基础"><span class="toc-text">1.ARM开发基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）实验目的"><span class="toc-text">（1）实验目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）实验内容"><span class="toc-text">（2）实验内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）实验原理"><span class="toc-text">（3）实验原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）实验步骤"><span class="toc-text">（4）实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1验证示例源码"><span class="toc-text">1.4.1验证示例源码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2设计实现自己的汇编程序"><span class="toc-text">1.4.2设计实现自己的汇编程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）实验结果"><span class="toc-text">（5）实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-1已验证示例程序"><span class="toc-text">1.5.1已验证示例程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2"><span class="toc-text">1.5.2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（6）程序说明"><span class="toc-text">（6）程序说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（7）总结"><span class="toc-text">（7）总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2．S3C2410基本接口实验"><span class="toc-text">2．S3C2410基本接口实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）实验目的-1"><span class="toc-text">（1）实验目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）实验内容-1"><span class="toc-text">（2）实验内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）实验原理-1"><span class="toc-text">（3）实验原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）实验步骤-1"><span class="toc-text">（4）实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1验证示例源码"><span class="toc-text">2.4.1验证示例源码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2设计实现自己的I-O控制程序"><span class="toc-text">2.4.2设计实现自己的I/O控制程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）实验结果-1"><span class="toc-text">（5）实验结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（6）程序说明-1"><span class="toc-text">（6）程序说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（7）总结-1"><span class="toc-text">（7）总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3．人机接口实验"><span class="toc-text">3．人机接口实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）实验目的-2"><span class="toc-text">（1）实验目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）实验内容-2"><span class="toc-text">（2）实验内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）实验原理-2"><span class="toc-text">（3）实验原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）实验步骤-2"><span class="toc-text">（4）实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1验证示例源码"><span class="toc-text">3.4.1验证示例源码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2设计实现自己的人机互动界面程序"><span class="toc-text">3.4.2设计实现自己的人机互动界面程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）实验结果-2"><span class="toc-text">（5）实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-1已验证示例程序"><span class="toc-text">3.5.1已验证示例程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-2"><span class="toc-text">3.5.2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（6）程序说明-2"><span class="toc-text">（6）程序说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（7）总结-2"><span class="toc-text">（7）总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、μC-OS-II系统原理实验"><span class="toc-text">4、μC/OS-II系统原理实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）实验目的-3"><span class="toc-text">（1）实验目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）实验内容-3"><span class="toc-text">（2）实验内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）实验原理："><span class="toc-text">（3）实验原理：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）实验步骤："><span class="toc-text">（4）实验步骤：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-1验证示例源码"><span class="toc-text">4.4.1验证示例源码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-2设计实现一个多任务应用程序"><span class="toc-text">4.4.2设计实现一个多任务应用程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（5）实验结果："><span class="toc-text">（5）实验结果：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-1已验证示例程序"><span class="toc-text">4.5.1已验证示例程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-2"><span class="toc-text">4.5.2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（6）程序说明-3"><span class="toc-text">（6）程序说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（7）总结-3"><span class="toc-text">（7）总结</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-嵌入式系统上机作业" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">嵌入式系统上机作业</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.12.03</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="一、实验平台"><a href="#一、实验平台" class="headerlink" title="一、实验平台"></a>一、实验平台</h1><h2 id="1-1平台简介"><a href="#1-1平台简介" class="headerlink" title="1.1平台简介"></a>1.1平台简介</h2><p>EMSBC2410 开发平台是一款基于 ARM9 的嵌入式开发实验平台，它基于三星公司的 ARM9 处理器 S3C2410A，它适用于设计工业控制、消费电子、移动手持设备类产品，具有高性能、低功耗、接口丰富、功能可剪裁、体积小等优良特性。EMSBC2410 平台外设丰富，包含串口、USB 主口、USB 从口、网卡、SD 卡、音频、键盘、液晶屏、触摸屏、JTAG 调试口、NORFLASH、Nandflash 存储系统、扩展IO口等资源。</p>
+<h2 id="1-2平台图示"><a href="#1-2平台图示" class="headerlink" title="1.2平台图示"></a>1.2平台图示</h2><p><img src="clip_image002.jpg" alt="img"></p>
+<h2 id="1-3元件布局"><a href="#1-3元件布局" class="headerlink" title="1.3元件布局"></a>1.3元件布局</h2><p><img src="clip_image004.jpg" alt="img"></p>
+<h2 id="1-4开发环境"><a href="#1-4开发环境" class="headerlink" title="1.4开发环境"></a>1.4开发环境</h2><p>Ø RealView MDK开发工具源自德国Keil公司，是ARM公司最新推出的针对各种嵌入式处理器的软件开发工具。</p>
+<p>q 包括Vision集成开发环境</p>
+<p>q RealView编译器</p>
+<p><img src="clip_image006.jpg" alt="img"></p>
+<h1 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h1><h2 id="1-ARM开发基础"><a href="#1-ARM开发基础" class="headerlink" title="1.ARM开发基础"></a>1.ARM开发基础</h2><h3 id="（1）实验目的"><a href="#（1）实验目的" class="headerlink" title="（1）实验目的"></a>（1）实验目的</h3><ul>
+<li>了解“EMSBC2410实验平台”的基本硬件组成;</li>
+<li>初步学会使用 μVision3 IDE for ARM 开发环境及ARM 软件模拟器;</li>
+<li>通过实验掌握简单 ARM 汇编指令的使用方法。</li>
+</ul>
+<h3 id="（2）实验内容"><a href="#（2）实验内容" class="headerlink" title="（2）实验内容"></a>（2）实验内容</h3><ul>
+<li>熟悉开发环境的使用并使用 ldr/str，mov 等指令访问寄存器或存储单元;</li>
+<li>学习使用 add/sub/lsl/lsr/and/orr 等指令，完成基本算术/逻辑运算;</li>
+<li>设计实现表达式y=a*8+b/2-c，并验证之;</li>
+<li>完成分支程序设计，要求判断参数，根据不同参数，调用不同的子程序。</li>
+</ul>
+<h3 id="（3）实验原理"><a href="#（3）实验原理" class="headerlink" title="（3）实验原理"></a>（3）实验原理</h3><ul>
+<li>ARM9 处理器内核共有 37 个寄存器：</li>
+<li>31 个通用寄存器，包括程序计数器(PC)。这些寄存器都是 32 位的;</li>
+<li>6 个状态寄存器。这些寄存器也是32 位的，但是只是使用了其中的12 位。</li>
+</ul>
+<p><img src="clip_image008.jpg" alt="1"></p>
+<p>大端格式：字数据的高位字节存储在低地址中，而字数据的低位字节则存放在高地址中。</p>
+<p><img src="clip_image010.jpg" alt="img"></p>
+<p>小端格式：字数据的高位字节存储在高地址中，而字数据的低位字节则存放在低地址中。</p>
+<p><img src="clip_image012.jpg" alt="img"></p>
+<p>ENTRY：设置程序默认入口点，一个程序可有多个 ENTRY，但一个源文件最多只有一个。</p>
+<p>EQU 伪操用于将数字常量、基于寄存器的值和程序中的标号定义为一个字符名称。</p>
+<p>IMPORT (EXTERN 功能完全相同)用于声明在其他模块中定义但需要在本文件中使用的符号。</p>
+<p>EXPORT（GLOBAL 功能完全相同）用于声明在本文件中定义但能在其他模块中使用的变量，相当于定义了一个全局变量。</p>
+<p>AREA 用于定义一个代码段或数据段，ARM 汇编程序设计采用分段式设计，一个 ARM 源程序至少有一个代码段，大的程序会有若干个代码段和数据段。</p>
+<p>语法格式：AREA segment-name, class-name, attributes ,…</p>
+<h3 id="（4）实验步骤"><a href="#（4）实验步骤" class="headerlink" title="（4）实验步骤"></a>（4）实验步骤</h3><h4 id="1-4-1验证示例源码"><a href="#1-4-1验证示例源码" class="headerlink" title="1.4.1验证示例源码"></a>1.4.1验证示例源码</h4><ol>
+<li>拷贝整个实验例程源码目录到本地磁盘自己的工作目录下;</li>
+<li>使用μVision IDE for ARM 通过ULINK2仿真器连接实验板，打开实验例程目录ARM体系\1.1_asm1子目录下的asm_1a.Uv2 例程，编译链接工程;</li>
+<li>该工程配置为在模拟器中运行，可调试程序，观察结果;</li>
+<li>验证实验例程目录ARM体系\1.2_asm2子目录下的asm2.Uv2 例程。</li>
+</ol>
+<h4 id="1-4-2设计实现自己的汇编程序"><a href="#1-4-2设计实现自己的汇编程序" class="headerlink" title="1.4.2设计实现自己的汇编程序"></a>1.4.2设计实现自己的汇编程序</h4><ol>
+<li>拷贝示例实验源码工程;</li>
+<li>编辑汇编源程序;</li>
+<li>设计实现表达式y=a*8+b/2-c，并验证之;</li>
+<li>设计利用函数跳转表实现子程序调用，并验证之。</li>
+</ol>
+<h3 id="（5）实验结果"><a href="#（5）实验结果" class="headerlink" title="（5）实验结果"></a>（5）实验结果</h3><h4 id="1-5-1已验证示例程序"><a href="#1-5-1已验证示例程序" class="headerlink" title="1.5.1已验证示例程序"></a>1.5.1已验证示例程序</h4><h4 id="1-5-2"><a href="#1-5-2" class="headerlink" title="1.5.2"></a>1.5.2</h4><p><img src="clip_image014.jpg" alt="img"></p>
+<h3 id="（6）程序说明"><a href="#（6）程序说明" class="headerlink" title="（6）程序说明"></a>（6）程序说明</h3><p>设计实现表达式y=a*8+b/2-c，并验证之</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mov r0, #_a         ;r0=1</span><br><span class="line">LSL ro, #3          ;r0=r0*8</span><br><span class="line">mov r1, #_b         ;r1=2</span><br><span class="line">LSR r1, #1          ;r1=r1/2</span><br><span class="line">add r0, r0, r1        ;r0=r0+R1</span><br><span class="line">sub r0, r0, #_c       ;R0=R0-3</span><br></pre></td></tr></table></figure>
+
+<p>设计利用函数跳转表实现子程序调用，并验证之</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AREA  Jump，CODE，READONLY 		;设置本段程序的</span><br><span class="line">									;名称（Jump）及属性</span><br><span class="line">num	EQU  2 							;跳转表中的子程序个数</span><br><span class="line">		ENTRY        				;程序执行的入口点</span><br><span class="line">Start</span><br><span class="line">		MOV   r0，#0 				;设置3个参数，然后调用子程序										;arithfunc，进行算术运算</span><br><span class="line">		MOV   r1，#3 </span><br><span class="line">		MOV   r2，#2</span><br><span class="line">		BL    arithfunc  				;调用子程序arithfunc</span><br><span class="line">Stop									;程序退出</span><br><span class="line">		MOV  r0， #0x18</span><br><span class="line">		LDR  r1，=0x20026</span><br><span class="line">		SWI  0x123456</span><br><span class="line">Arithfunc			  					;子程序arithfunc入口点</span><br><span class="line">		CMP   	r0，#num      	  	;判断选择子程序的参数是否在</span><br><span class="line">					  				 ;有效范围之内</span><br><span class="line">		MOVHS 	pc，lr   	  		;若不在，则直接返回</span><br><span class="line">		ADR		r3，JumpTable    	;读取跳转表的基地址（ADR是伪指令）</span><br><span class="line">		LDR		pc，[r3，r0，LSL #2] 	;根据参数r0的值跳转到</span><br><span class="line">									 ;相应的子程序</span><br><span class="line">JumpTable</span><br><span class="line">		DCD		DoAdd</span><br><span class="line">		DCD		DoSub</span><br><span class="line">DoAdd    							;子程序DoAdd执行加法操作</span><br><span class="line"> 		ADD	r0，r1，r2</span><br><span class="line"> 		MOV	pc，lr</span><br><span class="line">DoSub 								;子程序DoSub执行减法操作</span><br><span class="line"> 		SUB	r0，r1，r2</span><br><span class="line">		MOV	pc，lr</span><br><span class="line">		END           				;结束汇编</span><br></pre></td></tr></table></figure>
+
+<h3 id="（7）总结"><a href="#（7）总结" class="headerlink" title="（7）总结"></a>（7）总结</h3><p>以前学过8086汇编，ARM汇编与之相比更加灵活和实用（例如更多寄存器的使用等），函数跳转表实现了更加方便的函数管理。在ARM汇编时也要更加注意应该遵守的编写规则。</p>
+<h2 id="2．S3C2410基本接口实验"><a href="#2．S3C2410基本接口实验" class="headerlink" title="2．S3C2410基本接口实验"></a>2．S3C2410基本接口实验</h2><h3 id="（1）实验目的-1"><a href="#（1）实验目的-1" class="headerlink" title="（1）实验目的"></a>（1）实验目的</h3><ul>
+<li>掌握S3C2410X 芯片的I/O 控制寄存器的配置;</li>
+<li>通过实验掌握ARM 芯片使用I/O 口控制LED 显示;</li>
+<li>了解ARM 芯片中复用I/O 口的使用方法;</li>
+<li>通过实验掌握键盘控制与设计方法。</li>
+<li>熟练编写 ARM 核处理器S3C2410X 中断处理程序。</li>
+</ul>
+<h3 id="（2）实验内容-1"><a href="#（2）实验内容-1" class="headerlink" title="（2）实验内容"></a>（2）实验内容</h3><ul>
+<li>编写程序，控制实验平台的发光二极管LED1、LED2、LED3、LED4，使它们有规律的点亮和熄灭;</li>
+<li>使用实验板上 5x4 用户键盘，编写程序接收键盘中断;</li>
+<li>使用键盘控制发光二极管，按照不同模式点亮。</li>
+</ul>
+<h3 id="（3）实验原理-1"><a href="#（3）实验原理-1" class="headerlink" title="（3）实验原理"></a>（3）实验原理</h3><p>S3C2410X 芯片上共有 71 个多功能的输入输出管脚，他们分为 7 组 I/O 端口。</p>
+<ul>
+<li>一个 23 位的输出端口（端口 A）;</li>
+<li>两个 11 位的输入/输出端口（端口 B、H）;</li>
+<li>四个 16 位的输入/输出端口（端口 C、D、E、G）;</li>
+<li>一个 8 位的输入/输出端口（端口 F）;</li>
+</ul>
+<p>可以很容易的每组端口来满足不同系统配置和设计的需要。在运行程序之前必须对每个用到的管脚功能进行设置，如果某些管脚的复用功能没有使用，可以先将该管脚设置为 I/O 口。</p>
+<p><img src="clip_image016.jpg" alt="1"></p>
+<p>实验原理图</p>
+<p><img src="clip_image018.jpg" alt="2"></p>
+<p>键盘连接电路</p>
+<p><img src="clip_image020.jpg" alt="1"></p>
+<p>键盘控制电路</p>
+<h3 id="（4）实验步骤-1"><a href="#（4）实验步骤-1" class="headerlink" title="（4）实验步骤"></a>（4）实验步骤</h3><h4 id="2-4-1验证示例源码"><a href="#2-4-1验证示例源码" class="headerlink" title="2.4.1验证示例源码"></a>2.4.1验证示例源码</h4><ol>
+<li>拷贝整个实验例程源码目录到本地磁盘自己的工作目录下;</li>
+<li>使用μVision IDE for ARM 通过ULINK2仿真器连接实验板，打开实验例程目录02_led_test 子目录下的led_test. Uv2 例程，编译链接工程;</li>
+<li>调试程序，观察运行结果;</li>
+<li>打开实验例程目录12_KeyBoardTest子目录下的KeyBoardTest.Uv2 例程，编译链接工程</li>
+<li>调试程序，观察运行结果。</li>
+</ol>
+<h4 id="2-4-2设计实现自己的I-O控制程序"><a href="#2-4-2设计实现自己的I-O控制程序" class="headerlink" title="2.4.2设计实现自己的I/O控制程序"></a>2.4.2设计实现自己的I/O控制程序</h4><ol>
+<li>拷贝示例实验源码工程;</li>
+<li>设计程序，实现使用键盘控制发光二极管按照不同模式点亮。</li>
+</ol>
+<h3 id="（5）实验结果-1"><a href="#（5）实验结果-1" class="headerlink" title="（5）实验结果"></a>（5）实验结果</h3><p><img src="clip_image022.png" alt="img"></p>
+<p> <img src="clip_image024.jpg" alt="img"></p>
+<h3 id="（6）程序说明-1"><a href="#（6）程序说明-1" class="headerlink" title="（6）程序说明"></a>（6）程序说明</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">yigedeng</span><span class="params">()</span>						<span class="comment">//亮一个灯的程序块</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,nOut;						<span class="comment">//定义i为和亮灯持续时间的变量</span></span><br><span class="line">	nOut = <span class="number">0x0780</span>;					<span class="comment">//定义nOut为和具体亮灯情况有关的变量</span></span><br><span class="line">	rGPBDAT=nOut &amp; <span class="number">0x0700</span>;			<span class="comment">//取和运算之后，亮一个灯</span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lianggedeng</span><span class="params">()</span>					<span class="comment">//亮两个灯的程序块</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,nOut;</span><br><span class="line">	nOut = <span class="number">0x0780</span>;</span><br><span class="line">	rGPBDAT=nOut &amp; <span class="number">0x0600</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sangedeng</span><span class="params">()</span>					<span class="comment">//亮三个灯的程序块</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,nOut;</span><br><span class="line">	nOut = <span class="number">0x0780</span>;</span><br><span class="line">	</span><br><span class="line">	rGPBDAT=nOut &amp; <span class="number">0x0400</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sigedeng</span><span class="params">()</span>						<span class="comment">//亮四个灯的程序块</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,nOut;</span><br><span class="line">	nOut = <span class="number">0x0780</span>;</span><br><span class="line">	</span><br><span class="line">	rGPBDAT=nOut &amp; <span class="number">0x0000</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shan</span><span class="params">()</span>							<span class="comment">//四个灯同时闪烁</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;	</span><br><span class="line">	rGPBDAT=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++);</span><br><span class="line">	rGPBDAT=<span class="number">0x0780</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">UINT8T <span class="title">key_set</span><span class="params">(UINT8T ucChar)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(ucChar)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:yigedeng();<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:lianggedeng();<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">3</span>:sangedeng();<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">4</span>:sigedeng();<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">5</span>:shan();<span class="keyword">break</span>;</span><br><span class="line">				ucChar-=<span class="number">1</span>; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">13</span>:</span><br><span class="line">				ucChar-=<span class="number">4</span>; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">17</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">18</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">19</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">20</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="number">21</span>:</span><br><span class="line">					ucChar-=<span class="number">7</span>; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">25</span>: ucChar = <span class="number">0xF</span>; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">26</span>: ucChar = <span class="string">'+'</span>; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">27</span>: ucChar = <span class="string">'-'</span>; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">28</span>: ucChar = <span class="string">'*'</span>; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">29</span>: ucChar = <span class="number">0xFF</span>; <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>: ucChar = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ucChar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（7）总结-1"><a href="#（7）总结-1" class="headerlink" title="（7）总结"></a>（7）总结</h3><p>通过对变量的异或操作，实现对灯亮与灭的控制。我认为，控制每个按键对应灯的情况，主要在最后的switch-case语句，根据每次出发的case不同来执行不同的函数（每个函数内部实现亮灭和时间长度的控制），而想要使亮灭的模式增多，就要在各个函数内部实现rGPBDAT这个变量取值的多样性。 </p>
+<h2 id="3．人机接口实验"><a href="#3．人机接口实验" class="headerlink" title="3．人机接口实验"></a>3．人机接口实验</h2><h3 id="（1）实验目的-2"><a href="#（1）实验目的-2" class="headerlink" title="（1）实验目的"></a>（1）实验目的</h3><ul>
+<li>掌握液晶屏的使用及其电路设计方法;</li>
+<li>掌握S3C2410X 处理器的LCD 控制器的使用;</li>
+<li>通过实验掌握液晶显示文本及图形的方法与程序设计;</li>
+<li>通过实验掌握触摸屏（TSP）的设计与控制方法。</li>
+</ul>
+<h3 id="（2）实验内容-2"><a href="#（2）实验内容-2" class="headerlink" title="（2）实验内容"></a>（2）实验内容</h3><ul>
+<li>掌握液晶屏作为人机接口界面的设计方法，并编写程序实现;</li>
+<li>编程实现触摸屏坐标转换为液晶对应坐标;</li>
+<li>编程实现由液晶屏和触摸屏构成的可以互动的人机界面，至少实现3屏。</li>
+</ul>
+<h3 id="（3）实验原理-2"><a href="#（3）实验原理-2" class="headerlink" title="（3）实验原理"></a>（3）实验原理</h3><p>液晶屏（LCD：Liquid Crystal Display）主要用于显示文本及图形信息。液晶显</p>
+<p>示屏具有轻薄、体积小、低耗电量、无辐射危险、平面直角显示以及影像稳定不闪</p>
+<p>烁等特点，因此在许多电子应用系统中，常使用液晶屏作为人机界面。</p>
+<p><img src="clip_image026.png" alt="img"></p>
+<p>LCD 控制器框图</p>
+<p><img src="clip_image028.png" alt="img"></p>
+<p>象素在内存中的表示</p>
+<p><img src="clip_image030.png" alt="img"></p>
+<p>16 位TFT表示RGB示意图</p>
+<p><img src="clip_image032.png" alt="img"></p>
+<p>象素点的RGB示意图</p>
+<p>显存位置<strong>：</strong>#define LCDFRAMEBUFFER 0x31000000</p>
+<p>显存位于内存起始地址（0x3000 0000 ）偏移16M（0x0100 0000）的地方。</p>
+<p>显存的大小：320×240×2 = 153600字节</p>
+<p><img src="clip_image034.jpg" alt="img"></p>
+<p>触摸屏等效电路</p>
+<h3 id="（4）实验步骤-2"><a href="#（4）实验步骤-2" class="headerlink" title="（4）实验步骤"></a>（4）实验步骤</h3><h4 id="3-4-1验证示例源码"><a href="#3-4-1验证示例源码" class="headerlink" title="3.4.1验证示例源码"></a>3.4.1<strong>验证示例源码</strong></h4><ol>
+<li>拷贝整个实验例程源码目录到本地磁盘自己的工作目录下;</li>
+<li>使用μVision IDE for ARM 通过ULINK2仿真器连接实验板，打开实验例程目录11_LCD_Test 子目录下的LCD_Test.Uv2例程，编译链接工程;</li>
+<li>调试程序，观察运行结果;</li>
+<li>打开实验例程目录07_TSP_Test子目录下的TSP_Test.Uv2例程，编译链接工程;</li>
+<li>调试程序，观察运行结果。</li>
+</ol>
+<h4 id="3-4-2设计实现自己的人机互动界面程序"><a href="#3-4-2设计实现自己的人机互动界面程序" class="headerlink" title="3.4.2设计实现自己的人机互动界面程序"></a>3.4.2设计实现自己的人机互动界面程序</h4><ol>
+<li>拷贝示例实验源码工程;</li>
+<li>设计程序实现由液晶屏和触摸屏构成的可互动的人机界面，至少实现3屏。</li>
+</ol>
+<h3 id="（5）实验结果-2"><a href="#（5）实验结果-2" class="headerlink" title="（5）实验结果"></a>（5）实验结果</h3><h4 id="3-5-1已验证示例程序"><a href="#3-5-1已验证示例程序" class="headerlink" title="3.5.1已验证示例程序"></a>3.5.1已验证示例程序</h4><h4 id="3-5-2"><a href="#3-5-2" class="headerlink" title="3.5.2"></a>3.5.2</h4><p><img src="clip_image036.jpg" alt="img"></p>
+<p><img src="clip_image038.jpg" alt="img"></p>
+<p><img src="clip_image040.jpg" alt="img"></p>
+<p><img src="clip_image042.png" alt="img"></p>
+<p><img src="clip_image044.png" alt="img"></p>
+<h3 id="（6）程序说明-2"><a href="#（6）程序说明-2" class="headerlink" title="（6）程序说明"></a>（6）程序说明</h3><p>将tsp_test相关的程序文件以及依赖转入color_lcd_test的工程文件中并解决依赖关系。主要程序变动在color_lcd_test.c最后的for循环和复制过来的void __irq tsp_int(void)程序中。</p>
+<ol>
+<li>将最后的for循环注释掉，只留一个tsp_test()，用于触摸屏幕时触发void tsp_test(void)函数以及void irq tsp_int(void)函数。</li>
+<li>增加全局变量int nummun=0，int nummun_1;在void irq tsp_int(void)函数中对int nummun进行加1和模3运算，再根据nummun_1决定LCD变成哪种颜色。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nummun+=1;</span><br><span class="line">nummun_1 = nummun%3;</span><br><span class="line">if (nummun_1 == 0) Lcd_Clear(0x800);</span><br><span class="line">if (nummun_1 == 1) Lcd_Clear(0x7e0);</span><br><span class="line">if (nummun_1 == 2) Lcd_Clear(0x1f);</span><br></pre></td></tr></table></figure>
+
+<h3 id="（7）总结-2"><a href="#（7）总结-2" class="headerlink" title="（7）总结"></a>（7）总结</h3><p>本实验对我来说是难度相比来说最大的一个，尤其是需要解决以下两个问题：</p>
+<ol>
+<li>将两个项目的源码整合到一起并且解决依赖关系和库文件导入的问题。LCD_color_test的依赖关系复杂，将它移到tsp_test里比较困难（实施后发现问题太多，放弃此方案）;反过来后比较简单地解决了问题。</li>
+<li>每次点击屏幕才会触发tsp的中断。刚开始我一直无法将tsp的程序段停下来，导致LCD屏幕一直在更换颜色，而我每次点击屏幕只是极短地延缓更换的时间;后我将更换颜色的程序块放入tsp的程序块内，创建全局变量每次加一，对此全局变量的拷贝进行取模运算达到循环更换颜色的结果。</li>
+</ol>
+<p>解决了以上两个问题，即成功实现人机交互—点击屏幕更换颜色。</p>
+<h2 id="4、μC-OS-II系统原理实验"><a href="#4、μC-OS-II系统原理实验" class="headerlink" title="4、μC/OS-II系统原理实验"></a>4、μC/OS-II系统原理实验</h2><h3 id="（1）实验目的-3"><a href="#（1）实验目的-3" class="headerlink" title="（1）实验目的"></a>（1）实验目的</h3><ul>
+<li>理解任务管理的基本原理，了解任务的各个基本状态及其变迁过程;</li>
+<li>掌握µCOS-II中任务管理的基本方法;</li>
+<li>创建、启动、挂起、解挂任务</li>
+<li>掌握µCOS-II中任务使用信号量的一般原理</li>
+</ul>
+<h3 id="（2）实验内容-3"><a href="#（2）实验内容-3" class="headerlink" title="（2）实验内容"></a>（2）实验内容</h3><ul>
+<li>设计多个应用任务，验证任务管理函数;</li>
+<li>通过实现“哲学家就餐”问题，验证信号量对任务间互斥访问的支持;</li>
+<li>应用信号量实现任务间的同步，设计7个任务，并顺序执行</li>
+</ul>
+<h3 id="（3）实验原理："><a href="#（3）实验原理：" class="headerlink" title="（3）实验原理："></a>（3）实验原理：</h3><p>建立两个任务 Task1 和 Task2：任务 Task1 不断地挂起自己，再被任务 Task2 解挂，两个任务不断地切换执行。并在串口打印相应的信息。用户可以通过串口进行观察。</p>
+<p>一个任务通常是一个无限的循环 ，由于任务的执行是由操作系统内核调度的，</p>
+<p>因此任务是绝不会返回的，其返回参数必须定义成 void。在 μC/OS-Ⅱ中，当一个运行着的任务使一个比它优先级高的任务进入了就绪态，当前任务的 CPU 使用权就会被抢占，高优先级任务会立刻得到 CPU 的控制权（在系统允许调度和任务切换的前提下）。μC/OS-Ⅱ可以管理多达 64 个任务，但目前版本的 μC/OS-Ⅱ有两个任务已经被系统占用了（即空闲任务和统计任务）。必须给每个任务赋以不同的优先级 ， 任 务 的 优 先 级 号 就 是 任 务 编 号 （ ID ）， 优 先 级 可 以 从 0 到OS_LOWEST_PRIORITY。优先级号越低，任务的优先级越高。μC/OS-Ⅱ总是运行进入就绪态的优先级最高的任务。</p>
+<p><img src="clip_image046.png" alt="img"></p>
+<p><img src="clip_image048.jpg" alt="img"></p>
+<h3 id="（4）实验步骤："><a href="#（4）实验步骤：" class="headerlink" title="（4）实验步骤："></a>（4）实验步骤：</h3><h4 id="4-4-1验证示例源码"><a href="#4-4-1验证示例源码" class="headerlink" title="4.4.1验证示例源码"></a>4.4.1验证示例源码</h4><ol>
+<li>拷贝整个实验例程源码目录到本地磁盘自己的工作目录下;</li>
+<li>使用μVision IDE for ARM 通过ULINK2仿真器连接实验板，打开实验例程目录04-uCOS\2.1_Task_test 子目录下的ucos2.Uv2例程，编译链接工程;</li>
+<li>将程序下载到实验平台的 NorFlash 中，观察串口输出;</li>
+<li>打开实验例程目录\04-uCOS\2.3_Semaphore_test子目录下的ucos2.Uv2例程，编译链接工程;</li>
+<li>下载调试，观察结果。</li>
+</ol>
+<h4 id="4-4-2设计实现一个多任务应用程序"><a href="#4-4-2设计实现一个多任务应用程序" class="headerlink" title="4.4.2设计实现一个多任务应用程序"></a>4.4.2设计实现一个多任务应用程序</h4><ol>
+<li>拷贝示例实验源码工程;</li>
+<li>设计7个任务，并用信号量实现7个任务顺序执行，将执行结果在串口上打印出来。</li>
+</ol>
+<h3 id="（5）实验结果："><a href="#（5）实验结果：" class="headerlink" title="（5）实验结果："></a>（5）实验结果：</h3><h4 id="4-5-1已验证示例程序"><a href="#4-5-1已验证示例程序" class="headerlink" title="4.5.1已验证示例程序"></a>4.5.1已验证示例程序</h4><h4 id="4-5-2"><a href="#4-5-2" class="headerlink" title="4.5.2"></a>4.5.2</h4><p><img src="clip_image050.jpg" alt="img"></p>
+<p><img src="clip_image052.png" alt="img"></p>
+<h3 id="（6）程序说明-3"><a href="#（6）程序说明-3" class="headerlink" title="（6）程序说明"></a>（6）程序说明</h3><p>添加以下代码</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">OS_EVENT *sem6;</span><br><span class="line">OS_EVENT *sem7;</span><br><span class="line"></span><br><span class="line">OS_STK TestTask6Stk[TaskStkLeath];</span><br><span class="line">OS_STK TestTask7Stk[TaskStkLeath];</span><br><span class="line"></span><br><span class="line"><span class="function">Global <span class="keyword">void</span> <span class="title">Task6</span><span class="params">(<span class="keyword">void</span> *pdata)</span></span>;</span><br><span class="line"><span class="function">Global <span class="keyword">void</span> <span class="title">Task7</span><span class="params">(<span class="keyword">void</span> *pdata)</span></span>;</span><br><span class="line"></span><br><span class="line">sem6 = OSSemCreate(<span class="number">1</span>);</span><br><span class="line">sem7 = OSSemCreate(<span class="number">1</span>);</span><br><span class="line">OSTaskCreate(Task6,(<span class="keyword">void</span> *)<span class="number">6</span>,&amp;TestTask6Stk[TaskStkLeath<span class="number">-1</span>],<span class="number">10</span>);</span><br><span class="line">OSTaskCreate(Task7,(<span class="keyword">void</span> *)<span class="number">7</span>,&amp;TestTask7Stk[TaskStkLeath<span class="number">-1</span>],<span class="number">11</span>);</span><br></pre></td></tr></table></figure>
+
+<p>每个task调整OSTimeDly()和OSTaskCreate中的最后一个值有10倍关系，调整OSSemPost()为模7后相邻的两位哲学家，例如第1为哲学家设置OSSemPost(sem1);OSSemPost(sem7);</p>
+<h3 id="（7）总结-3"><a href="#（7）总结-3" class="headerlink" title="（7）总结"></a>（7）总结</h3><p>最后一个实验相对前一个比较简单，主要点为以下两个：</p>
+<ol>
+<li>从5个哲学家变7个，对应的变量和程序块应实现对应增加和关系之间的连接。</li>
+<li>OSTaskCreate这个函数设定的优先级应和后面OSTimeDly函数的参数有对应数学关系。</li>
+</ol>
+<p>细心一点解决以上两个问题即可由5个哲学家变7个就餐。</p>
+<p>在操作系统这门课里面有接触P、V操作，重要的是各个信号量的初值和PV操作的时机选择，并且在一个哲学家得不到另一支筷子时要释放已有的筷子，这样才能不会导致死锁问题。</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/11/30/软件逆向工程复习整理/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/12/17/操作系统上机作业/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
