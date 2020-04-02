@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>数据库原理复习整理 | LittleGhost&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="sql,">
+  
+
+  <meta name="description" content="CREATE SCHEMA TEST AUTHORIZATION ZHANG;  DROP SCHEMA &amp;lt;模式名&amp;gt; &amp;lt;CASCADE | RESTRICT&amp;gt;;  DROP TABLE  &amp;lt;表  名&amp;gt; &amp;lt;CASCADE | RESTRICT&amp;gt;;     ---缺省是RESTRICT                       级联      限制">
+<meta name="keywords" content="sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库原理复习整理">
+<meta property="og:url" content="https://littleghost2016.github.io/2017/07/11/数据库原理复习整理/index.html">
+<meta property="og:site_name" content="LittleGhost&#39;s Blog">
+<meta property="og:description" content="CREATE SCHEMA TEST AUTHORIZATION ZHANG;  DROP SCHEMA &amp;lt;模式名&amp;gt; &amp;lt;CASCADE | RESTRICT&amp;gt;;  DROP TABLE  &amp;lt;表  名&amp;gt; &amp;lt;CASCADE | RESTRICT&amp;gt;;     ---缺省是RESTRICT                       级联      限制">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-02T03:10:04.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库原理复习整理">
+<meta name="twitter:description" content="CREATE SCHEMA TEST AUTHORIZATION ZHANG;  DROP SCHEMA &amp;lt;模式名&amp;gt; &amp;lt;CASCADE | RESTRICT&amp;gt;;  DROP TABLE  &amp;lt;表  名&amp;gt; &amp;lt;CASCADE | RESTRICT&amp;gt;;     ---缺省是RESTRICT                       级联      限制">
+
+  
+
+  
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/22980536?s=460&v=4">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            文章
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于我
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-数据库原理复习整理" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">数据库原理复习整理</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.07.11</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>LittleGhost</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">SCHEMA</span> <span class="keyword">TEST</span> AUTHORIZATION ZHANG;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">SCHEMA</span> &lt;模式名&gt; &lt;<span class="keyword">CASCADE</span> | RESTRICT&gt;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span>  &lt;表  名&gt; &lt;<span class="keyword">CASCADE</span> | RESTRICT&gt;;     <span class="comment">---缺省是RESTRICT</span></span><br><span class="line">                       级联      限制</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> SC(</span><br><span class="line">        Sno <span class="built_in">CHAR</span>(<span class="number">5</span>), </span><br><span class="line">        Cno <span class="built_in">CHAR</span>(<span class="number">3</span>), </span><br><span class="line">        Grade <span class="built_in">int</span>,</span><br><span class="line">    　  PRIMARY <span class="keyword">KEY</span> (Sno,Cno),</span><br><span class="line">    　  <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (Sno) <span class="keyword">REFERENCES</span> S(Sno),       <span class="comment">--- FOREIGN KEY &lt;列名&gt;REFERENCES &lt;被参照表名&gt;(&lt;列名&gt;)</span></span><br><span class="line">    　  <span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (Cno) <span class="keyword">REFERENCES</span> C(Cno));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt;</span><br><span class="line">    [ <span class="keyword">ADD</span> &lt;新列名&gt; &lt;数据类型&gt; [ 完整性约束 ] ]</span><br><span class="line">    [ <span class="keyword">DROP</span> &lt;完整性约束名&gt;]</span><br><span class="line">　　[ <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> &lt;列名&gt;  &lt;数据类型&gt; ] ;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Student <span class="keyword">ADD</span> Scome <span class="built_in">DATE</span> ;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Student <span class="keyword">Drop</span> Scome ;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Student <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> Sage <span class="built_in">SMALLINT</span> ;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Student <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span>(Sname) ;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Student <span class="keyword">DROP</span> <span class="keyword">UNIQUE</span>(Sname) ;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">SC表按学号升序和课程号降序建唯一索引</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> SCno <span class="keyword">ON</span> SC(Sno,Cno <span class="keyword">DESC</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">在Student表的Sname列上建立一个聚簇索引，而且Student表中的记录将按照Sname值的升序存放</span><br><span class="line"><span class="keyword">CREATE</span> CLUSTER <span class="keyword">INDEX</span> Stusname <span class="keyword">ON</span> Student(Sname);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> Stusname; <span class="comment">---SQL标准中没有定义对索引的修改功能，而采用删除后重新定义索引的方式实现</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Sno <span class="keyword">FROM</span> SC; <span class="comment">---DISTINCT取消重复行,作用范围是所有目标列</span></span><br><span class="line">投影(π)运算的定义中直接去掉了结果中的重复元组，SQL中必须明确指定DISTINCT,否则默认ALL</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">-查询年龄不在20～23岁之间的学生姓名、系别和年龄。</span><br><span class="line"><span class="keyword">SELECT</span> Sname,Sdept,Sage <span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> Sage <span class="keyword">NOT</span> <span class="keyword">BETWEEN</span> <span class="number">20</span>  <span class="keyword">AND</span> <span class="number">23</span>;</span><br><span class="line">-查询不是信息系(IS)、数学系(MA)和计算机科学系(CS)学生的姓名和性别。</span><br><span class="line"><span class="keyword">SELECT</span> Sname,Ssex <span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> Sdept <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="string">'IS'</span>,<span class="string">'MA'</span>,<span class="string">'CS'</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">%:任意长度(可以为0)的字符串    _:任意单个字符</span><br><span class="line">-查询姓名中第二个字为“阳”字的学生姓名和学号。</span><br><span class="line"><span class="keyword">SELECT</span> Sname,Sno <span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> Sname <span class="keyword">LIKE</span> <span class="string">'__阳％'</span>;</span><br><span class="line">-查询以"DB_"开头，倒数第3个字符为i的课程的详细情况。</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Course <span class="keyword">WHERE</span> Cname <span class="keyword">LIKE</span> <span class="string">'DB\_%i__'</span> ESCAPE <span class="string">'\';</span></span><br><span class="line"><span class="string">-查询所有有成绩的学生学号和课程号</span></span><br><span class="line"><span class="string">SELECT Sno,Cno FROM SC WHERE Grade IS NOT NULL;</span></span><br><span class="line"><span class="string">!!!   [NOT] BETWEEN … AND … 和 [NOT] IN将不会利用索引提高查询效率，应改为多重条件查询</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">-所在系的系名升序排列,年龄降序排列</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Student <span class="keyword">ORDER</span> <span class="keyword">BY</span> Sdept,Sage <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">集函数:</span><br><span class="line">COUNT ([DISTINCT|ALL] &lt;列名&gt;) SUM AVG MAX MIN   ---DISTINCT以避免重复</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">查询有3门以上课程是90分以上的学生的学号及(90分以上的)课程数。</span><br><span class="line"><span class="keyword">SELECT</span> Sno, <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> SC <span class="keyword">WHERE</span> Grade&gt;<span class="number">90</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> Sno <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p>WHERE-&gt;GROUP BY-&gt;HAVING-&gt;SELECT</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Student.Sno,Sname,Ssex,Sage,Sdept,Cno,Grade <span class="keyword">FROM</span> Student <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> SC </span><br><span class="line"><span class="keyword">ON</span> Student.Sno = SC.Sno;    或USING(Sno);</span><br></pre></td></tr></table></figure>
+
+<p>子查询的限制－－不能使用ORDER BY子句</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">-查询其他系中比信息系某些学生年龄小的学生姓名和年龄。</span><br><span class="line"><span class="keyword">SELECT</span> Sname,Sage <span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> Sage &lt; <span class="keyword">ANY</span> (<span class="keyword">SELECT</span> Sage <span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> Sdept= <span class="string">'IS'</span>) <span class="keyword">AND</span> Sdept &lt;&gt; <span class="string">'IS'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> Sname,Sage <span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> Sage &lt; (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(Sage) <span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> Sdept= <span class="string">'IS'</span>) <span class="keyword">AND</span> Sdept &lt;&gt; <span class="string">'IS'</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">输出这样的学生，不存在某门课程，在他的选课记录里没有选这门课</span><br><span class="line"><span class="keyword">SELECT</span> Sname <span class="keyword">FROM</span> Student <span class="keyword">WHERE</span> </span><br><span class="line"><span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Course <span class="keyword">WHERE</span> </span><br><span class="line"><span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SC <span class="keyword">WHERE</span> Sno = Student.Sno <span class="keyword">AND</span> Cno = Course.Cno));</span><br></pre></td></tr></table></figure>
+
+
+    
+  </div>
+
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/23/微机原理与系统设计上机作业/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/11/30/软件逆向工程复习整理/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              文章
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于我
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
